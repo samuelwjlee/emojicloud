@@ -34,8 +34,10 @@ Our group consists of three members: Mark Noizumi, Peter Delfausse, and Samuel L
 
 Mark's primary responsibilities will be:
 - Setting up React to render React objects
+
 Peter's primary responsibilities will be:
 - Implementing D3 into emoji objects in React
+
 Samuel's primary responsibilities will be:
 - Setting up the backend to receive Twitter API
 
