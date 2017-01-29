@@ -15,7 +15,8 @@ With Emojicloud, users will be able to:
 
 ##Wireframes
 
-![wireframes][images/wireframe.png]
+![wireframes](images/wireframe1.png)
+![wireframes](images/wireframe2.png)
 
 ##Technologies and Technical Challenges
 
