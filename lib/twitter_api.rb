@@ -1,6 +1,6 @@
 class TwitterApi
   def self.tweets
-    client.search('U+', options = {})
+    client.search('place%3A07d9cd6afd884001', options = {})
   end
 
   def self.client
