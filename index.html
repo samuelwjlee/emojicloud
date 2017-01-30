@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Emojicloud</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="bundle.js"></script>
     <script src="TwitterAPI4JS.js"></script>
     <script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
     <script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
@@ -15,10 +16,8 @@
 
     <button type="button" onclick="Twitter4JS.statuses_user_timeline('html', {screen_name:'amagasa'});">amagasa</button>
 
+    <div id="root">
+      React stuff goes here!
+    </div>
   </body>
 </html>
-
-<!-- <div id="root">
-  React stuff goes here!
-</div> -->
-<!-- <script type="text/javascript" src="bundle.js"></script> -->
