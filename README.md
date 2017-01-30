@@ -2,15 +2,17 @@
 
 ##Background
 
-Emojicloud is a visualization of emojis from tweets posted at a certain time or location. Similar to word cloud, more common emojis will be larger in size. Through this visualization, users will be able to get the general sense of how the public is feeling at a certain time and location. 
+Emojicloud is a visualization of emojis from tweets posted at a certain time or location. Similar to word cloud, more common emojis will be larger in size. Through this visualization, users will be able to get the general sense of how the public is feeling at a certain time and location.
 
 ##Functionality & MVP
 
 With Emojicloud, users will be able to:
 
-- [ ] Visualize a cloud of emojis
+- [ ] Visualize a cloud of emojis gathered using the Twitter API
 - [ ] Have an option to choose different times and locations
 - [ ] Click on emojis to see relevant tweets
+
+BONUS
 - [ ] Drag around emojis
 
 ##Wireframes
@@ -25,8 +27,10 @@ Emojicloud will be implemented using React as our frontend framework and Ruby on
 The primary technical challenges will be:
 
 - Implementing D3 in React
-- Requesting twitter API and parsing it in the backend
-- Setting up a heroku job to refresh the database each day
+- Understanding the limitations of the Twitter API:
+    - the number of tweets containing emojis in the API response will need to be large enough to create an emoji cloud
+    - parsing the API response data
+- Deciding whether to 1) make Twitter API requests directly from the front end or 2) make periodic requests from the backend using Heroku workers and populate our database with a curated and possibly more statistically significantly data set. 
 
 ##Group Members & Work Breakdown
 
