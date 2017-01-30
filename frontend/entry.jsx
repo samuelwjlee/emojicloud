@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Widget from './widget';
+import Emoji from './emoji.jsx';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
-  ReactDOM.render(<Widget />, root);
+  ReactDOM.render(<Emoji />, root);
 });
