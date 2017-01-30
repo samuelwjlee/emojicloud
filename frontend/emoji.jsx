@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Twitter from '../node_modules/twitter/lib/twitter';
 
 class Emoji extends React.Component {
   constructor(){
