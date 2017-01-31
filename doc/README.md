@@ -14,6 +14,7 @@ With Emojicloud, users will be able to:
 - [ ] Click on emojis to see relevant tweets
 
 BONUS
+- [ ] Google Maps Implementation
 - [ ] Drag around emojis
 
 ##Wireframes
