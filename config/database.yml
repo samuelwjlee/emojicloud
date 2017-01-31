@@ -78,3 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+production:
+  <<: *default
+  database: emojicloud_production
+  username: emojicloud
+  password: <%= ENV['EMOJICLOUD_DATABASE_PASSWORD'] %>
