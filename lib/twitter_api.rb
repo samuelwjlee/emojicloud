@@ -1,10 +1,10 @@
 class TwitterApi
   def self.tweets
-    count = 0
+    sample = []
     client.filter(locations: '-122.75,36.8,-121.75,37.8') do |tweet|
-      count += 1
-      puts count
-      puts tweet.text if tweet.is_a?(Twitter::Tweet)
+      sample.push(tweet.text) if tweet.is_a?(Twitter::Tweet)
+
+      return sample if sample.length == 5
     end
   end
 
