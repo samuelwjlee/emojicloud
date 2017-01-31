@@ -80,7 +80,7 @@
 	function getEmojis() {
 	  return Object.keys(unicodeTest3).map(function (emoji) {
 	    return {
-	      // imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
+	      emojiType: emoji,
 	      imageUrl: _emojione2.default.shortnameToImage(emoji).match(/src="(.*)"/)[1],
 	      size: unicodeTest3[emoji]
 	    };
@@ -97,29 +97,18 @@
 	
 	var emojis = getEmojis();
 	
-	// feelings = unicodeTest.map(function (feeling) {
-	//   return {
-	//     width: 12,
-	//     height: 12,
-	//     imageUrl: emojione.unicodeToImage(feeling).match(/src="(.*)"/)[1]
-	//   };
-	// });
-	// feelings = feelings.map(function (feeling) {
-	//   return {
-	//     feeling: feeling,
-	//     imageUrl: emojione.shortnameToImage(feeling).match(/src="(.*)"/)[1]
-	//   };
-	// });
-	
-	// console.log(emojione.shortnameToImage(':grinning'));
-	
-	var width = 800;
+	var width = 500;
 	var height = 500;
 	
 	var nodes = [];
 	var links = [];
 	
-	var svg = d3.select("svg").attr("width", width).attr("height", height).style("border", "1px solid black");
+	var svg = d3.select("#cloud").attr("width", width).attr("height", height).style("border", "1px solid black");
+	
+	// var tweets = d3.select("#tweets")
+	//     .attr("width", 300)
+	//     .attr("height", 300)
+	//     .style("border", "1px solid black");
 	
 	var node = svg.selectAll(".node");
 	
@@ -140,22 +129,14 @@
 	    return d.size;
 	  }).attr("class", function (d) {
 	    return "node";
+	  }).attr("emojiType", function (d) {
+	    return d.emojiType;
 	  });
 	  // .on("mouseover", fade(.1, true));
 	  // .attr("width", 120)
 	  // .attr("height", 120)
 	
 	  node.exit().remove();
-	
-	  // node.enter()
-	  //     .append("circle")
-	  //     .attr("cx", 25)
-	  //     .attr("cy", 25)
-	  //     .attr("r", 25)
-	  //     .style("fill", "purple");
-	  //
-	  // node.exit().remove();
-	
 	
 	  node.call(force.drag).on("mousedown", function () {
 	    console.log(node);
@@ -166,15 +147,22 @@
 	    console.log(node);
 	  });
 	
-	  // node.on("mouseover", function(d) {
-	  //   node.attr("height", function (d) {
-	  //   return 100;
-	  //   });
-	  // });
-	
+	  node.on("mouseover", function (d) {
+	    console.log(d.emojiType);
+	    updateSidebar(d.emojiType);
+	    // node.attr("height", function(d) {
+	    //   return 100;
+	    // });
+	  });
 	
 	  force.start();
 	  // console.log(d3);
+	}
+	
+	var tweets = document.getElementById('divTweets');
+	
+	function updateSidebar(emojiType) {
+	  tweets.innerHTML = emojiType;
 	}
 	
 	function tick(e) {

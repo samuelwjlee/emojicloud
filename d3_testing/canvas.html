@@ -8,11 +8,34 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+      body {
+        display: flex;
+        width: 100%;
+      }
+      #tweet-container {
+        width: 200;
+        height: 200;
+        border: red 1px solid;
+        display: box;
+      }
+    </style>
+
   </head>
   <body>
-    <svg>
+    <svg id="cloud">
 
     </svg>
+    <div id="tweet-container">
+        TWEETS
+        <div id="divTweets">
+
+        </div>
+
+    </div>
+    <!-- <svg id="tweets">
+
+    </svg> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script>
     <script src="./bundle.js"></script>
     <!-- <script src="./emoji_cloud.js"></script> -->
