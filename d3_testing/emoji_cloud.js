@@ -2,6 +2,7 @@
 
 
 import emojione from 'emojione';
+// import * as d3 from 'd3';
 
 // let emojis = {
 //   '1f60f': 44, '1f61f': 2, '1f62f': 25, '1f63f': 33, '1f64f': 55,
@@ -16,11 +17,13 @@ let unicodeTest2 = {
   '😄': randomSize(), '😁': randomSize()
 };
 
-var unicodeTest3 = {':grinning:': randomSize(), ':grimacing:': randomSize(), ':grin:': randomSize(), ':joy:': randomSize(), ':smiley:': randomSize(), ':smile:': randomSize(), ':sweat_smile:': randomSize(), ':laughing:': randomSize(), ':innocent:': randomSize(), ':wink:': randomSize(), ':blush:': randomSize(), ':slight_smile:': randomSize(), ':upside_down:': randomSize(), ':relaxed:': randomSize(), ':yum:': randomSize(), ':relieved:': randomSize(), ':heart_eyes:': randomSize(), ':kissing_heart:': randomSize(), ':kissing:': randomSize()};
+var unicodeTest3 = {':grinning:': randomSize(), ':banana:': randomSize(), ':grin:': randomSize(), ':joy:': randomSize(), ':smiley:': randomSize(), ':smile:': randomSize(), ':sweat_smile:': randomSize(), ':laughing:': randomSize(), ':tomato:': randomSize(), ':wink:': randomSize(), ':blush:': randomSize(), ':slight_smile:': randomSize(), ':upside_down:': randomSize(), ':relaxed:': randomSize(), ':yum:': randomSize(), ':relieved:': randomSize(), ':heart_eyes:': randomSize(), ':kissing_heart:': randomSize(), ':kissing:': randomSize()};
+
+var unicodeTest4 = {':grinning:': randomSize(), ':banana:': randomSize()};
 
 function randomSize() {
-  let min = 30;
-  let max = 120;
+  let min = 15;
+  let max = 70;
   return Math.random() * (max - min) + min;
 }
 
@@ -68,7 +71,8 @@ var links = [];
 
 var svg = d3.select("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .style("border", "1px solid black");
 
 var node = svg.selectAll(".node");
 
@@ -105,15 +109,40 @@ function start() {
         .attr("class", function(d) {
             return "node";
         });
+        // .on("mouseover", fade(.1, true));
         // .attr("width", 120)
         // .attr("height", 120)
 
     node.exit().remove();
 
+    // node.enter()
+    //     .append("circle")
+    //     .attr("cx", 25)
+    //     .attr("cy", 25)
+    //     .attr("r", 25)
+    //     .style("fill", "purple");
+    //
+    // node.exit().remove();
+
+
+
+
     node.call(force.drag)
         .on("mousedown", function() {
+            console.log(node);
             d3.event.stopPropagation();
         });
+
+    node.on("mousedown", function() {
+            console.log(node);
+        });
+
+    // node.on("mouseover", function(d) {
+    //   node.attr("height", function (d) {
+    //   return 100;
+    //   });
+    // });
+
 
     force.start();
     // console.log(d3);
@@ -121,11 +150,19 @@ function start() {
 
 function tick(e) {
     node.attr("x", function(d) {
-            return d.x;
+            if (d.x >= width - (d.size)) {
+              return width - (d.size);
+            } else if (d.x <= 0) {
+              return 0;
+            } else {return d.x;}
         })
         .attr("y", function(d) {
-            return d.y;
-        })
+                if (d.y >= height - (d.size)) {
+                  return height - (d.size);
+                } else if (d.y <= 0) {
+                  return 0;
+                } else {return d.y;}
+            });
         // .each(cluster(10 * e.alpha * e.alpha))
         // .each(collide(.5))
 }
