@@ -8,17 +8,21 @@ Emojicloud is a visualization of emojis from tweets posted at a certain time or 
 
 With Emojicloud, users will be able to:
 
-- [ ] Visualize a cloud of emojis gathered using the Twitter API
+- [ ] Visualize a cloud of emojis using the Twitter API
+- [ ] Rendering of different types of graph of twitter emoji data
 - [ ] Have an option to choose different times and locations
 - [ ] Click on emojis to see relevant tweets
 
 BONUS
+- [ ] Google Maps Implementation
 - [ ] Drag around emojis
 
 ##Wireframes
 
 ![wireframes](images/wireframe1.png)
 ![wireframes](images/wireframe2.png)
+![wireframes](images/wireframe3.png)
+![wireframes](images/wireframe4.png)
 
 ##Technologies and Technical Challenges
 
