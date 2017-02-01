@@ -12,6 +12,7 @@ import emojione from 'emojione';
 //   '1f40f': 44, '1f41f': 2, '1f42f': 25, '1f43f': 33, '1f44f': 55
 // };
 //
+// test
 
 let unicodeTest2 = {
   '😄': randomSize(), '😁': randomSize()
