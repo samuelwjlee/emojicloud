@@ -12,14 +12,13 @@ class TwitterApi
   # end
 
   def self.tweets
-    emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
     emoji2.concat(emoji.slice(409, 7))
     emoji2.concat(emoji.slice(458, 6))
     emoji2.concat(emoji.slice(482, 9))
-    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[629]
-
+    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[630]
+    emoji = emoji.slice(600, 31)
 
     heart = 0
     count = 0
@@ -40,14 +39,13 @@ class TwitterApi
   end
 
   def self.tweets2
-    emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
     emoji2.concat(emoji.slice(409, 7))
     emoji2.concat(emoji.slice(458, 6))
     emoji2.concat(emoji.slice(482, 9))
-    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[629]
-
+    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[630]
+    emoji = emoji.slice(600, 31)
 
 
     heart = 0
@@ -87,14 +85,13 @@ class TwitterApi
   end
 
   def self.emoji2
-    emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
     emoji2.concat(emoji.slice(409, 7))
     emoji2.concat(emoji.slice(458, 6))
     emoji2.concat(emoji.slice(482, 9))
-    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[629]
-
+    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[630]
+    emoji = emoji.slice(600, 31)
 
     # puts emoji.length
     # emoji2.each_with_index do |emoji, i|
@@ -166,8 +163,8 @@ class TwitterApi
     emoji2.concat(emoji.slice(409, 7))
     emoji2.concat(emoji.slice(458, 6))
     emoji2.concat(emoji.slice(482, 9))
-    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[629]
-    emoji = emoji.slice(458, 6)
+    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[630]
+    emoji = emoji.slice(600, 31)
 
     puts emoji.length
     emoji.each_with_index do |emo, i|
