@@ -162,6 +162,7 @@
 	var tweets = document.getElementById('divTweets');
 	
 	function updateSidebar(emojiType) {
+	  // {':grinning:': ['Hey buddy', 'Fun times'] }
 	  tweets.innerHTML = emojiType;
 	}
 	
