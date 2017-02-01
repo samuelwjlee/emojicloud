@@ -1,5 +1,5 @@
 class Api::EmojisController < ApplicationController
   def index
-    @tweets = TwitterApi.tweets
+    @tweets = TwitterApi.emoji
   end
 end
