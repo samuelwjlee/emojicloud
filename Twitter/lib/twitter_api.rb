@@ -68,7 +68,7 @@ class TwitterApi
     client.filter(track: emoji2.join(",")) do |object|
       object.text.split(" ").each do |word|
         # puts word
-        if emoji2.join("").include?(word) 
+        if emoji2.join("").include?(word)
           if word_cloud[word]
             word_cloud[word] += 1
           else
@@ -87,10 +87,10 @@ class TwitterApi
 
   def self.client
     @client ||= Twitter::Streaming::Client.new do |config|
-      config.consumer_key = ENV["CONSUMER_KEY"]
-      config.consumer_secret = ENV["CONSUMER_SECRET"]
-      config.access_token = ENV["ACCESS_TOKEN"]
-      config.access_token_secret = ENV["ACCESS_SECRET"]
+      config.consumer_key = ENV['CONSUMER_KEY']
+      config.consumer_secret = ENV['CONSUMER_SECRET']
+      config.access_token = ENV['ACCESS_TOKEN']
+      config.access_token_secret = ENV['ACCESS_SECRET']
     end
   end
 
