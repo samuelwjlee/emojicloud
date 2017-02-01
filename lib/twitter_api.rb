@@ -10,7 +10,7 @@ class TwitterApi
   #     return sample if sample.length == 5
   #   end
   # end
-  
+
   def self.tweets
     emoji = EmojiData.all
     emoji2 = emoji.slice(678, 77)
@@ -24,7 +24,7 @@ class TwitterApi
       count += 1
       object.text.split(" ").each do |word|
         if emoji2.join("").include?(word)
-          if word_cloud[word]
+          if word_cloud[word] 
             word_cloud[word] += 1
           else
             word_cloud[word] = 1
