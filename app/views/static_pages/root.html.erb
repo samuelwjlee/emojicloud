@@ -50,39 +50,90 @@
 //   '1f40f': 44, '1f41f': 2, '1f42f': 25, '1f43f': 33, '1f44f': 55
 // };
 //
-let unicodeTest2 = {
-  '😄': randomSize(), '😁': randomSize()
-};
+// let unicodeTest2 = {
+//   '😄': randomSize(), '😁': randomSize()
+// };
+let emojis;
 
+let unicodeTest5;
+let unicodeTest6
+
+// TODO need to make this is synchronous. Also issues with unicode characters not being strings
 d3.json('/api/emojis', function(data) {
-  console.log(data);
+  // unicodeTest5 = data.emojis;
+  // unicodeTest5 = {'😄': 29};
+  // unicodeTest6 = data.emojis;
+
+  // console.log(unicodeTest5, data);
+  // console.log(temp);
+  emojis = getEmojis(data.emojis);
+  console.log(data.emojis);
+  // Object.keys(unicodeTest6).forEach((moj) => console.log(moj));
+  addPerson();
+
 })
+// unicodeTest5 = {'😄': 29};
 
+// var unicodeTest3 = {':grinning:': randomSize(), ':banana:': randomSize(), ':grin:': randomSize(), ':joy:': randomSize(), ':smiley:': randomSize(), ':smile:': randomSize(), ':sweat_smile:': randomSize(), ':laughing:': randomSize(), ':tomato:': randomSize(), ':wink:': randomSize(), ':blush:': randomSize(), ':slight_smile:': randomSize(), ':upside_down:': randomSize(), ':relaxed:': randomSize(), ':yum:': randomSize(), ':relieved:': randomSize(), ':heart_eyes:': randomSize(), ':kissing_heart:': randomSize(), ':kissing:': randomSize()};
+//
+// var unicodeTest4 = {':grinning:': randomSize(), ':banana:': randomSize()};
+// function randomSize() {
+//   let min = 15;
+//   let max = 70;
+//   return Math.random() * (max - min) + min;
+// }
 
+// function scaleEmoji(num) {
+//   let
+//   let min = 40;
+//   let max = 100;
+//
+//   // num * emojiScalingFactor
+//   return num;
+// }
 
-var unicodeTest3 = {':grinning:': randomSize(), ':banana:': randomSize(), ':grin:': randomSize(), ':joy:': randomSize(), ':smiley:': randomSize(), ':smile:': randomSize(), ':sweat_smile:': randomSize(), ':laughing:': randomSize(), ':tomato:': randomSize(), ':wink:': randomSize(), ':blush:': randomSize(), ':slight_smile:': randomSize(), ':upside_down:': randomSize(), ':relaxed:': randomSize(), ':yum:': randomSize(), ':relieved:': randomSize(), ':heart_eyes:': randomSize(), ':kissing_heart:': randomSize(), ':kissing:': randomSize()};
-var unicodeTest4 = {':grinning:': randomSize(), ':banana:': randomSize()};
-function randomSize() {
-  let min = 15;
-  let max = 70;
-  return Math.random() * (max - min) + min;
-}
-function getEmojis() {
-  return Object.keys(unicodeTest3).map(function(emoji) {
+function getEmojis(emojis) {
+  let totalCount = 0;
+  let minCount;
+  let maxCount;
+  // Object.values(emojis).reduce((a,b) => a + b);
+  Object.values(emojis).forEach((el, idx) => {
+    totalCount += (el * el);
+    if (idx === 0) {
+      minCount = el;
+      maxCount = el;
+    } else {
+      if (el < minCount) minCount = el;
+      if (el > maxCount) maxCount = el;
+    }
+  });
+  console.log(totalCount, minCount, maxCount);
+
+  let emojiScalingFactor = getScalingFactor(totalCount, minCount, maxCount);
+
+  console.log(totalCount);
+  return Object.keys(emojis).map(function(emoji) {
     return {
       emojiType: emoji,
-      imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
-      size: unicodeTest3[emoji]
+      // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
+      imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
+      count: emojis[emoji] * emojiScalingFactor
     };
   });
 }
+
+function getScalingFactor(total, min, max) {
+  let factor = width * height / total;
+  console.log(factor, width, height, total);
+  return factor
+}
+
 // Object.keys(emojis).map(function(emoji) {
 //   return {
 //     url: 'http://cdn.jsdelivr.net/emojione/assets/png/' + emoji + '.png?v=2.1.4',
 //     weight: emojis[emoji]
 //   };
 // });
-let emojis = getEmojis();
 var width = 500;
 var height = 500;
 var nodes = [];
@@ -108,6 +159,9 @@ var force = d3.layout.force()
     .gravity(0.1)
     .theta(0.8)
     .alpha(0.1);
+
+
+
 function start() {
     node = node.data(force.nodes(), function(d) {
         return d.index;
@@ -121,7 +175,7 @@ function start() {
         //   return d.width;
         // })
         .attr("height", function (d) {
-          return d.size;
+          return d.count; // scaleEmoji(d.count);
         })
         .attr("class", function(d) {
             return "node";
@@ -158,15 +212,15 @@ function updateSidebar(emojiType){
 }
 function tick(e) {
     node.attr("x", function(d) {
-            if (d.x >= width - (d.size)) {
-              return width - (d.size);
+            if (d.x >= width - (d.count)) {
+              return width - (d.count);
             } else if (d.x <= 0) {
               return 0;
             } else {return d.x;}
         })
         .attr("y", function(d) {
-                if (d.y >= height - (d.size)) {
-                  return height - (d.size);
+                if (d.y >= height - (d.count)) {
+                  return height - (d.count);
                 } else if (d.y <= 0) {
                   return 0;
                 } else {return d.y;}
@@ -195,7 +249,8 @@ function getInitialPosition() {
   }
   return position;
 }
-var delay = 100;
+var delay = 10;
+
 function addPerson() {
     var feeling = emojis.pop();
     var position = getInitialPosition();
@@ -209,10 +264,9 @@ function addPerson() {
       setTimeout(function () {
         addPerson();
       }, delay);
-      if (delay > 100) {
-        delay -= 100;
-      }
+        delay -= .1;
+
     }
 }
-addPerson();
+// addPerson();
  </script>
