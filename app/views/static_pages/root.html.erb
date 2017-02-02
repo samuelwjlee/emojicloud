@@ -27,8 +27,11 @@
       </div>
     </div>
     <div class="controls">
-      <button class="button" onClick=fetchEmojis()>
-        Fetch Data</button>
+      <button class="button" onClick=fetchEmojis('world')>World</button>
+      <button class="button" onClick=fetchEmojis('africa')>Africa</button>
+      <button class="button" onClick=fetchEmojis('asia')>Asia</button>
+      <button class="button" onClick=fetchEmojis('europe')>Europe</button>
+      <button class="button" onClick=fetchEmojis('us')>US</button>
     </div>
 
   </body>
@@ -38,13 +41,13 @@
 <script>
 
 let emojis;
-fetchEmojis();
-function fetchEmojis() {
-  d3.json('/api/emojis', function(data) {
-    svg.selectAll("*").remove();
-    emojis = getEmojis(data.emojis);
-    console.log(data.emojis);
+fetchEmojis('africa');
+function fetchEmojis(type) {
+  let path = '/api/' + type + '_emojis'
 
+  d3.json(path, function(data) {
+    svg.selectAll("*").remove();
+    emojis = getEmojis(data.africa_emojis);
     addPerson();
   })
 }
