@@ -2204,6 +2204,20 @@ Processing by Api::EmojisController#index as JSON
 Completed 200 OK in 6534ms (Views: 8.8ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
+Started GET "/" for 127.0.0.1 at 2017-02-01 13:29:12 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 409ms (Views: 406.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 13:29:13 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.7ms)
+Completed 200 OK in 7055ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+=======
 >>>>>>> d1f6c4090002613090f71c98d56ac57cb6490e6a
 Started GET "/" for 127.0.0.1 at 2017-01-31 21:46:37 -0800
   
@@ -2951,6 +2965,7 @@ Processing by Api::EmojisController#index as JSON
   Rendering api/emojis/index.json.jbuilder
   Rendered api/emojis/index.json.jbuilder (1.4ms)
 Completed 200 OK in 7228ms (Views: 175.4ms | ActiveRecord: 0.0ms)
+>>>>>>> 8f261c02561e280bf188841436b63c890bcd50fa
 
 
 Started GET "/" for 127.0.0.1 at 2017-02-01 13:56:10 -0800

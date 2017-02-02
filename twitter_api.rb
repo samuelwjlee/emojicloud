@@ -17,9 +17,27 @@ class TwitterApi
   #   end
   # end
 
-  def self.tweets
+  def self.all_tweets
+
     client.sample do |tweet|
-      puts tweet.text if tweet.is_a?(Twitter::Tweet)
+      emoji = EmojiData.all
+      word_cloud = {}
+
+      tweet.text.split(" ").each do |word|
+        # puts word
+        if emoji.join("").include?(word)
+          if word_cloud[word]
+            word_cloud[word] += 1
+          else
+            word_cloud[word] = 1
+          end
+        end
+        # common = ["RT", "the", "a", "you", "I", "me", "to", "at", "and", "so", "for", "in", "de", "my", "que", "no", "this", "is", "of", "This"]
+        if word_cloud[word]  #&& !common.include?(word) && emoji2.join(",").include?(word)
+          puts "#{word}: #{word_cloud[word]}"
+        end
+      end
+      # puts tweet.text if tweet.is_a?(Twitter::Tweet)
     end
   end
 
@@ -63,7 +81,7 @@ class TwitterApi
       puts emoji
     end
     puts emoji2.length
-    heart = 0
+
     word_cloud = {}
     client.filter(track: emoji2.join(",")) do |object|
       object.text.split(" ").each do |word|
