@@ -2,14 +2,15 @@ require 'emoji_data'
 
 
 class TwitterApi
-  # def self.tweets
-  #   sample = []
-  #   client.filter(locations: '-122.75,36.8,-121.75,37.8') do |tweet|
-  #     sample.push(tweet.text) if tweet.is_a?(Twitter::Tweet)
-  #
-  #     return sample if sample.length == 5
-  #   end
-  # end
+
+  @emoji = EmojiData.all
+  @emoji2 = @emoji.slice(678, 53)
+  @emoji2.concat(@emoji.slice(746, 9))
+  @emoji2.concat(@emoji.slice(409, 7))
+  @emoji2.concat(@emoji.slice(458, 6))
+  @emoji2.concat(@emoji.slice(482, 9))
+  @emoji2 << @emoji[81] << @emoji[86] << @emoji[97] << @emoji[111] << @emoji[164] << @emoji[190] << @emoji[197] << @emoji[299] << @emoji[400] << @emoji[504] << @emoji[505] << @emoji[506] << @emoji[511] << @emoji[624] << @emoji[630]
+
 
   def self.tweets2
     emoji = EmojiData.all
@@ -40,19 +41,12 @@ class TwitterApi
   end
 
   def self.us_tweets
-    emoji = EmojiData.all
-    emoji2 = emoji.slice(678, 53)
-    emoji2.concat(emoji.slice(746, 9))
-    emoji2.concat(emoji.slice(409, 7))
-    emoji2.concat(emoji.slice(458, 6))
-    emoji2.concat(emoji.slice(482, 9))
-    emoji2 << emoji[81] << emoji[86] << emoji[97] << emoji[111] << emoji[164] << emoji[190] << emoji[197] << emoji[299] << emoji[400] << emoji[504] << emoji[505] << emoji[506] << emoji[511] << emoji[624] << emoji[630]
 
     count = 0
     word_cloud = {}
-    client.filter(locations: '-165.058594, 18.552532, -58.535156, 72.151523', track: emoji2.join(",")) do |tweet|
+    client.filter(locations: '-165.058594, 18.552532, -58.535156, 72.151523', track: @emoji2.join(",")) do |tweet|
       tweet.text.split(" ").each do |word|
-        if emoji2.join("").include?(word)
+        if @emoji2.join("").include?(word)
           count += 1
           if word_cloud[word]
             word_cloud[word][0] += 1
@@ -224,4 +218,15 @@ class TwitterApi
       config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
     end
   end
+
+  # def self.tweets
+  #   sample = []
+  #   client.filter(locations: '-122.75,36.8,-121.75,37.8') do |tweet|
+  #     sample.push(tweet.text) if tweet.is_a?(Twitter::Tweet)
+  #
+  #     return sample if sample.length == 5
+  #   end
+  # end
+
+
 end
