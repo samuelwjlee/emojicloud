@@ -38,6 +38,22 @@ class TwitterApi
     end
   end
 
+  def self.us_tweets
+
+  end
+
+  def self.asia_tweets
+
+  end
+
+  def self.africa_tweets
+
+  end
+
+  def self.europe_tweets
+
+  end
+
   def self.tweets2
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
