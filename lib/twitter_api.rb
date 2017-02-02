@@ -131,7 +131,7 @@ class TwitterApi
 
   end
 
-  def self.tweets
+  def self.world_tweets
     emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))

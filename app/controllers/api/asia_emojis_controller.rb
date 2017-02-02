@@ -5,6 +5,6 @@ class Api::AsiaEmojisController < ApplicationController
   end
 
   def show
-    @asia_tweets = AsiaEmoji.last
+    @asia_tweets = AsiaEmoji.last.emojis
   end
 end
