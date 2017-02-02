@@ -1,1 +1,1 @@
-json.set! 'us_emojis', @us_emojis
+json.set! 'us_emojis', @us_tweets
