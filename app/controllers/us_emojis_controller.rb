@@ -1,0 +1,2 @@
+class UsEmojisController < ApplicationController
+end
