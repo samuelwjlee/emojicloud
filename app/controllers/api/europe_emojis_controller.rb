@@ -1,11 +1,10 @@
 class Api::EuropeEmojisController < ApplicationController
   def index
     @europe_tweets = TwitterApi.europe_tweets
-  end
-
-  def create
+    EuropeEmoji.create(emojis: @europe_tweets)
   end
 
   def show
+    @europe_tweets = EuropeEmoji.last
   end
 end
