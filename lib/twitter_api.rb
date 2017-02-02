@@ -1,6 +1,5 @@
 require 'emoji_data'
 
-
 class TwitterApi
 
   @emoji = EmojiData.all
@@ -50,9 +49,9 @@ class TwitterApi
           count += 1
           if word_cloud[word]
             word_cloud[word][0] += 1
-            puts word_cloud[word][0]
-            puts word
-            puts count
+            # puts word_cloud[word][0]
+            # puts word
+            # puts count
           else
             word_cloud[word] = [1, tweet.text]
           end
@@ -60,17 +59,75 @@ class TwitterApi
       end
       return word_cloud if count > 300
     end
+
   end
 
   def self.asia_tweets
+
+    count = 0
+    word_cloud = {}
+    client.filter(locations: '60.996094, -49.217597, 171.386719, 48.392738', track: @emoji2.join(",")) do |tweet|
+      tweet.text.split(" ").each do |word|
+        if @emoji2.join("").include?(word)
+          count += 1
+          if word_cloud[word]
+            word_cloud[word][0] += 1
+            # puts word_cloud[word][0]
+            # puts word
+            # puts count
+          else
+            word_cloud[word] = [1, tweet.text]
+          end
+        end
+      end
+      return word_cloud if count > 300
+    end
 
   end
 
   def self.africa_tweets
 
+    count = 0
+    word_cloud = {}
+    client.filter(locations: '-22.675781, -38.899583, 52.910156, 35.092945', track: @emoji2.join(",")) do |tweet|
+      tweet.text.split(" ").each do |word|
+        if @emoji2.join("").include?(word)
+          count += 1
+          if word_cloud[word]
+            word_cloud[word][0] += 1
+            # puts word_cloud[word][0]
+            # puts word
+            # puts count
+          else
+            word_cloud[word] = [1, tweet.text]
+          end
+        end
+      end
+      return word_cloud if count > 300
+    end
+
   end
 
   def self.europe_tweets
+
+    count = 0
+    word_cloud = {}
+    client.filter(locations: '-46.230469, 35.666222, 73.300781, 75.906829', track: @emoji2.join(",")) do |tweet|
+      tweet.text.split(" ").each do |word|
+        if @emoji2.join("").include?(word)
+          count += 1
+          if word_cloud[word]
+            word_cloud[word][0] += 1
+            # puts word_cloud[word][0]
+            # puts word
+            # puts count
+          else
+            word_cloud[word] = [1, tweet.text]
+          end
+        end
+      end
+      return word_cloud if count > 300
+    end
 
   end
 
