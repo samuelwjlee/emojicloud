@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 20170202020354) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "emojis", force: :cascade do |t|
-    t.json     "emojis",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "europe_emojis", force: :cascade do |t|
     t.json     "emojis",     null: false
     t.datetime "created_at", null: false
@@ -40,6 +34,12 @@ ActiveRecord::Schema.define(version: 20170202020354) do
   end
 
   create_table "us_emojis", force: :cascade do |t|
+    t.json     "emojis",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "world_emojis", force: :cascade do |t|
     t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

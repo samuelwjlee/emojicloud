@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do
-    resources :emojis, only: [:index, :create, :show]
+    resources :world_emojis, only: [:index, :create, :show]
     resources :asia_emojis, only: [:index, :create, :show]
     resources :africa_emojis, only: [:index, :create, :show]
     resources :europe_emojis, only: [:index, :create, :show]

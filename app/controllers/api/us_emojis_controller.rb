@@ -5,6 +5,6 @@ class Api::UsEmojisController < ApplicationController
   end
 
   def show
-    @us_tweets = UsEmoji.last
+    @us_tweets = UsEmoji.last.emojis
   end
 end

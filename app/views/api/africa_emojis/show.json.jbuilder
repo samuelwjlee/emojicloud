@@ -1,1 +1,1 @@
-json.set! 'africa_emojis', @africa_tweets
+json.set! 'emojis', @africa_tweets

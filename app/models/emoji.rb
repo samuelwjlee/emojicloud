@@ -1,3 +1,0 @@
-class Emoji < ApplicationRecord
-  
-end
