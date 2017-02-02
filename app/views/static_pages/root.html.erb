@@ -12,25 +12,43 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
     <style media="screen">
       body {
+        width: 1000;
         display: flex;
-        width: 100%;
+        /*border: red 1px solid;*/
+        align-content: space-between;
+        background-color: #f5f8fa
+      }
+      #cloud {
+        flex: 0 0 500px;
       }
       #tweet-container {
-        width: 200;
-        height: 200;
-        border: red 1px solid;
-        display:
+        flex: 0 0 500px;
+        /*border: red 1px solid;*/
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+
+      }
+      .tweet {
+        background-color: white;
+        border: solid 1px #e1e8ed;
+        max-width: 200;
+        word-wrap: break-word;
+        display: flex;
       }
     </style>
+
   </head>
   <body>
-    <svg id="cloud">
-    </svg>
+    <svg id="cloud"></svg>
     <div id="tweet-container">
         TWEETS
-        <div id="divTweets">
+        <div class="tweet">
+          <img class="tweet-avatar" src="https://pbs.twimg.com/profile_images/715568555857678336/mDrE0AI6_bigger.jpg" alt="">
+          <div id="tweet-text"> </div>
         </div>
     </div>
     <!-- <svg id="tweets">
@@ -66,10 +84,11 @@ d3.json('/api/emojis', function(data) {
 
   // console.log(unicodeTest5, data);
   // console.log(temp);
-  emojis = getEmojis(data.emojis);
+
+  emojis = getEmojis(data.emojis); //NEED TO REINSTATE
   console.log(data.emojis);
   // Object.keys(unicodeTest6).forEach((moj) => console.log(moj));
-  addPerson();
+  addPerson(); //NEED TO REINSTATE
 
 })
 // unicodeTest5 = {'😄': 29};
@@ -97,14 +116,15 @@ function getEmojis(emojis) {
   let minCount;
   let maxCount;
   // Object.values(emojis).reduce((a,b) => a + b);
-  Object.values(emojis).forEach((el, idx) => {
-    totalVolume += (Math.log(el) * Math.log(el));
+  Object.values(emojis).forEach((arr, idx) => {
+    let count = arr[0];
+    totalVolume += (Math.log(count) * Math.log(count));
     if (idx === 0) {
-      minCount = el;
-      maxCount = el;
+      minCount = count;
+      maxCount = count;
     } else {
-      if (el < minCount) minCount = el;
-      if (el > maxCount) maxCount = el;
+      if (count < minCount) minCount = count;
+      if (count > maxCount) maxCount = count;
     }
   });
   console.log(totalVolume, minCount, maxCount);
@@ -114,10 +134,10 @@ function getEmojis(emojis) {
   console.log(totalVolume);
   return Object.keys(emojis).map(function(emoji) {
     return {
-      emojiType: emoji,
+      emojiType: emojis[emoji][1],
       // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
-      count: Math.log(emojis[emoji]) * emojiScalingFactor
+      count: Math.log(emojis[emoji][0]) * emojiScalingFactor
     };
   });
 }
@@ -140,8 +160,8 @@ var nodes = [];
 var links = [];
 var svg = d3.select("#cloud")
     .attr("width", width)
-    .attr("height", height)
-    .style("border", "1px solid black");
+    .attr("height", height);
+    // .style("border", "1px solid black");
 // var tweets = d3.select("#tweets")
 //     .attr("width", 300)
 //     .attr("height", 300)
@@ -205,7 +225,7 @@ function start() {
     force.start();
     // console.log(d3);
 }
-let tweets = document.getElementById('divTweets');
+let tweets = document.getElementById('tweet-text');
 function updateSidebar(emojiType){
   // {':grinning:': ['Hey buddy', 'Fun times'] }
   tweets.innerHTML = emojiType;

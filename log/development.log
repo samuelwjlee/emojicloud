@@ -3290,3 +3290,509 @@ Processing by Api::EmojisController#index as JSON
 Completed 200 OK in 6922ms (Views: 56.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:23:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1997ms (Views: 1994.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:23:54 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (111.7ms)
+Completed 200 OK in 3780ms (Views: 122.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:29:31 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 488ms (Views: 483.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:29:33 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.1ms)
+Completed 200 OK in 2764ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:31:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 477ms (Views: 470.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:31:32 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.4ms)
+Completed 200 OK in 2557ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:31:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 244ms (Views: 241.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:31:46 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.4ms)
+Completed 200 OK in 2857ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:32:35 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 355ms (Views: 347.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:32:36 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (3.1ms)
+Completed 200 OK in 2903ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:32:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 180ms (Views: 175.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:32:53 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.3ms)
+Completed 200 OK in 2795ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:38:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 359ms (Views: 305.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:38:25 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.7ms)
+Completed 200 OK in 2819ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:39:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 421ms (Views: 411.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:39:48 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.0ms)
+Completed 200 OK in 3246ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:51:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (172.1ms)
+Completed 200 OK in 1007ms (Views: 961.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2017-02-01 17:51:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (22.0ms)
+  Rendered collection of /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [2 times] (1870.7ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1135.5ms)
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (15.3ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (6785.8ms)
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:51:17 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.7ms)
+Completed 200 OK in 6414ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:52:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 728ms (Views: 707.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2017-02-01 17:52:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (41.1ms)
+  Rendered collection of /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [2 times] (42.6ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (26.5ms)
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (403.9ms)
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:52:33 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.9ms)
+Completed 200 OK in 2977ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:55:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 447ms (Views: 439.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2017-02-01 17:55:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (75.9ms)
+  Rendered collection of /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [2 times] (26.2ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (132.0ms)
+  Rendering /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (114.8ms)
+  Rendered /Users/Evelyn/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (949.7ms)
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:55:22 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.4ms)
+Completed 200 OK in 3226ms (Views: 134.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 17:59:32 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 545ms (Views: 538.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 17:59:34 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (44.4ms)
+Completed 200 OK in 3713ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:00:48 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (67.3ms)
+Completed 200 OK in 337ms (Views: 331.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:00:49 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (61.3ms)
+Completed 200 OK in 3225ms (Views: 66.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:01:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 507ms (Views: 491.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:01:29 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (58.8ms)
+Completed 200 OK in 3092ms (Views: 65.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:02:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 618ms (Views: 612.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:02:08 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (143.4ms)
+Completed 200 OK in 3213ms (Views: 151.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:02:32 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (65.4ms)
+Completed 200 OK in 359ms (Views: 352.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:02:33 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (36.0ms)
+Completed 200 OK in 3226ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:06:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 696ms (Views: 688.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:06:53 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (100.9ms)
+Completed 200 OK in 3887ms (Views: 244.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:14:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 334ms (Views: 327.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:14:04 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (130.4ms)
+Completed 200 OK in 3736ms (Views: 159.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:14:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (99.9ms)
+Completed 200 OK in 393ms (Views: 377.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:14:29 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (50.1ms)
+Completed 200 OK in 2819ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:14:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 301ms (Views: 297.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:14:40 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (135.3ms)
+Completed 200 OK in 2969ms (Views: 141.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:16:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 530ms (Views: 521.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:16:42 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (53.9ms)
+Completed 200 OK in 2670ms (Views: 67.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:30:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (788.2ms)
+Completed 200 OK in 4516ms (Views: 3719.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:30:20 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (146.1ms)
+Completed 200 OK in 7937ms (Views: 167.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:33:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (184.4ms)
+Completed 200 OK in 699ms (Views: 688.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:33:57 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (45.2ms)
+Completed 200 OK in 6643ms (Views: 66.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 18:51:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1601.4ms)
+Completed 200 OK in 5461ms (Views: 4477.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 18:51:16 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (613.7ms)
+Completed 200 OK in 10782ms (Views: 808.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 19:02:03 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (653.2ms)
+Completed 200 OK in 4050ms (Views: 3842.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 19:02:18 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (3409.6ms)
+Completed 200 OK in 15297ms (Views: 4026.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 19:06:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (456.8ms)
+Completed 200 OK in 2266ms (Views: 1968.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 19:07:09 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (107.5ms)
+Completed 200 OK in 12217ms (Views: 119.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 19:08:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (130.5ms)
+Completed 200 OK in 1125ms (Views: 1094.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 19:09:07 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (535.8ms)
+Completed 200 OK in 10064ms (Views: 782.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 19:09:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (76.8ms)
+Completed 200 OK in 749ms (Views: 741.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 19:09:37 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (261.7ms)
+Completed 200 OK in 4745ms (Views: 302.6ms | ActiveRecord: 0.0ms)
+
+

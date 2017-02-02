@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  width: 100%;
+}
+#tweet-container {
+  width: 200;
+  height: 200;
+  border: red 1px solid;
+  display:
+}
