@@ -93,12 +93,12 @@ d3.json('/api/emojis', function(data) {
 // }
 
 function getEmojis(emojis) {
-  let totalCount = 0;
+  let totalVolume = 0;
   let minCount;
   let maxCount;
   // Object.values(emojis).reduce((a,b) => a + b);
   Object.values(emojis).forEach((el, idx) => {
-    totalCount += (el * el);
+    totalVolume += (Math.log(el) * Math.log(el));
     if (idx === 0) {
       minCount = el;
       maxCount = el;
@@ -107,25 +107,25 @@ function getEmojis(emojis) {
       if (el > maxCount) maxCount = el;
     }
   });
-  console.log(totalCount, minCount, maxCount);
+  console.log(totalVolume, minCount, maxCount);
 
-  let emojiScalingFactor = getScalingFactor(totalCount, minCount, maxCount);
+  let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
 
-  console.log(totalCount);
+  console.log(totalVolume);
   return Object.keys(emojis).map(function(emoji) {
     return {
       emojiType: emoji,
       // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
-      count: emojis[emoji] * emojiScalingFactor
+      count: Math.log(emojis[emoji]) * emojiScalingFactor
     };
   });
 }
 
 function getScalingFactor(total, min, max) {
-  let factor = width * height / total;
+  let factor = Math.sqrt(width * height / total);
   console.log(factor, width, height, total);
-  return factor
+  return factor/2
 }
 
 // Object.keys(emojis).map(function(emoji) {
@@ -155,7 +155,7 @@ var force = d3.layout.force()
     .linkStrength(0.8)
     .friction(0.9)
     .linkDistance(40)
-    .charge(-400)
+    .charge(-100)
     .gravity(0.1)
     .theta(0.8)
     .alpha(0.1);

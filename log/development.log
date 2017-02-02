@@ -2968,3 +2968,325 @@ Completed 200 OK in 7228ms (Views: 175.4ms | ActiveRecord: 0.0ms)
 >>>>>>> 8f261c02561e280bf188841436b63c890bcd50fa
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-01 13:56:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (845.6ms)
+Completed 200 OK in 3448ms (Views: 2914.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 13:56:19 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (45.2ms)
+Completed 200 OK in 8156ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:04:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (159.6ms)
+Completed 200 OK in 1540ms (Views: 1466.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:04:16 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (78.1ms)
+Completed 200 OK in 7967ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:05:36 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (445.4ms)
+Completed 200 OK in 1070ms (Views: 1016.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:05:40 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.1ms)
+Completed 200 OK in 7855ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:05:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (492.3ms)
+Completed 200 OK in 3606ms (Views: 3598.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:06:07 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (85.6ms)
+Completed 200 OK in 7225ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:07:22 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (190.0ms)
+Completed 200 OK in 880ms (Views: 872.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:07:24 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (198.6ms)
+Completed 200 OK in 7047ms (Views: 213.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:12:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 1818ms (Views: 1811.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:12:49 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.5ms)
+Completed 200 OK in 114174ms (Views: 257.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:45:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (64.4ms)
+Completed 200 OK in 826ms (Views: 822.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:45:18 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (267.0ms)
+Completed 200 OK in 2534ms (Views: 278.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:46:12 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (70.8ms)
+Completed 200 OK in 1161ms (Views: 1028.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:46:14 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.2ms)
+Completed 200 OK in 2170ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:46:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 436ms (Views: 428.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:46:31 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.0ms)
+Completed 200 OK in 2204ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:50:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 1002ms (Views: 995.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:50:20 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (4.1ms)
+Completed 200 OK in 2239ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:50:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (148.1ms)
+Completed 200 OK in 3626ms (Views: 3606.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:50:59 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (42.2ms)
+Completed 200 OK in 1868ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:53:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 971ms (Views: 725.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:53:09 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (2.7ms)
+Completed 200 OK in 7120ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:54:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 768ms (Views: 758.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:54:18 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (90.6ms)
+Completed 200 OK in 7754ms (Views: 214.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:54:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 188ms (Views: 181.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:54:42 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.7ms)
+Completed 200 OK in 7230ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:55:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (97.1ms)
+Completed 200 OK in 642ms (Views: 631.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:55:06 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (1.8ms)
+Completed 200 OK in 7362ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:55:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 961ms (Views: 951.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:55:48 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (330.1ms)
+Completed 200 OK in 7173ms (Views: 336.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 14:56:37 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 294ms (Views: 291.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 14:56:38 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (22.7ms)
+Completed 200 OK in 113319ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:03:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 383ms (Views: 378.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:03:30 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (29.5ms)
+Completed 200 OK in 13202ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:04:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (79.8ms)
+Completed 200 OK in 403ms (Views: 396.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:04:30 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (7.5ms)
+Completed 200 OK in 17294ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:06:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 685ms (Views: 671.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:06:27 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (3.2ms)
+Completed 200 OK in 14029ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:12:57 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 661ms (Views: 654.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:12:59 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (270.7ms)
+Completed 200 OK in 8410ms (Views: 303.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:15:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (173.7ms)
+Completed 200 OK in 994ms (Views: 982.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:15:41 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (161.9ms)
+Completed 200 OK in 7573ms (Views: 171.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-01 15:16:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (183.2ms)
+Completed 200 OK in 975ms (Views: 970.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/emojis" for 127.0.0.1 at 2017-02-01 15:16:44 -0800
+Processing by Api::EmojisController#index as JSON
+  Rendering api/emojis/index.json.jbuilder
+  Rendered api/emojis/index.json.jbuilder (48.9ms)
+Completed 200 OK in 6922ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
