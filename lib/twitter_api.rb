@@ -80,7 +80,7 @@ class TwitterApi
           end
         end
       end
-      return word_cloud if count == 100
+      return word_cloud if count == 300
     end
   end
 
