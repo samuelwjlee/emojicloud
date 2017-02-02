@@ -11,7 +11,7 @@ class TwitterApi
   #   end
   # end
 
-  def self.tweets
+  def self.tweets2
     emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
@@ -55,7 +55,7 @@ class TwitterApi
 
   end
 
-  def self.tweets_text 
+  def self.tweets
     emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
