@@ -22,6 +22,7 @@ gem 'twitter'
 gem 'emoji_data'
 gem 'emojione-rails'
 gem 'd3-rails'
+gem 'rails_serve_static_assets'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
