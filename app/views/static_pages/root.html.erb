@@ -30,17 +30,16 @@
       </div>
     </div>
 
-
     <div id="map">
       <script>
-        function initMap() {
-          var uluru = {lat: -25.363, lng: 131.044};
+        function initMap(geo) {
+          // var uluru = {lat: -25.363, lng: 131.044};
           var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 3,
-            center: uluru
+            center: geo
           });
           var marker = new google.maps.Marker({
-            position: uluru,
+            position: geo,
             map: map
           });
         }
@@ -90,6 +89,8 @@
       emojis = getEmojis(data.emojis);
       addEmoji();
       console.log("made a static request");
+      //pass in geo location here to point on a map
+      initMap({lat: 36.8, lng: -122.75});
     })
     d3.json(streamPath, function(data) {
       console.log("made a streaming request");
