@@ -55,6 +55,7 @@
   </script>
 
   <script>
+
   // $(function() {
   // import d3 from 'd3';
   // var d3 = require('d3');
@@ -62,6 +63,7 @@
   // import d3 from 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'
   // $(document).ready(function() {
 
+<<<<<<< HEAD
     let emojis;
     fetchEmojis('world', 'static');
 
@@ -230,18 +232,241 @@
       var position = getInitialPosition();
       // feeling.x = width/2;
       // feeling.y = width/2;
+=======
+  let emojis;
+  let gravity = .1;
+  // fetchEmojis('world', 'static');
+
+  d3.json('/api/world_emojis/1', function(data) {
+    svg.selectAll("*").remove();
+    emojis = getEmojis(data.emojis);
+    addEmoji();
+  })
+
+  function fetchEmojis(place, feed) {
+    beginTransition();
+    // gravity = 12;
+    let path = '/api/' + place + '_emojis';
+    if(feed == 'static') path += '/1';
+
+    d3.json(path, function(data) {
+      endTransition();
+      // gravity = .1;
+      svg.selectAll("*").remove();
+      emojis = getEmojis(data.emojis);
+      addEmoji();
+    })
+  }
+
+  function beginTransition() {
+    force.gravity(44)
+    // .linkStrength(0.8)
+    // .friction(0.9)
+    // .linkDistance(2000)
+    // .charge(-30)
+    // .theta(0.8)
+    // .alpha(.1);
+  }
+  function endTransition() {
+    force.gravity(.3)
+    .linkStrength(0.8)
+    .friction(0.9)
+    .linkDistance(2)
+    .charge(-100)
+    .theta(0.8)
+    .alpha(4.1);
+  }
+
+  function getGravity() {
+    return gravity;
+  }
+
+  function getEmojis(emojis) {
+    let totalVolume = 0;
+    let minCount;
+    let maxCount;
+    Object.values(emojis).forEach((arr, idx) => {
+      let count = arr[0];
+      totalVolume += ((1 + Math.log(count)) * (1 + Math.log(count)));
+      if (idx === 0) {
+        minCount = count;
+        maxCount = count;
+      } else {
+        if (count < minCount) minCount = count;
+        if (count > maxCount) maxCount = count;
+      }
+    });
+    console.log(totalVolume, minCount, maxCount);
+
+    let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
+
+    console.log(totalVolume);
+    return Object.keys(emojis).map(function(emoji) {
+      // console.log(emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1])
+      return {
+        emojiType: emojis[emoji][1],
+        // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
+        imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
+        count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
+      };
+    });
+  }
+
+  function getScalingFactor(total, min, max) {
+    let factor = Math.sqrt(width * height / total);
+    console.log(factor, width, height, total);
+    return factor/2
+  }
+
+  var width = 500;
+  var height = 500;
+  var nodes = [];
+  var links = [];
+  var svg = d3.select("#cloud")
+      .attr("width", width)
+      .attr("height", height)
+      .attr('background-color', 'blue');
+
+  var node = svg.selectAll(".node");
+
+
+  var force = d3.layout.force()
+      .nodes(nodes)
+      .links(links)
+      .size([width, height])
+      .on("tick", tick)
+      .linkStrength(0.8)
+      .friction(0.9)
+      .linkDistance(2)
+      .charge(-100)
+      .gravity(.1)
+      .theta(0.8)
+      .alpha(4.1);
+
+      // force.gravity(function() {
+      //   return 5
+      // });
+
+  function start() {
+      node = node.data(force.nodes(), function(d) {
+          return d.index;
+      });
+      node.enter()
+          .append("svg:image")
+          .attr("xlink:href", function (d) {
+            return d.imageUrl;
+          })
+          .attr("height", function (d) {
+            return d.count; // scaleEmoji(d.count);
+          })
+          .attr("class", function(d) {
+              return "node";
+          })
+          .attr("emojiType", function(d) {
+              return d.emojiType;
+          });
+          // .on("mouseover", fade(.1, true));
+          // .attr("width", 120)
+          // .attr("height", 120)
+      node.exit().remove();
+      node.call(force.drag)
+          .on("mousedown", function() {
+              console.log(node);
+              d3.event.stopPropagation();
+          });
+      // node.on("mousedown", function() {
+      //         console.log(node);
+      //     });
+      node.on("mouseover", function(d) {
+        console.log(d.emojiType);
+        updateSidebar(d.emojiType);
+
+        d3.select(this).attr("height", function(d) {
+          return d.count * 2;
+        });
+
+      });
+
+      node.on("mouseout", function(d) {
+        d3.select(this).attr("height", function(d) {
+          return d.count;
+        });
+      });
+
+      force.start();
+  }
+
+  let tweets = document.getElementById('tweet-text');
+  function updateSidebar(emojiType){
+    tweets.innerHTML = emojiType;
+  }
+
+  function tick(e) {
+      node.attr("x", function(d) {
+              if (d.x >= width - (d.count)) {
+                return width - (d.count);
+              } else if (d.x <= 0) {
+                return 0;
+              } else {return d.x;}
+          })
+          .attr("y", function(d) {
+                  if (d.y >= height - (d.count)) {
+                    return height - (d.count);
+                  } else if (d.y <= 0) {
+                    return 0;
+                  } else {return d.y;}
+              });
+          // .each(cluster(10 * e.alpha * e.alpha))
+          // .each(collide(.5))
+  }
+  let padding = 15, // separation between same-color circles
+      clusterPadding = 16, // separation between different-color circles
+      maxRadius = 12;
+
+  // function getInitialPosition() {
+  //   var position = {};
+  //   var dir = Math.floor(Math.random() * 4);
+  //   if (dir === 1) {
+  //     position.x = Math.random() * width;
+  //     position.y = 0;
+  //   } else if (dir === 2) {
+  //     position.x = Math.random() * width;
+  //     position.y = height;
+  //   } else if (dir === 3) {
+  //     position.x = 0;
+  //     position.y = Math.random() * height;
+  //   } else if (dir === 4) {
+  //     position.x = width;
+  //     position.y = Math.random() * height;
+  //   }
+  //   return position;
+  // }
+  var delay = 0;
+  function addEmoji() {
+      var emoji = emojis.pop();
+      // var position = getInitialPosition();
+      emoji.x = width/2;
+      emoji.y = width/2;
+>>>>>>> master
       // feeling.x = position.x;
       // feeling.y = position.y;
-      nodes.push(feeling);
-      console.log("hello");
+      nodes.push(emoji);
+
       start();
       if (emojis.length > 0) {
         setTimeout(function () {
-          addPerson();
+          addEmoji();
         }, delay);
           delay -= .1;
       }
+<<<<<<< HEAD
     }
     // addPerson();
+=======
+  }
+
+  // });
+
+>>>>>>> master
   </script>
 </html>

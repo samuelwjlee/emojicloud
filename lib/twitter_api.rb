@@ -34,7 +34,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, object.text, object.attrs[:place], object.attrs[:screen_name]]
+            word_cloud[word] = [1, object.text, object.attrs[:user][:location], object.attrs[:coordinates], object.attrs[:user][:screen_name]]
           end
         end
       end
@@ -43,10 +43,10 @@ class TwitterApi
     #  puts object.instance_variables.map{ |var| puts [var, ""].join(":")}
       # puts object.instance_variable_get(@_memoized_method_cache)
       # puts "hello"
-      puts object.attrs
+      # puts object.attrs
       # puts object.attrs[:place]
-      puts object.attrs[:screen_name]
-      return word_cloud if count == 1
+      # puts object.attrs[:user][:screen_name]
+      return word_cloud if count == 20
     end
   end
 
@@ -64,7 +64,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, tweet.text]
+            word_cloud[word] = [1, tweet.text, tweet.attrs[:user][:location], tweet.attrs[:coordinates], tweet.attrs[:user][:screen_name]]
           end
         end
       end
@@ -87,7 +87,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, tweet.text]
+            word_cloud[word] = [1, tweet.text, tweet.attrs[:user][:location], tweet.attrs[:coordinates], tweet.attrs[:user][:screen_name]]
           end
         end
       end
@@ -110,7 +110,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, tweet.text]
+            word_cloud[word] = [1, tweet.text, tweet.attrs[:user][:location], tweet.attrs[:coordinates], tweet.attrs[:user][:screen_name]]
           end
         end
       end
@@ -133,7 +133,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, tweet.text]
+            word_cloud[word] = [1, tweet.text, tweet.attrs[:user][:location], tweet.attrs[:coordinates], tweet.attrs[:user][:screen_name]]
           end
         end
       end
