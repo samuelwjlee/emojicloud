@@ -1,12 +1,5 @@
 require 'emoji_data'
 
-
-TWITTER_CONSUMER_KEY = 'NSqpVgtxLo9bt8JyYVSMjmVbj'
-TWITTER_CONSUMER_SECRET = 'zJH2PmAR0KlStIVjlhYYzKj2KJD1Ee631fRhdclAGslsFWjp2j'
-TWITTER_ACCESS_TOKEN = '348206999-IYnRXVssC6Rch8aLn3XaHol19Fetu2N5OG8S88D0'
-TWITTER_ACCESS_SECRET = 'RQybt9cT5lk75TEPucGrswL1d7zsSyTaFf3p7HdXNLbaA'
-
-
 class TwitterApi
 
   @emoji = EmojiData.all
@@ -287,10 +280,10 @@ class TwitterApi
 
   def self.client
     @client ||= Twitter::Streaming::Client.new do |config|
-      config.consumer_key = TWITTER_CONSUMER_KEY
-      config.consumer_secret = TWITTER_CONSUMER_SECRET
-      config.access_token = TWITTER_ACCESS_TOKEN
-      config.access_token_secret = TWITTER_ACCESS_SECRET
+      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
     end
   end
 
