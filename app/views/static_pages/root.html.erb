@@ -50,29 +50,40 @@
   let gravity = .1;
   // fetchEmojis('world', 'static');
 
-  d3.json('/api/world_emojis/1', function(data) {
-    svg.selectAll("*").remove();
-    emojis = getEmojis(data.emojis);
-    addEmoji();
-  })
+  // d3.json('/api/world_emojis/1', function(data) {
+  //   svg.selectAll("*").remove();
+  //   emojis = getEmojis(data.emojis);
+  //   addEmoji();
+  // })
+  fetchEmojis('world');
 
-  function fetchEmojis(place, feed) {
-    beginTransition();
-    // gravity = 12;
-    let path = '/api/' + place + '_emojis';
-    if(feed == 'static') path += '/1';
+  function fetchEmojis(place) {
+    // beginTransition();
+    let streamPath = '/api/' + place + '_emojis';
+    let staticPath = streamPath + '/1'
 
-    d3.json(path, function(data) {
-      endTransition();
+    d3.json(staticPath, function(data) {
+      // endTransition();
       // gravity = .1;
       svg.selectAll("*").remove();
       emojis = getEmojis(data.emojis);
       addEmoji();
+      console.log("made a static request");
+    })
+    d3.json(streamPath, function(data) {
+      console.log("made a streaming request");
     })
   }
 
+
+
+
   function beginTransition() {
-    force.gravity(44)
+    // const $body = $('body')
+    // const $pending = $("<div></div>")
+    // $pending.text("FETCHING DATA ...")
+    // $body.append($pending)
+    // force.gravity(44)
     // .linkStrength(0.8)
     // .friction(0.9)
     // .linkDistance(2000)
@@ -81,13 +92,14 @@
     // .alpha(.1);
   }
   function endTransition() {
-    force.gravity(.3)
-    .linkStrength(0.8)
-    .friction(0.9)
-    .linkDistance(2)
-    .charge(-100)
-    .theta(0.8)
-    .alpha(4.1);
+    // $pending.text("")
+    // force.gravity(.3)
+    // .linkStrength(0.8)
+    // .friction(0.9)
+    // .linkDistance(2)
+    // .charge(-100)
+    // .theta(0.8)
+    // .alpha(4.1);
   }
 
   function getGravity() {
@@ -109,11 +121,11 @@
         if (count > maxCount) maxCount = count;
       }
     });
-    console.log(totalVolume, minCount, maxCount);
+    // console.log(totalVolume, minCount, maxCount);
 
     let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
 
-    console.log(totalVolume);
+    // console.log(totalVolume);
     return Object.keys(emojis).map(function(emoji) {
       // console.log(emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1])
       return {
@@ -127,7 +139,7 @@
 
   function getScalingFactor(total, min, max) {
     let factor = Math.sqrt(width * height / total);
-    console.log(factor, width, height, total);
+    // console.log(factor, width, height, total);
     return factor/2
   }
 
