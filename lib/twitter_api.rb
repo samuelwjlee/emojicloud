@@ -11,7 +11,7 @@ class TwitterApi
   @emoji2 << @emoji[81] << @emoji[86] << @emoji[97] << @emoji[111] << @emoji[164] << @emoji[190] << @emoji[197] << @emoji[299] << @emoji[400] << @emoji[504] << @emoji[505] << @emoji[506] << @emoji[511] << @emoji[624] << @emoji[630]
 
 
-  def self.tweets2
+  def self.tweets
     emoji = EmojiData.all
     emoji2 = emoji.slice(678, 53)
     emoji2.concat(emoji.slice(746, 9))
@@ -29,13 +29,24 @@ class TwitterApi
       object.text.split(" ").each do |word|
         if emoji2.join("").include?(word)
           if word_cloud[word]
-            word_cloud[word] += 1
+            word_cloud[word][0] += 1
+            # puts word_cloud[word][0]
+            # puts word
+            # puts count
           else
-            word_cloud[word] = 1
+            word_cloud[word] = [1, object.text, object.attrs[:place], object.attrs[:screen_name]]
           end
         end
       end
-      return word_cloud if count == 300
+      # puts object.methods
+      # puts object.instance_variables.map{|var| puts [var, object.instance_variable_get(var)].join(":")}
+    #  puts object.instance_variables.map{ |var| puts [var, ""].join(":")}
+      # puts object.instance_variable_get(@_memoized_method_cache)
+      # puts "hello"
+      puts object.attrs
+      # puts object.attrs[:place]
+      puts object.attrs[:screen_name]
+      return word_cloud if count == 1
     end
   end
 
