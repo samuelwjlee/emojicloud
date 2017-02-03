@@ -38,6 +38,7 @@
   </body>
 
   <script>
+
   // $(function() {
   // import d3 from 'd3';
   // var d3 = require('d3');
@@ -46,17 +47,51 @@
   // $(document).ready(function() {
 
   let emojis;
-  fetchEmojis('world', 'static');
+  let gravity = .1;
+  // fetchEmojis('world', 'static');
+
+  d3.json('/api/world_emojis/1', function(data) {
+    svg.selectAll("*").remove();
+    emojis = getEmojis(data.emojis);
+    addEmoji();
+  })
 
   function fetchEmojis(place, feed) {
-    let path = '/api/' + place + '_emojis'
-    if(feed == 'static') path += '/1'
+    beginTransition();
+    // gravity = 12;
+    let path = '/api/' + place + '_emojis';
+    if(feed == 'static') path += '/1';
 
     d3.json(path, function(data) {
+      endTransition();
+      // gravity = .1;
       svg.selectAll("*").remove();
       emojis = getEmojis(data.emojis);
-      addPerson();
+      addEmoji();
     })
+  }
+
+  function beginTransition() {
+    force.gravity(44)
+    // .linkStrength(0.8)
+    // .friction(0.9)
+    // .linkDistance(2000)
+    // .charge(-30)
+    // .theta(0.8)
+    // .alpha(.1);
+  }
+  function endTransition() {
+    force.gravity(.3)
+    .linkStrength(0.8)
+    .friction(0.9)
+    .linkDistance(2)
+    .charge(-100)
+    .theta(0.8)
+    .alpha(4.1);
+  }
+
+  function getGravity() {
+    return gravity;
   }
 
   function getEmojis(emojis) {
@@ -117,9 +152,13 @@
       .friction(0.9)
       .linkDistance(2)
       .charge(-100)
-      .gravity(0.1)
+      .gravity(.1)
       .theta(0.8)
       .alpha(4.1);
+
+      // force.gravity(function() {
+      //   return 5
+      // });
 
   function start() {
       node = node.data(force.nodes(), function(d) {
@@ -154,10 +193,19 @@
       node.on("mouseover", function(d) {
         console.log(d.emojiType);
         updateSidebar(d.emojiType);
-        // node.attr("height", function(d) {
-        //   return 100;
-        // });
+
+        d3.select(this).attr("height", function(d) {
+          return d.count * 2;
+        });
+
       });
+
+      node.on("mouseout", function(d) {
+        d3.select(this).attr("height", function(d) {
+          return d.count;
+        });
+      });
+
       force.start();
   }
 
@@ -188,48 +236,44 @@
       clusterPadding = 16, // separation between different-color circles
       maxRadius = 12;
 
-  function getInitialPosition() {
-    var position = {};
-    var dir = Math.floor(Math.random() * 4);
-    if (dir === 1) {
-      position.x = Math.random() * width;
-      position.y = 0;
-    } else if (dir === 2) {
-      position.x = Math.random() * width;
-      position.y = height;
-    } else if (dir === 3) {
-      position.x = 0;
-      position.y = Math.random() * height;
-    } else if (dir === 4) {
-      position.x = width;
-      position.y = Math.random() * height;
-    }
-    return position;
-  }
-  var delay = 10;
-
-
-
-  function addPerson() {
-      var feeling = emojis.pop();
-      var position = getInitialPosition();
-      // feeling.x = width/2;
-      // feeling.y = width/2;
+  // function getInitialPosition() {
+  //   var position = {};
+  //   var dir = Math.floor(Math.random() * 4);
+  //   if (dir === 1) {
+  //     position.x = Math.random() * width;
+  //     position.y = 0;
+  //   } else if (dir === 2) {
+  //     position.x = Math.random() * width;
+  //     position.y = height;
+  //   } else if (dir === 3) {
+  //     position.x = 0;
+  //     position.y = Math.random() * height;
+  //   } else if (dir === 4) {
+  //     position.x = width;
+  //     position.y = Math.random() * height;
+  //   }
+  //   return position;
+  // }
+  var delay = 0;
+  function addEmoji() {
+      var emoji = emojis.pop();
+      // var position = getInitialPosition();
+      emoji.x = width/2;
+      emoji.y = width/2;
       // feeling.x = position.x;
       // feeling.y = position.y;
-      nodes.push(feeling);
-      console.log("hello");
+      nodes.push(emoji);
+
       start();
       if (emojis.length > 0) {
         setTimeout(function () {
-          addPerson();
+          addEmoji();
         }, delay);
           delay -= .1;
 
       }
   }
 
-  // addPerson();
   // });
 
   </script>
