@@ -24,7 +24,7 @@ class TwitterApi
     heart = 0
     count = 0
     word_cloud = {}
-    client.filter(track: emoji2.join(",")) do |object|
+    client.filter(locations: '-165.058594, 18.552532, -58.535156, 72.151523', track: emoji2.join(",")) do |object|
       count += 1
       object.text.split(" ").each do |word|
         if emoji2.join("").include?(word)
@@ -161,7 +161,7 @@ class TwitterApi
           if word_cloud[word]
             word_cloud[word][0] += 1
           else
-            word_cloud[word] = [1, object.text]
+            word_cloud[word] = [1, object.text, object.attrs[:user][:location], object.attrs[:coordinates], object.attrs[:user][:screen_name]]
           end
         end
       end
