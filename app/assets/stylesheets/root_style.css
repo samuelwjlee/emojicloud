@@ -1,3 +1,8 @@
+html {
+  overflow: hidden;
+  margin: 0;
+}
+
 body {
   display: flex;
   flex-direction: row;
@@ -12,12 +17,18 @@ body {
 
 #emoji-header {
   text-align: center;
+  padding-top: 30px;
+  margin: 0;
 }
 
 #tweet {
   display: flex;
   flex-direction: row;
   border-style: solid;
+
+  height: 50px;
+  width: 500px;
+  overflow-x: hidden;
 }
 
 #emoji-controls {
@@ -36,9 +47,9 @@ body {
   border-style: none;
   border-width: 3px;
 
+  font-family: sans-serif;
   font-size: 20px;
   cursor: pointer;
-  /*font-family: arial;*/
 }
 
 .emoji-controls-btn:hover  {
