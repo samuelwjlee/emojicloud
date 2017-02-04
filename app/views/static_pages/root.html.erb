@@ -67,7 +67,7 @@
   // $(document).ready(function() {
 
   let emojis;
-  let gravity = .1;
+  // let gravity = .1;
   // fetchEmojis('world', 'static');
 
   // d3.json('/api/world_emojis/1', function(data) {
@@ -77,6 +77,15 @@
   // })
   fetchEmojis('world');
 
+  var width = 500;
+  var height = 500;
+  var nodes = [];
+  var links = [];
+
+  var svg = d3.select("#cloud")
+      .attr("width", width)
+      .attr("height", height)
+
   function fetchEmojis(place) {
     // beginTransition();
     let streamPath = '/api/' + place + '_emojis';
@@ -85,7 +94,27 @@
     d3.json(staticPath, function(data) {
       // endTransition();
       // gravity = .1;
+      // nodes.splice(d.index,1) //this deletes the node from the data at the nodes index
+
+      console.log("begin", nodes.length)
       svg.selectAll("*").remove();
+      while (nodes.length > 0) {
+        nodes.pop();
+      }
+      // nodes.remove();
+      // debugger
+      console.log("end", nodes.length)
+
+      // d3.event.stopPropagation();
+        //  this.remove();
+        //  force.resume();
+
+
+
+
+      // svg.remove();
+      // svg.attr("width", width).attr("height", height)
+
       emojis = getEmojis(data.emojis);
       addEmoji();
       console.log("made a static request");
@@ -124,9 +153,9 @@
     // .alpha(4.1);
   }
 
-  function getGravity() {
-    return gravity;
-  }
+  // function getGravity() {
+  //   return gravity;
+  // }
 
   function getEmojis(emojis) {
     let totalVolume = 0;
@@ -147,7 +176,7 @@
     let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
 
     return Object.keys(emojis).map(function(emoji) {
-      console.log(emojis[emoji])
+      // console.log(emojis[emoji])
       return {
         emojiData: emojis[emoji],
         // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
@@ -162,13 +191,8 @@
     return factor/2
   }
 
-  var width = 500;
-  var height = 500;
-  var nodes = [];
-  var links = [];
-  var svg = d3.select("#cloud")
-      .attr("width", width)
-      .attr("height", height)
+
+
 
   var node = svg.selectAll(".node");
 
@@ -214,14 +238,14 @@
       node.exit().remove();
       node.call(force.drag)
           .on("mousedown", function() {
-              console.log("this is a node on mousedown:", node);
+              // console.log("this is a node on mousedown:", node);
               d3.event.stopPropagation();
           });
       // node.on("mousedown", function() {
       //         console.log(node);
       //     });
       node.on("mouseover", function(d) {
-        console.log(d.emojiData);
+        // console.log(d.emojiData);
         updateSidebar(d.emojiData);
 
         d3.select(this).attr("height", function(d) {
