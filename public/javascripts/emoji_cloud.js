@@ -1,4 +1,3 @@
-
   // $(function() {
   // import d3 from 'd3';
   // var d3 = require('d3');
@@ -59,7 +58,7 @@
       addEmoji();
       console.log("made a static request");
       //pass in geo location here to point on a map
-      initMap({lat: 36.8, lng: -122.75});
+      // initMap({lat: 36.8, lng: -122.75});
     })
     d3.json(streamPath, function(data) {
       console.log("made a streaming request");
@@ -154,6 +153,25 @@
       //   return 5
       // });
 
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
   function start() {
       node = node.data(force.nodes(), function(d) {
           return d.index;
@@ -180,6 +198,18 @@
           .on("mousedown", function() {
               // console.log("this is a node on mousedown:", node);
               d3.event.stopPropagation();
+              //get coordinates from node and place marker
+              let coordinates = [
+                {lat: 37, lng: -123}, //san francisco
+                {lat: 44, lng: -85}, //detroit
+                {lat: 41, lng: -74}, //new york city
+                {lat: 30, lng: -90}, //new orleans
+                {lat: 34, lng: -120}, //los angeles
+                {lat: 30, lng: -97}, //austin
+              ]
+              deleteMarkers();
+              shuffle(coordinates);
+              placeMark(coordinates[0]);
           });
       // node.on("mousedown", function() {
       //         console.log(node);
