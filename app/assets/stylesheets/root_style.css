@@ -17,6 +17,9 @@ body {
 
 #emoji {
   height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 
   background-image: url('http://www.stratacloud.com/wp-content/uploads/2015/11/cloud-background.jpg');
 }
@@ -25,7 +28,7 @@ body {
   padding-left: 50px;
   padding-right: 80px;
   padding-top: 30px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 
   opacity: 1;
 }
