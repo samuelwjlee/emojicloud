@@ -243,3 +243,7 @@ f @ Bassin de… https://t.co/dB6YgYip3e", "Paris I", {:type=>"Point", :coordina
 n------------------------------\n#style #casual #mensstyle #handmade #artisanat #france… https://t.co/S3U3MFkdrf", "France", nil, "iMadtouch"], "✔️"=>[1, "Flat
 mates come to Wigan where do you take em first? Brocket ✔️", "Wigan/Sheffield", nil, "RachelAinsc"], "🔺"=>[2, "🔺 Stay focused  🔺\n\n📸 @runonline_ @ Pista A
 tletismo Gallur https://t.co/BK2uIjhmSt", "Zaragoza, España", {:type=>"Point", :coordinates=>[-3.7187076, 40.6159913]}, "superlecha"]}
+
+
+s="Thats a nice joke 😆😆😆 😛"
+s2 = s.find("(<U\\+\\w+?>)")
