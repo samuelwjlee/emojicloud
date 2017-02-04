@@ -6,17 +6,31 @@
 <!DOCTYPE html>
 <html id="root">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/emojione/2.2.7/assets/css/emojione.min.css"/>
-<!-- <script src='http://cdn.jsdelivr.net/emojione/2.1.4/lib/js/emojione.min.js'></script>
-<link rel='stylesheet prefetch' href='http://cdn.jsdelivr.net/emojione/2.1.4/assets/css/emojione.min.css'> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script>
+
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'></script> -->
 <script src="https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js"></script>
+
+<!-- Modal Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- Modal Stylesheet -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.css" type="text/css" media="screen" /> -->
+
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <div id="emoji">
-      <h1 id="emoji-header"><img src="https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png"></h1>
+      <h1 id="emoji-header">
+        <img src="https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png">
+
+          <!-- Link to open the modal -->
+          <div class="modal-link">
+            <!-- <a href="#description-modal" rel="modal:open">How It Works</a> -->
+            <button class="modal-control" onClick=openModal()>How It Works</button>
+          </div>
+
+      </h1>
 
       <svg id="cloud"></svg>
 
@@ -38,11 +52,32 @@
       <div id="tweet-text"> </div>
     </div>
 
+
+
   </body>
+
+  <div id="description-modal" style="display:none;">
+    <p>EmojiCloud is a graphical representation of emojis from around the world. You can also limit it to specified regions by clicking one of the buttons below. </p>
+    <p> Reprented in logarithmic scale -- i.e. an emoji that is twice the size of another is actually 10 times more popular. Three times larger is 100 times more popular.</p>
+    <p>IMAGE</p>
+    <p>IMAGE</p>
+    <p>IMAGE</p>
+  </div>
 
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0M_LTkZTCrvdscBqVHbpmhizR1z4VK2k&callback=initMap">
   </script>
 
-
   <script  type="text/javascript" src="/javascripts/emoji_cloud.js"> </script>
+
+  <script type="text/javascript">
+  let $modal = $("#description-modal")
+  function openModal() {
+    $modal.modal({
+    fadeDuration: 300,
+    clickClose: true
+    });
+  }
+  </script>
+
+</html>
