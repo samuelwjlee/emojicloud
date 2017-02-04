@@ -26,6 +26,26 @@ class TwitterApi
     end
   end
 
+  def self.world_data
+    tweets = []
+    client.filter(track: @emoji2.join(",")) do |tweet|
+      tweets << tweet
+      print "-"
+      return tweets if tweets.count > 300
+    end
+  end
+
+  def self.world_data2
+    tweets = []
+    client.sample do |tweet|
+      if tweet.is_a?(Twitter::Tweet)
+        tweets << tweet
+        print "-"
+        return tweets if tweets.count > 1000
+      end
+    end
+  end
+
   def self.location(arr)
     arr.each do |tweet|
       puts "#{tweet.attrs[:user][:location]}  #{tweet.attrs[:coordinates]}"
@@ -77,6 +97,42 @@ class TwitterApi
     sort(data(ASIA))
   end
 
+  def self.world
+    sort(world_data)
+  end
+
+  def self.world2
+    sort(world_data2)
+  end
+
+  def self.stream_world
+    client.sample do |tweet|
+      puts tweet.text if tweet.is_a?(Twitter::Tweet)
+    end
+  end
+
+  def self.stream(region)
+    client.filter(locations: region) do |tweet|
+      puts "#{tweet.text}  Location: #{tweet.attrs[:user][:location]} Coordinates: #{tweet.attrs[:user][:location]}" if tweet.is_a?(Twitter::Tweet)
+    end
+  end
+
+  def self.stream_asia
+    stream(ASIA)
+  end
+
+  def self.stream_europe
+    stream(EUROPE)
+  end
+
+  def self.stream_n_america
+    stream(N_AMERICA)
+  end
+
+  def self.stream_africa
+    stream(AFRICA)
+  end
+
 
   def self.tweets
     emoji = EmojiData.all
@@ -101,7 +157,7 @@ class TwitterApi
             # puts word
             # puts count
           else
-            word_cloud[word] = [1, object.text, object.attrs[:user][:location], object.attrs[:coordinates], object.attrs[:user][:screen_name]]
+            word_cloud[word] = [1, object.text, object.attrs[:user][:location], object.attrs[:coordinates], object.attrs[:coordinates]]
           end
         end
       end
@@ -295,25 +351,25 @@ class TwitterApi
 
   def self.all_tweets
     client.sample do |tweet|
-      # puts tweet.text if tweet.is_a?(Twitter::Tweet)
-      emoji = EmojiData.all
-      word_cloud = {}
-      if tweet.is_a?(Twitter::Tweet)
-        tweet.text.split(" ").each do |word|
-          # puts word
-          if emoji.join("").include?(word)
-            if word_cloud[word]
-              word_cloud[word] += 1
-            else
-              word_cloud[word] = 1
-            end
-          end
-          # common = ["RT", "the", "a", "you", "I", "me", "to", "at", "and", "so", "for", "in", "de", "my", "que", "no", "this", "is", "of", "This"]
-          if word_cloud[word]  #&& !common.include?(word) && emoji2.join(",").include?(word)
-            puts "#{word}: #{word_cloud[word]}"
-          end
-        end
-      end
+      puts tweet.text if tweet.is_a?(Twitter::Tweet)
+      # emoji = EmojiData.all
+      # word_cloud = {}
+      # if tweet.is_a?(Twitter::Tweet)
+      #   tweet.text.split(" ").each do |word|
+      #     # puts word
+      #     if emoji.join("").include?(word)
+      #       if word_cloud[word]
+      #         word_cloud[word] += 1
+      #       else
+      #         word_cloud[word] = 1
+      #       end
+      #     end
+      #     # common = ["RT", "the", "a", "you", "I", "me", "to", "at", "and", "so", "for", "in", "de", "my", "que", "no", "this", "is", "of", "This"]
+      #     if word_cloud[word]  #&& !common.include?(word) && emoji2.join(",").include?(word)
+      #       puts "#{word}: #{word_cloud[word]}"
+      #     end
+      #   end
+      # end
       # puts tweet.text if tweet.is_a?(Twitter::Tweet)
     end
   end
