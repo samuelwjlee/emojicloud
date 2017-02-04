@@ -48,27 +48,42 @@ body {
 #tweet {
   display: flex;
   flex-direction: row;
-  border-style: solid;
 
-  height: 50px;
+  height: 70px;
   width: 500px;
-  overflow-x: hidden;
+
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
 
   margin: 0;
   padding: 0;
 
   position:absolute;
   z-index:10;
-  top:100px;
+  top:50px;
   left:700px;
+
+  box-shadow: 10px 10px 5px #888888;
+}
+
+#tweet-img {
+  padding-top: 25px;
+  padding-left: 15px;
+}
+
+#tweet-text {
+  margin: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: blue;
 }
 
 #emoji-controls {
   display: flex;
   justify-content: space-around;
   background-color: blue;
-
-  margin-top: auto;
 }
 
 .emoji-controls-btn {
