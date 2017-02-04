@@ -56,25 +56,25 @@ class TwitterApi
   end
 
   def self.europe
-    puts Time.now
+    # puts Time.now
     # location(data(EUROPE)) #test locations
     sort(data(EUROPE))
-    puts Time.now
+    # puts Time.now
   end
 
   def self.n_america
     #location(data(N_AMERICA))
-    data(N_AMERICA)
+    sort(data(N_AMERICA))
   end
 
   def self.africa
     # location(data(AFRICA)) #test locations
-    data(AFRICA)
+    sort(data(AFRICA))
   end
 
   def self.asia
-    location(data(ASIA)) #test locations
-    data(ASIA)
+    # location(data(ASIA)) #test locations
+    sort(data(ASIA))
   end
 
 
