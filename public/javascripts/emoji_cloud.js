@@ -271,18 +271,6 @@
                 ];
             } else if (current_continent === 'world') {
                coordinates = [
-                {lat: 37, lng: -123}, //san francisco
-                {lat: 44, lng: -85}, //detroit
-                {lat: 41, lng: -74}, //new york city
-                {lat: 30, lng: -90}, //new orleans
-                {lat: 34, lng: -120}, //los angeles
-                {lat: 30, lng: -97}, //austin
-                {lat: 42, lng: -88}, //chicago
-                {lat: 48, lng: -122}, //seatle
-                {lat: 49, lng: -123}, //vancouver
-                {lat: 39, lng: -95}, //kansas city
-                {lat: 28, lng: -82}, //florida
-                {lat: 19, lng: -99}, //mexico city
                 {lat: 36, lng: 127}, //korea
                 {lat: 36, lng: 138}, //japan
                 {lat: 40, lng: 116}, //beijing
