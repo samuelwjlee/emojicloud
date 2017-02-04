@@ -17,7 +17,7 @@
   </head>
   <body>
     <div id="emoji">
-      <h1 id="emoji-header">Emojicloud</h1>
+      <h1 id="emoji-header"><img src="https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png"></h1>
 
       <svg id="cloud"></svg>
 
@@ -143,15 +143,13 @@
         if (count > maxCount) maxCount = count;
       }
     });
-    // console.log(totalVolume, minCount, maxCount);
 
     let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
 
-    // console.log(totalVolume);
     return Object.keys(emojis).map(function(emoji) {
-      // console.log(emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1])
+      console.log(emojis[emoji])
       return {
-        emojiType: emojis[emoji][1],
+        emojiData: emojis[emoji],
         // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
         imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
         count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
@@ -161,7 +159,6 @@
 
   function getScalingFactor(total, min, max) {
     let factor = Math.sqrt(width * height / total);
-    // console.log(factor, width, height, total);
     return factor/2
   }
 
@@ -172,7 +169,12 @@
   var svg = d3.select("#cloud")
       .attr("width", width)
       .attr("height", height)
+<<<<<<< HEAD
+      // .style("background-color", url("https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/738px-Twitter_bird_logo_2012.svg.png"));
+
+=======
       .attr('background-color', 'blue')
+>>>>>>> a29428b2b4b75ba6fbeaab1604d03bcba37bc1d0
 
   var node = svg.selectAll(".node");
 
@@ -209,8 +211,8 @@
           .attr("class", function(d) {
               return "node";
           })
-          .attr("emojiType", function(d) {
-              return d.emojiType;
+          .attr("emojiData", function(d) {
+              return d.emojiData;
           });
           // .on("mouseover", fade(.1, true));
           // .attr("width", 120)
@@ -218,18 +220,18 @@
       node.exit().remove();
       node.call(force.drag)
           .on("mousedown", function() {
-              console.log(node);
+              console.log("this is a node on mousedown:", node);
               d3.event.stopPropagation();
           });
       // node.on("mousedown", function() {
       //         console.log(node);
       //     });
       node.on("mouseover", function(d) {
-        console.log(d.emojiType);
-        updateSidebar(d.emojiType);
+        console.log(d.emojiData);
+        updateSidebar(d.emojiData);
 
         d3.select(this).attr("height", function(d) {
-          return d.count * 2;
+          return d.count * 1.2;
         });
 
       });
@@ -244,9 +246,14 @@
   }
 
   let tweets = document.getElementById('tweet-text');
-  function updateSidebar(emojiType){
-    tweets.innerHTML = emojiType;
+
+  function updateSidebar(emojiData){
+
+    tweets.innerHTML = "COUNT: " + emojiData[0] + ", TEXT: " + emojiData[1] + ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
   }
+
+
+  ////////////////////////////////// COMMENTS OUT FOR COLLISION DETECTION //////////////////////////////////
 
   function tick(e) {
       node.attr("x", function(d) {
@@ -263,9 +270,79 @@
                     return 0;
                   } else {return d.y;}
               });
-          // .each(cluster(10 * e.alpha * e.alpha))
-          // .each(collide(.5))
   }
+
+
+  ////////////////////////////////// COLLISION DETECTION //////////////////////////////////
+
+  // force.on("tick", function(e) {
+  //   var q = d3.geom.quadtree(nodes),
+  //       i = 0,
+  //       n = nodes.length;
+  //   while (++i < n) {
+  //     q.visit(collide(nodes[i]));
+  //   }
+  //   // svg.selectAll("node")
+  //   //     .attr("x", function(d) { return d.x; })
+  //   //     .attr("y", function(d) { return d.y; });
+  //
+  //   node.attr("x", function(d) {
+  //           if (d.x >= width - (d.count)) {
+  //             return width - (d.count);
+  //           } else if (d.x <= 0) {
+  //             return 0;
+  //           } else {return d.x;}
+  //       })
+  //       .attr("y", function(d) {
+  //               if (d.y >= height - (d.count)) {
+  //                 return height - (d.count);
+  //               } else if (d.y <= 0) {
+  //                 return 0;
+  //               } else {return d.y;}
+  //           });
+  //
+  // })
+  //
+  //
+  // function collide(node) {
+  //   var r = node.count,
+  //       nx1 = node.x - r,
+  //       nx2 = node.x + r,
+  //       ny1 = node.y - r,
+  //       ny2 = node.y + r;
+  //       console.log(node.count, nx1, nx2, ny1, ny2);
+  //   return function(quad, x1, y1, x2, y2) {
+  //     if (quad.point && (quad.point !== node)) {
+  //       var x = node.x - quad.point.x,
+  //           y = node.y - quad.point.y,
+  //           l = Math.sqrt(x * x + y * y),
+  //           r = node.count + quad.point.radius;
+  //       if (l < r) {
+  //         l = (l - r) / l * .5;
+  //         node.x -= x *= l;
+  //         node.y -= y *= l;
+  //         quad.point.x += x;
+  //         quad.point.y += y;
+  //       }
+  //     }
+  //     return x1 > nx2
+  //         || x2 < nx1
+  //         || y1 > ny2
+  //         || y2 < ny1;
+  //   };
+  // }
+
+
+  ////////////////////////////////// COLLISION DETECTION //////////////////////////////////
+
+
+
+
+
+
+
+
+
   let padding = 15, // separation between same-color circles
       clusterPadding = 16, // separation between different-color circles
       maxRadius = 12;
@@ -290,6 +367,13 @@
   // }
   var delay = 0;
   function addEmoji() {
+    // emojis.forEach((emoji) => {
+    //   emoji.x = width/2;
+    //   emoji.y = width/2;
+    //   nodes.push(emoji));
+    // });
+    // start();
+
       var emoji = emojis.pop();
       // var position = getInitialPosition();
       emoji.x = width/2;
@@ -304,6 +388,7 @@
           addEmoji();
         }, delay);
           delay -= .1;
+
       }
   }
 
