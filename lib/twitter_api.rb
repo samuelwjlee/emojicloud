@@ -21,7 +21,7 @@ class TwitterApi
     tweets = []
     client.filter(locations: region) do |tweet|
       tweets << tweet
-      print "-"
+      # print "-"
       return tweets if tweets.count > 1000
     end
   end
@@ -30,7 +30,7 @@ class TwitterApi
     tweets = []
     client.filter(track: @emoji2.join(",")) do |tweet|
       tweets << tweet
-      print "-"
+      # print "-"
       return tweets if tweets.count > 300
     end
   end
@@ -40,7 +40,7 @@ class TwitterApi
     client.sample do |tweet|
       if tweet.is_a?(Twitter::Tweet)
         tweets << tweet
-        print "-"
+        # print "-"
         return tweets if tweets.count > 1000
       end
     end
@@ -60,7 +60,7 @@ class TwitterApi
       tweet2 = (EMOJI_REGEX.match(tweet.text)).to_s
         tweet2.split(" ").each do |word|
           if @emoji.join("").include?(word)
-            print count += 1
+            # print count += 1
             if word_cloud[word]
               word_cloud[word][0] += 1
             else
@@ -68,7 +68,7 @@ class TwitterApi
             end
           end
         end
-      print "."
+      # print "."
     end
 
     puts word_cloud
