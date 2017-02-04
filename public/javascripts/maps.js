@@ -1,13 +1,23 @@
 let map;
 let markers = [];
+let current_continent;
 // let image = 'http://medcitynews.com/wp-content/uploads/twitter-blue-bird.png'
-
-function initMap(geo={lat: 39, lng: -98}) {
+//load map, default to world map
+function initMap(geo = {lat: 48, lng: 67}, zoom = 2) {
   // var uluru = {lat: -25.363, lng: 131.044};
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
+    zoom: zoom,
     center: geo
   });
+
+  const continents = {
+    48: 'world',
+    7: 'africa',
+    34: 'asia',
+    50: 'europe',
+    39: 'us'
+  }
+  current_continent = continents[geo.lat];
 }
 
 function placeMark(geo) {

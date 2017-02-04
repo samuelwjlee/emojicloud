@@ -74,7 +74,7 @@ body {
 
 #tweet-text {
   margin: 15px;
-  /*overflow: hidden;*/
+  overflow: hidden;
   text-overflow: ellipsis;
 
   color: blue;

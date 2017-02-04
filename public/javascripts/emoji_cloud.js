@@ -31,6 +31,17 @@
     let staticPath = streamPath + '/1'
 
     d3.json(staticPath, function(data) {
+
+      // initialize continent map with preset geo and zoom
+      const continents = {
+        world: [{lat: 48, lng: 67}, 2],
+        africa: [{lat: 7, lng: 21}, 3],
+        asia: [{lat: 34, lng: 109}, 3],
+        europe: [{lat: 50, lng: 14}, 4],
+        us: [{lat: 39, lng: -98}, 4]
+      }
+      initMap(continents[place][0], continents[place][1]);
+
       // endTransition();
       // gravity = .1;
       // nodes.splice(d.index,1) //this deletes the node from the data at the nodes index
@@ -57,8 +68,6 @@
       emojis = getEmojis(data.emojis);
       addEmoji();
       console.log("made a static request");
-      //pass in geo location here to point on a map
-      // initMap({lat: 36.8, lng: -122.75});
     })
     d3.json(streamPath, function(data) {
       console.log("made a streaming request");
@@ -198,15 +207,121 @@
           .on("mousedown", function() {
               // console.log("this is a node on mousedown:", node);
               d3.event.stopPropagation();
-              //get coordinates from node and place marker
-              let coordinates = [
+              //fake tweet coordinates
+              let coordinates;
+              if (current_continent === 'us') {
+                 coordinates = [
+                  {lat: 37, lng: -123}, //san francisco
+                  {lat: 44, lng: -85}, //detroit
+                  {lat: 41, lng: -74}, //new york city
+                  {lat: 30, lng: -90}, //new orleans
+                  {lat: 34, lng: -120}, //los angeles
+                  {lat: 30, lng: -97}, //austin
+                  {lat: 42, lng: -88}, //chicago
+                  {lat: 48, lng: -122}, //seatle
+                  {lat: 49, lng: -123}, //vancouver
+                  {lat: 39, lng: -95}, //kansas city
+                  {lat: 28, lng: -82}, //florida
+                  {lat: 19, lng: -99} //mexico city
+                ];
+              } else if (current_continent === 'europe') {
+                 coordinates = [
+                  {lat: 50, lng: 14}, //praque
+                  {lat: 52, lng: 13}, //berlin
+                  {lat: 51, lng: -.1}, //london
+                  {lat: 40, lng: -3}, //madrid
+                  {lat: 42, lng: 13}, //los angeles
+                  {lat: 49, lng: 2}, //paris
+                  {lat: 47, lng: 19}, //budapest
+                  {lat: 52, lng: 21}, //warsaw
+                  {lat: 45, lng: 9}, //milan
+                  {lat: 41, lng: 28}, //istanbul
+                  {lat: 53, lng: -7}, //ireland
+                  {lat: 38, lng: 23} //athens
+                ];
+              } else if (current_continent === 'africa') {
+                 coordinates = [
+                  {lat: 34, lng: 14}, //cape town
+                  {lat: 9, lng: 9}, //nigeria
+                  {lat: 26, lng: 28}, //johannesburg
+                  {lat: 4, lng: 21}, //congo
+                  {lat: 13, lng: 30}, //sudan
+                  {lat: 27, lng: 30}, //egypt
+                  {lat: 26, lng: 17}, //libya
+                  {lat: 28, lng: -2}, //a;geria
+                  {lat: 19, lng: 47}, //madagascar
+                  {lat: 19, lng: 28}, //zimbabwe
+                  {lat: 13, lng: 34}, //malawi
+                  {lat: 8, lng: -1} //ghana
+                ];
+              } else if (current_continent === 'asia') {
+                 coordinates = [
+                  {lat: 36, lng: 127}, //korea
+                  {lat: 36, lng: 138}, //japan
+                  {lat: 40, lng: 116}, //beijing
+                  {lat: 31, lng: 121}, //shanghai
+                  {lat: 23, lng: 113}, //guangzhou
+                  {lat: 47, lng: 103}, //mongolia
+                  {lat: 20, lng: 79}, //india
+                  {lat: 14, lng: 100}, //bangkok
+                  {lat: 22, lng: 96}, //burma
+                  {lat: 13, lng: 121}, //philippines
+                  {lat: 1, lng: 103}, //singapore
+                  {lat: 6, lng: 106} //jakarta
+                ];
+            } else if (current_continent === 'world') {
+               coordinates = [
                 {lat: 37, lng: -123}, //san francisco
                 {lat: 44, lng: -85}, //detroit
                 {lat: 41, lng: -74}, //new york city
                 {lat: 30, lng: -90}, //new orleans
                 {lat: 34, lng: -120}, //los angeles
                 {lat: 30, lng: -97}, //austin
-              ]
+                {lat: 42, lng: -88}, //chicago
+                {lat: 48, lng: -122}, //seatle
+                {lat: 49, lng: -123}, //vancouver
+                {lat: 39, lng: -95}, //kansas city
+                {lat: 28, lng: -82}, //florida
+                {lat: 19, lng: -99}, //mexico city
+                {lat: 36, lng: 127}, //korea
+                {lat: 36, lng: 138}, //japan
+                {lat: 40, lng: 116}, //beijing
+                {lat: 31, lng: 121}, //shanghai
+                {lat: 23, lng: 113}, //guangzhou
+                {lat: 47, lng: 103}, //mongolia
+                {lat: 20, lng: 79}, //india
+                {lat: 14, lng: 100}, //bangkok
+                {lat: 22, lng: 96}, //burma
+                {lat: 13, lng: 121}, //philippines
+                {lat: 1, lng: 103}, //singapore
+                {lat: 6, lng: 106}, //jakarta
+                {lat: 34, lng: 14}, //cape town
+                {lat: 9, lng: 9}, //nigeria
+                {lat: 26, lng: 28}, //johannesburg
+                {lat: 4, lng: 21}, //congo
+                {lat: 13, lng: 30}, //sudan
+                {lat: 27, lng: 30}, //egypt
+                {lat: 26, lng: 17}, //libya
+                {lat: 28, lng: -2}, //a;geria
+                {lat: 19, lng: 47}, //madagascar
+                {lat: 19, lng: 28}, //zimbabwe
+                {lat: 13, lng: 34}, //malawi
+                {lat: 8, lng: -1}, //ghana
+                {lat: 50, lng: 14}, //praque
+                {lat: 52, lng: 13}, //berlin
+                {lat: 51, lng: -.1}, //london
+                {lat: 40, lng: -3}, //madrid
+                {lat: 42, lng: 13}, //los angeles
+                {lat: 49, lng: 2}, //paris
+                {lat: 47, lng: 19}, //budapest
+                {lat: 52, lng: 21}, //warsaw
+                {lat: 45, lng: 9}, //milan
+                {lat: 41, lng: 28}, //istanbul
+                {lat: 53, lng: -7}, //ireland
+                {lat: 38, lng: 23} //athens
+              ];
+            }
+              //get coordinates from node and place marker
               deleteMarkers();
               shuffle(coordinates);
               placeMark(coordinates[0]);
