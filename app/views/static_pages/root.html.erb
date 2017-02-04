@@ -32,9 +32,11 @@
 
     <div id="map">
       <script>
-        function initMap(geo) {
+        let map;
+
+        function initMap(geo = {lat: 36.8, lng: -122.75}) {
           // var uluru = {lat: -25.363, lng: 131.044};
-          var map = new google.maps.Map(document.getElementById('map'), {
+          map = new google.maps.Map(document.getElementById('map'), {
             zoom: 3,
             center: geo
           });
@@ -109,9 +111,6 @@
         //  this.remove();
         //  force.resume();
 
-
-
-
       // svg.remove();
       // svg.attr("width", width).attr("height", height)
 
@@ -119,8 +118,6 @@
       addEmoji();
       console.log("made a static request");
       //pass in geo location here to point on a map
-
-      initMap({lat: 36.8, lng: -122.75});
     })
     d3.json(streamPath, function(data) {
       console.log("made a streaming request");
@@ -241,6 +238,7 @@
           .on("mousedown", function() {
               // console.log("this is a node on mousedown:", node);
               d3.event.stopPropagation();
+
           });
       // node.on("mousedown", function() {
       //         console.log(node);
