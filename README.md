@@ -1,4 +1,3 @@
-# README
 ![EmojiCloud-logo]
 [EmojiCloud-logo]: ./docs/screenshots/emoji-cloud-logo.png
 [live][EmojiCloud]
