@@ -69,9 +69,9 @@ function fetchEmojis(place) {
     addEmoji();
     // console.log("made a static request");
   })
-  d3.json(streamPath, function(data) {
-    // console.log("made a streaming request");
-  })
+  // d3.json(streamPath, function(data) {
+  //   // console.log("made a streaming request");
+  // })
 }
 
 
@@ -340,7 +340,7 @@ let tweets = document.getElementById('tweet-text');
 
 function updateSidebar(emojiData){
   //console.log(tweets);
-  tweets.innerHTML = "Emoji Count: " + emojiData[0] + "<br>" + emojiData[4] + ": " + emojiData[1]; //+ ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
+  tweets.innerHTML = "COUNT: " + emojiData[0] + ", TEXT: " + emojiData[1] + ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
 }
 
 
