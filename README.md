@@ -5,26 +5,29 @@
 [EmojiCloud]: https://emojicloud.herokuapp.com/
 
 
-#### EmojiCloud
-EmojiCloud is a visualization of emojis from tweets posted at a certain time or location. Similar to word cloud, more common emojis will be larger in size. Through this visualization, users will be able to get the general sense of how the public is feeling at a certain time and location.
+## EmojiCloud
+EmojiCloud is a data visualization of emoji usage from around the world. We utilize the Twitter API to collect tweets, analyze the emoji usage trends, and present the data in an friendly cloud format. Similar to a word cloud, more common emojis are depicted larger in size.
 
 
 ## Features
-519px wide
+#### The Emoji Cloud
+A visual representation of emojis used in tweets. The emoji "cloud" displays the relative frequency of each type of emoji, in logarithmic scale.
 
 ![emoji-cloud-screenshot]
 [emoji-cloud-screenshot]: ./docs/screenshots/cloud-screenshot.png
 
+#### Tweet Sample
+
 ![tweet-sample-screenshot]
 [tweet-sample-screenshot]: ./docs/screenshots/tweet-screenshot.png
 
-519px wide
 
+#### Map Pin
 ![map-screenshot]
 [map-screenshot]: ./docs/screenshots/map-screenshot.png
 
 
-## Technologies and Technical Challenges
+## Technologies and Challenges
 
 ### Rails and the Twitter API
 EmojiCloud was built with a Rails backend to implement the Twitter API.
@@ -42,16 +45,23 @@ EmojiCloud was built with a Rails backend to implement the Twitter API.
 #### API bottleneck
 - increased responsiveness by making two API requests (static and streaming)
 
-### D3 Cloud Visualization
-The cloud visualization was implemented using the d3.js library. One of the issues we had foreseen was d3's incompatibility with React. Both require DOM control and don't play well together. We decided to pivot from a React implementation since it was not necessarily needed for our use case: there weren't many different components to render nor was there a need for Reacts portability. This made implementation of d3 considerable easier and rendering more smooth.
+### Cloud Visualization using Data-Driven-Documents(D3)
+The cloud visualization was implemented using the d3.js library. One of the issues we had foreseen was d3's incompatibility with React. Both require DOM control and don't play well together. We decided to pivot from a React implementation since it was not necessarily needed for our use case: there weren't many different components to render nor was there a need for Reacts portability. This made implementation of d3 considerably easier and rendering more smooth.
 
-Javascript library, Data-Driven-Documents(D3)
+- Benefits of D3
+  - nodes updating on "tick"
+- Negatives of D3
+  - interaction with React
+
+Javascript library,
 
 #### Choosing visualization
 - considered "word cloud" but unnecessarily complex for round images versus rectangular shaped words
 - D3 force node graph
 
 #### Rendering Data
+- In order to make the cloud visually appealing we had to create an algorithm to maximize the size of the emojis while...
+- Before we set out on this project we were unaware of the popularity of some emojis. In fact, in any given sample we used the most popular emoji was 10 times larger than ....
 - Use of Logarithmic Scale
 
 #### Collision Detection
