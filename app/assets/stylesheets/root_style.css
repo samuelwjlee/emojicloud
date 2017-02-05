@@ -27,7 +27,7 @@ body {
 #cloud {
   padding-left: 50px;
   padding-right: 80px;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 30px;
 
   opacity: 1;
@@ -38,7 +38,7 @@ body {
   vertical-align: middle;
 
   margin: 0;
-  background-color: blue;
+  background-color: #d82424;
   color: white;
 
   padding-top: 10px;
@@ -77,13 +77,13 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: blue;
+  color: navy;
 }
 
 #emoji-controls {
   display: flex;
   justify-content: space-around;
-  background-color: blue;
+  background-color: #d82424;
 }
 
 .emoji-controls-btn {
