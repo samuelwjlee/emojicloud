@@ -1,6 +1,6 @@
 # README
 ![EmojiCloud-logo]
-[EmojiCloud-logo]: ./doc/screenshots/emoji-cloud-logo.png
+[EmojiCloud-logo]: ./docs/screenshots/emoji-cloud-logo.png
 [live][EmojiCloud]
 [EmojiCloud]: https://emojicloud.herokuapp.com/
 
@@ -13,15 +13,15 @@ EmojiCloud is a visualization of emojis from tweets posted at a certain time or 
 519px wide
 
 ![emoji-cloud-screenshot]
-[emoji-cloud-screenshot]: ./doc/screenshots/cloud-screenshot.png
+[emoji-cloud-screenshot]: ./docs/screenshots/cloud-screenshot.png
 
 ![tweet-sample-screenshot]
-[tweet-sample-screenshot]: ./doc/screenshots/tweet-screenshot.png
+[tweet-sample-screenshot]: ./docs/screenshots/tweet-screenshot.png
 
 519px wide
 
 ![map-screenshot]
-[map-screenshot]: ./doc/screenshots/map-screenshot.png
+[map-screenshot]: ./docs/screenshots/map-screenshot.png
 
 
 ## Technologies and Technical Challenges
