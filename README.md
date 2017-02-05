@@ -17,13 +17,15 @@ A visual representation of emojis used in tweets. The emoji "cloud" displays the
 [emoji-cloud-screenshot]: ./docs/screenshots/cloud-screenshot.png
 
 #### Tweet Sample
-When you click on an emoji in the cloud a sample tweet appears...
+When you click on an emoji in the cloud a sample tweet pops up...
+
 ![tweet-sample-screenshot]
 [tweet-sample-screenshot]: ./docs/screenshots/tweet-screenshot.png
 
 
 #### Map Pin
-As does a marked on the map, pinpointing the location of the tweet.
+As does a marker on the map, pinpointing the location of the tweet.
+
 ![map-screenshot]
 [map-screenshot]: ./docs/screenshots/map-screenshot.png
 
