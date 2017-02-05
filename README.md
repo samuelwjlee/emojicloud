@@ -1,6 +1,6 @@
 # README
 ![EmojiCloud-logo]
-[EmojiCloud-logo]: https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png
+[EmojiCloud-logo]: ./doc/screenshots/emoji-cloud-logo.png
 [live][EmojiCloud]
 [EmojiCloud]: https://emojicloud.herokuapp.com/
 
@@ -10,15 +10,18 @@ EmojiCloud is a visualization of emojis from tweets posted at a certain time or 
 
 
 ## Features
+519px wide
 
 ![emoji-cloud-screenshot]
-[emoji-cloud-screenshot]: ./docs/screenshots/emoji-cloud-screenshot.png
+[emoji-cloud-screenshot]: ./doc/screenshots/cloud-screenshot.png
 
 ![tweet-sample-screenshot]
-[tweet-sample-screenshot]: ./docs/screenshots/tweet-sample-screenshot.png
+[tweet-sample-screenshot]: ./doc/screenshots/tweet-screenshot.png
+
+519px wide
 
 ![map-screenshot]
-[map-screenshot]: ./docs/screenshots/map-screenshot.png
+[map-screenshot]: ./doc/screenshots/map-screenshot.png
 
 
 ## Technologies and Technical Challenges
@@ -58,7 +61,7 @@ Javascript library, Data-Driven-Documents(D3)
 #### Refreshing Nodes
 - issues with nodes being removed from the canvas but still creating a legacy force effect (like a black hole). Each subsequent request for emoji data caused the cloud to distort to greater extent. Testing led to using nodes.pop()
 
-## Group Members
+### The EmojiCloud Team
 EmojiCloud was designed and implemented by Mark Noizumi, Peter Delfausse, and Samuel Lee.
 
-Mark and Sam put together the Rails backend, tamed the Twitter API, and collected emoji data. Peter transformed the data into an emoji cloud on the frontend.
+Mark and Sam put together the Rails backend, tamed the Twitter API, and formatted the data. Peter transformed the data into an emoji cloud on the frontend.
