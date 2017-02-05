@@ -46,14 +46,14 @@ function fetchEmojis(place) {
     // gravity = .1;
     // nodes.splice(d.index,1) //this deletes the node from the data at the nodes index
 
-    console.log("begin", nodes.length)
+    //console.log("begin", nodes.length)
     svg.selectAll("*").remove();
     while (nodes.length > 0) {
       nodes.pop();
     }
     // nodes.remove();
     // debugger
-    console.log("end", nodes.length)
+    //console.log("end", nodes.length)
 
     // d3.event.stopPropagation();
       //  this.remove();
@@ -67,10 +67,10 @@ function fetchEmojis(place) {
 
     emojis = getEmojis(data.emojis);
     addEmoji();
-    console.log("made a static request");
+    // console.log("made a static request");
   })
   d3.json(streamPath, function(data) {
-    console.log("made a streaming request");
+    // console.log("made a streaming request");
   })
 }
 
@@ -339,7 +339,7 @@ function start() {
 let tweets = document.getElementById('tweet-text');
 
 function updateSidebar(emojiData){
-  console.log(tweets);
+  //console.log(tweets);
   tweets.innerHTML = "COUNT: " + emojiData[0] + ", TEXT: " + emojiData[1] + ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
 }
 
