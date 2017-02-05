@@ -38,7 +38,7 @@ body {
   vertical-align: middle;
 
   margin: 0;
-  background-color: #a31023;
+  background-color: #c91414;
   color: white;
 
   padding-top: 10px;
@@ -83,7 +83,7 @@ body {
 #emoji-controls {
   display: flex;
   justify-content: space-around;
-  background-color: #a31023;
+  background-color: #c91414;
 }
 
 .emoji-controls-btn {
