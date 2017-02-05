@@ -1,3 +1,25 @@
+.modal-emoji-image.small {
+  width: 20px;
+  height: 20px;
+}
+.modal-emoji-image.medium {
+  width: 30px;
+  height: 30px;
+}
+.modal-emoji-image.large {
+  width: 40px;
+  height: 40px;
+}
+
+.modal-emoji-image {
+  margin: 0 20px;
+}
+
+.modal-header {
+  text-align: center;
+  font-size: 20px;
+}
+
 .blocker {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
