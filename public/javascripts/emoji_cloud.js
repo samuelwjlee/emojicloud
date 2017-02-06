@@ -29,7 +29,7 @@ function fetchEmojis(place) {
   // beginTransition();
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
-
+  
   d3.json(staticPath, function(data) {
 
     // initialize continent map with preset geo and zoom
