@@ -5,7 +5,7 @@
 
 
 ## EmojiCloud
-EmojiCloud is a data visualization of emoji usage from around the world. We utilize the Twitter API to collect tweets, analyze the emoji usage trends, and present the data in an friendly cloud format. Similar to a word cloud, more common emojis are depicted larger in size.
+EmojiCloud is a data visualization of emoji usage from around the world. We utilize the Twitter API to collect tweets, analyze the emoji usage trends, and present the data in a friendly cloud format. Similar to a word cloud, more common emojis are depicted larger in size.
 
 
 ## Features
