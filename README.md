@@ -49,9 +49,7 @@ Initially we planned on doing requests on the spot when a link was clicked.  We 
 ### Cloud Visualization using Data-Driven-Documents(D3)
 The emoji cloud visualization was implemented using the force graph from the d3.js library. In the force graph each emoji is represented by a node with its own attraction and repulsion forces. The node forces allow the emojis to space evenly and form an attractive cloud pattern. The nodes can be dragged to any point on the canvas and positions are recalculated on every "tick" (approximately 60 times a second).
 
-One of the issues we had foreseen during the planning phase of the project were the compatibility issues between D3 and React, as both both require control of the DOM. We decided to pivot from using React since it was not necessary for our use case: there wouldn't be many different components to render nor was there a need for Reacts portability. This made implementation of D3 considerably easier and the re-rendering of the nodes more fluid.
-
-One of the D3 visualizations we had considered was a "word cloud" but it was found to be unnecessarily complex. Whereas a word cloud has to account for rectangular objects, an emoji cloud would consist of mostly square or round objects.
+Emojis were utilized because we felt that it would be visually appealing as well as provide an interesting data analysis.  
 
 #### Handling the Data
 During the planning stages we were unaware of the popularity of some emojis. In fact, in any given sample we gathered, the most popular emoji was up to 20 times more frequent than the median. In order to make the cloud visually appealing we wanted to maximize the size of the emojis and represent popularity in scale. We were able to accomplish this using a roughly logarithmic scale: an emoji that is ten times as popular is roughly double the size and one that is one hundred times more popular is roughly triple the size.
