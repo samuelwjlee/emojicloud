@@ -312,7 +312,7 @@ function start() {
             deleteMarkers();
             let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
             placeMark(geo)
-            
+
             // shuffle(coordinates);
             // placeMark(coordinates[0]);
         });
@@ -339,13 +339,33 @@ function start() {
     force.start();
 }
 
-let tweets = document.getElementById('tweet-text');
+let $tweets = $('#tweet-container');
 
 function updateSidebar(emojiData){
   //console.log(tweets);
-  tweets.innerHTML = `${emojiData[4]}
-  ${emojiData[1]}
-  (${emojiData[0]})`
+  $tweets.empty();
+
+  let $tweetHeader = $(`<div></div>`);
+  $tweetHeader.addClass("tweet-header");
+  let $screenName = $(`<div>${emojiData[4]}</div>`);
+  $screenName.addClass("tweet-screenname");
+  let $tweetCount = $(`<div>(${emojiData[0]})</div>`);
+  $tweetCount.addClass("tweet-count");
+  $tweetHeader.append($screenName, $tweetCount);
+
+  let $tweetBody = $(`<div>${emojiData[1]}</div>`);
+  $tweetBody.addClass("tweet-body");
+
+  // let $tweetFooter = $(`<div></div>`);
+
+  $tweets.append($tweetHeader, $tweetBody);
+
+
+  // screenname.text()
+
+  // tweets.innerHTML = `${emojiData[4]}
+  // ${emojiData[1]}
+  // (${emojiData[0]})`
 }
 
 

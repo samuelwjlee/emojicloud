@@ -52,49 +52,6 @@ body {
   justify-content: space-around;
 }
 
-#tweet {
-  display: flex;
-  flex-direction: row;
-
-  height: 90px;
-  width: 550px;
-
-  padding: 30px;
-  background-color: white;
-  border-radius: 5px;
-
-  margin: 0;
-  padding: 0;
-
-  position:absolute;
-  z-index:10;
-  top:50px;
-  left:660px;
-
-  box-shadow: 10px 10px 5px #888888;
-}
-
-#tweet-img {
-  padding-top: 25px;
-  padding-left: 15px;
-}
-
-#tweet-instruction {
-  padding: 0;
-  padding-left: 50px;
-  margin: 0;
-  text-align: center;
-}
-
-#tweet-text {
-  margin: 5px;
-  padding: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  color: navy;
-}
-
 #emoji-controls {
   display: flex;
   justify-content: space-around;
