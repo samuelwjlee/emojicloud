@@ -310,11 +310,14 @@ function start() {
           }
             //get coordinates from node and place marker
             deleteMarkers();
-            let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
-            placeMark(geo)
-            
-            // shuffle(coordinates);
-            // placeMark(coordinates[0]);
+            if (current_continent == 'world') {
+              shuffle(coordinates);
+              placeMark(coordinates[0]);
+            } else {
+              let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
+              placeMark(geo)
+            }
+
         });
     // node.on("mousedown", function() {
     //         console.log(node);
