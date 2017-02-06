@@ -29,7 +29,7 @@ function fetchEmojis(place) {
   // beginTransition();
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
-  
+
   d3.json(staticPath, function(data) {
 
     // initialize continent map with preset geo and zoom
@@ -64,7 +64,6 @@ function fetchEmojis(place) {
 
     // svg.remove();
     // svg.attr("width", width).attr("height", height)
-
     emojis = getEmojis(data.emojis);
     addEmoji();
     // console.log("made a static request");
@@ -204,7 +203,7 @@ function start() {
         // .attr("height", 120)
     node.exit().remove();
     node.call(force.drag)
-        .on("mousedown", function() {
+        .on("mousedown", function(d) {
             // console.log("this is a node on mousedown:", node);
             d3.event.stopPropagation();
             //fake tweet coordinates
@@ -311,8 +310,15 @@ function start() {
           }
             //get coordinates from node and place marker
             deleteMarkers();
-            shuffle(coordinates);
-            placeMark(coordinates[0]);
+            let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
+            debugger
+
+            if (geo) {
+              placeMark(geo);
+            } else {
+              shuffle(coordinates);
+            }
+            // placeMark(coordinates[0]);
         });
     // node.on("mousedown", function() {
     //         console.log(node);
