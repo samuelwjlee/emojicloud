@@ -44,12 +44,12 @@ Twitter provides two different APIs to access tweet information. The REST API us
 #### Data Sets
 Each emojicloud is rendered based on results from a sample stream of 1000 tweets. We found that number returned about 200 tweets with emojis, giving a better range of emojis in the sample.  Overall, in our limited datasets we found that emoji usage hovers around 20% in our overall tweets.  Interestingly, we noticed in our samples from Africa that emojis utilization is much higher, appearing in roughly 30% of tweets.  
 
-<<<<<<< HEAD
+
 ![code2-screenshot]
 [code2-screenshot]: ./docs/screenshots/twitter_search.png
-=======
+
 The data returned from the Streaming API is in JSON format. A limiting factor in creating a large enough data set to be statistically significant was the infrequency of emoji usage in tweets. For example, in order to collect a set of 300 emojis used in tweets, the stream might have to be open 5-10 seconds. For our front end user, waiting this long for the emoji cloud to refresh would be unacceptable. To solve this we increased responsiveness by...
->>>>>>> d3155ffcc58584c7a4c90805e0ef1fb8f2bd74b8
+
 
 #### Parsing Data
 We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
