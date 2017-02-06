@@ -89,7 +89,7 @@ body {
 #tweet-text {
   margin: 5px;
   padding: 10px;
-  overflow: scroll;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   color: navy;
