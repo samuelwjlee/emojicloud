@@ -22,7 +22,7 @@ class TwitterApi
     client.filter(locations: region) do |tweet|
       tweets << tweet
       # print "-"
-      return tweets if tweets.count > 1000
+      return tweets if tweets.count > 500
     end
   end
 
@@ -41,7 +41,7 @@ class TwitterApi
       if tweet.is_a?(Twitter::Tweet)
         tweets << tweet
         # print "-"
-        return tweets if tweets.count > 2000
+        return tweets if tweets.count > 700
       end
     end
   end

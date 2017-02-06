@@ -16,14 +16,14 @@ A visual representation of emojis used in tweets. The emoji "cloud" displays the
 [emoji-cloud-screenshot]: ./docs/screenshots/cloud-screenshot.png
 
 #### Tweet Sample
-When you hover over an emoji in the cloud a sample tweet pops up...
+When you hover over an emoji in the cloud a sample tweet appears...
 
 ![tweet-sample-screenshot]
 [tweet-sample-screenshot]: ./docs/screenshots/tweet-screenshot.png
 
 
 #### Map Pin
-And clicking on the emoji makes a marker on the map appear, pinpointing the location of the tweet.
+Clicking an emoji shows a marker on the map, pinpointing the location of the tweet.
 
 ![map-screenshot]
 [map-screenshot]: ./docs/screenshots/map-screenshot.png
@@ -34,22 +34,23 @@ And clicking on the emoji makes a marker on the map appear, pinpointing the loca
 ### Rails and the Twitter API
 EmojiCloud was built with a Rails backend to implement tweet data collection using the Twitter API.
 
-#### Twitter REST API vs Streaming API
-Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.
+
+#### Twitter Streaming API
+Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities. The Twitter Stream is the raw stream of all current tweets.  Data flows out of it in real time from Twitter.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
 
 #### Data Sets
-The data returned from the Streaming API is in JSON format. A limiting factor in creating a large enough data set to be statistically significant was the infrequency of emoji usage in tweets. For example, in order to collect a set of 300 emojis used in tweets, the stream might have to be open 5-10 seconds. For our front end user, waiting this long for the emoji cloud to refresh would be unacceptable. To solve this we increased responsiveness by...
+Each emojicloud is rendered based on results from a sample stream of 1000 tweets. We found that number returned about 200 tweets with emojis, giving a better range of emojis in the sample.  Overall, in our limited datasets we found that emoji usage hovers around 20% in our overall tweets.  Interestingly, we noticed in our samples from Africa that emojis utilization is much higher, appearing in roughly 30% of tweets.  
 
 #### Parsing Data
-- Pulling out emojis
-- ??
+We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
+
+#### API bottleneck
+Initially we planned on doing requests on the spot when a link was clicked.  We soon learned that to collect enough tweets, takes too long to be responsive to user requests.  Thus, we created tasks in our application manager, Heroku to retrieve the data on an hourly basis.  
 
 ### Cloud Visualization using Data-Driven-Documents(D3)
 The emoji cloud visualization was implemented using the force graph from the d3.js library. In the force graph each emoji is represented by a node with its own attraction and repulsion forces. The node forces allow the emojis to space evenly and form an attractive cloud pattern. The nodes can be dragged to any point on the canvas and positions are recalculated on every "tick" (approximately 60 times a second).
 
-One of the issues we had foreseen during the planning phase of the project were the compatibility issues between D3 and React, as both both require control of the DOM. We decided to pivot from using React since it was not necessary for our use case: there wouldn't be many different components to render nor was there a need for Reacts portability. This made implementation of D3 considerably easier and the re-rendering of the nodes more fluid.
-
-One of the D3 visualizations we had considered was a "word cloud" but it was found to be unnecessarily complex. Whereas a word cloud has to account for rectangular objects, an emoji cloud would consist of mostly square or round objects.
+Emojis were utilized because we felt that it would be visually appealing as well as provide an interesting data analysis.  
 
 #### Handling the Data
 During the planning stages we were unaware of the popularity of some emojis. In fact, in any given sample we gathered, the most popular emoji was up to 20 times more frequent than the median. In order to make the cloud visually appealing we wanted to maximize the size of the emojis and represent popularity in scale. We were able to accomplish this using a roughly logarithmic scale: an emoji that is ten times as popular is roughly double the size and one that is one hundred times more popular is roughly triple the size.
