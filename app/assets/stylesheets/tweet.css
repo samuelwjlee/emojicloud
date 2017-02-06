@@ -57,21 +57,16 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 2px 5px 2px 5px;
-  /*border: 1px red solid;*/
   /*border-bottom: lightgray 1px solid;*/
 
 }
 
 .tweet-screenname{
-  /*border: 1px red solid;*/
-
   font-weight: bold;
   padding-right: 5px;
 }
 
 .tweet-count {
-  /*border: 1px red solid;*/
-
   color: grey;
 }
 
