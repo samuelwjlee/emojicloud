@@ -22,12 +22,12 @@
   <body>
     <div id="emoji">
       <h1 id="emoji-header">
-        <img src="https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png">
+        <img id="logo" src="https://res.cloudinary.com/dseky3p5e/image/upload/c_scale,h_59/v1486169210/emojicloud_yufjs2.png">
 
           <!-- Link to open the modal -->
           <div class="modal-link">
             <!-- <a href="#description-modal" rel="modal:open">How It Works</a> -->
-            <button class="modal-control" onClick=openModal()>How It Works</button>
+            <img class="modal-control" height="30px" src="http://res.cloudinary.com/dseky3p5e/image/upload/v1486343528/info_q1rdk4.png" onClick=openModal() />
           </div>
 
       </h1>
@@ -39,17 +39,22 @@
         <button class="emoji-controls-btn" onClick=fetchEmojis('africa')>Africa</button>
         <button class="emoji-controls-btn" onClick=fetchEmojis('asia')>Asia</button>
         <button class="emoji-controls-btn" onClick=fetchEmojis('europe')>Europe</button>
-        <button class="emoji-controls-btn" onClick=fetchEmojis('us')>US</button>
+        <button class="emoji-controls-btn" onClick=fetchEmojis('us')>N.America</button>
       </div>
     </div>
 
     <div id="map">
       <script type="text/javascript" src="/javascripts/maps.js"></script>
+      
     </div>
 
     <div id="tweet">
       <img id="tweet-img" height="20px" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/738px-Twitter_bird_logo_2012.svg.png" alt="">
-      <div id="tweet-text"><h4>Hover over an emoji to see a tweet from the data sample.  Click to see the tweet's location on the map.</h4> </div>
+      <div id="tweet-text">
+        <h4 id="tweet-instruction">Hover over an emoji to see a sample tweet.</h4>
+        <h4 id="tweet-instruction">OR</h4>
+        <h4 id="tweet-instruction">Click to see the tweet's location.</h4>
+      </div>
     </div>
 
 
@@ -58,7 +63,7 @@
 
   <div id="description-modal" style="display:none;">
     <h2 class="modal-header">Welcome to EmojiCloud!!</h2>
-    <p>EmojiCloud utilizes the Twitter API to analyze emoji usage trends in tweets from around the world. The emoji "cloud" displays the relative frequency of each type of emoji, in a roughly logarithmic scale.
+    <p>EmojiCloud utilizes the Twitter API to analyze emoji usage trends in tweets from around the world (1000 new tweets from each region ). The emoji "cloud" displays the relative frequency of each type of emoji, in a roughly logarithmic scale.
     </p>
     <p>  For example, a data set representing relative frequencies of 1, 10, and 100 might be represented as follows:
     </p>

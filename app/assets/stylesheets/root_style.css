@@ -15,6 +15,10 @@ body {
   height: 100%;
 }
 
+#logo {
+  padding-left: 120px;
+}
+
 #emoji {
   height: 100%;
   display: flex;
@@ -38,7 +42,7 @@ body {
   vertical-align: middle;
 
   margin: 0;
-  background-color: #c91414;
+  background-color: #7191fc;
   color: white;
 
   padding-top: 10px;
@@ -52,8 +56,8 @@ body {
   display: flex;
   flex-direction: row;
 
-  height: 80px;
-  width: 500px;
+  height: 90px;
+  width: 550px;
 
   padding: 30px;
   background-color: white;
@@ -65,7 +69,7 @@ body {
   position:absolute;
   z-index:10;
   top:50px;
-  left:700px;
+  left:660px;
 
   box-shadow: 10px 10px 5px #888888;
 }
@@ -75,8 +79,16 @@ body {
   padding-left: 15px;
 }
 
+#tweet-instruction {
+  padding: 0;
+  padding-left: 50px;
+  margin: 0;
+  text-align: center;
+}
+
 #tweet-text {
   margin: 5px;
+  padding: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -86,7 +98,7 @@ body {
 #emoji-controls {
   display: flex;
   justify-content: space-around;
-  background-color: #c91414;
+  background-color: #7191fc;
 }
 
 .emoji-controls-btn {
@@ -108,6 +120,26 @@ body {
 }
 
 .emoji-controls-btn:hover  {
+  background-color: #485ca0;
+}
+
+.emoji-controls-btn-selected {
+  width: 100%;
+  height: 57px;
+  background-color: transparent;
+  color: white;
+
+  border-style: none;
+  border-width: 3px;
+
+  font-family: sans-serif;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+
   background-color: navy;
 }
 

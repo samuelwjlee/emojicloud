@@ -1,6 +1,6 @@
 class Api::WorldEmojisController < ApplicationController
   def index
-    @world_tweets = TwitterApi.world_tweets
+    @world_tweets = TwitterApi.world2
     WorldEmoji.create(emojis: @world_tweets)
   end
 

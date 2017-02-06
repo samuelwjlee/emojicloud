@@ -64,14 +64,13 @@ function fetchEmojis(place) {
 
     // svg.remove();
     // svg.attr("width", width).attr("height", height)
-
     emojis = getEmojis(data.emojis);
     addEmoji();
     // console.log("made a static request");
   })
-  d3.json(streamPath, function(data) {
-    // console.log("made a streaming request");
-  })
+  // d3.json(streamPath, function(data) {
+  //   // console.log("made a streaming request");
+  // })
 }
 
 
@@ -204,7 +203,7 @@ function start() {
         // .attr("height", 120)
     node.exit().remove();
     node.call(force.drag)
-        .on("mousedown", function() {
+        .on("mousedown", function(d) {
             // console.log("this is a node on mousedown:", node);
             d3.event.stopPropagation();
             //fake tweet coordinates
@@ -311,8 +310,15 @@ function start() {
           }
             //get coordinates from node and place marker
             deleteMarkers();
-            shuffle(coordinates);
-            placeMark(coordinates[0]);
+            let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
+            debugger
+
+            if (geo) {
+              placeMark(geo);
+            } else {
+              shuffle(coordinates);
+            }
+            // placeMark(coordinates[0]);
         });
     // node.on("mousedown", function() {
     //         console.log(node);
@@ -328,6 +334,7 @@ function start() {
     });
 
     node.on("mouseout", function(d) {
+      // updateSidebar('');
       d3.select(this).attr("height", function(d) {
         return d.count;
       });
@@ -340,7 +347,9 @@ let tweets = document.getElementById('tweet-text');
 
 function updateSidebar(emojiData){
   //console.log(tweets);
-  tweets.innerHTML = "COUNT: " + emojiData[0] + ", TEXT: " + emojiData[1] + ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
+  tweets.innerHTML = `${emojiData[4]}
+  ${emojiData[1]}
+  (${emojiData[0]})`
 }
 
 

@@ -1,6 +1,6 @@
 class Api::UsEmojisController < ApplicationController
   def index
-    @us_tweets = TwitterApi.us_tweets
+    @us_tweets = TwitterApi.n_america 
     UsEmoji.create(emojis: @us_tweets)
   end
 
