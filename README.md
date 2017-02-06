@@ -16,14 +16,14 @@ A visual representation of emojis used in tweets. The emoji "cloud" displays the
 [emoji-cloud-screenshot]: ./docs/screenshots/cloud-screenshot.png
 
 #### Tweet Sample
-When you click on an emoji in the cloud a sample tweet pops up...
+When you hover over an emoji in the cloud a sample tweet pops up...
 
 ![tweet-sample-screenshot]
 [tweet-sample-screenshot]: ./docs/screenshots/tweet-screenshot.png
 
 
 #### Map Pin
-As does a marker on the map, pinpointing the location of the tweet.
+And clicking on the emoji makes a marker on the map appear, pinpointing the location of the tweet.
 
 ![map-screenshot]
 [map-screenshot]: ./docs/screenshots/map-screenshot.png
@@ -32,20 +32,17 @@ As does a marker on the map, pinpointing the location of the tweet.
 ## Technologies and Challenges
 
 ### Rails and the Twitter API
-EmojiCloud was built with a Rails backend to implement the Twitter API.
+EmojiCloud was built with a Rails backend to implement tweet data collection using the Twitter API.
 
-#### Twitter Search API vs Streaming API
-- ?
+#### Twitter REST API vs Streaming API
+Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.
 
 #### Data Sets
-- Getting a dataset large enough to create an emoji cloud (number of tweets containing emojis limiting factor)
+The data returned from the Streaming API is in JSON format. A limiting factor in creating a large enough data set to be statistically significant was the infrequency of emoji usage in tweets. For example, in order to collect a set of 300 emojis used in tweets, the stream might have to be open 5-10 seconds. For our front end user, waiting this long for the emoji cloud to refresh would be unacceptable. To solve this we increased responsiveness by...
 
 #### Parsing Data
 - Pulling out emojis
 - ??
-
-#### API bottleneck
-- increased responsiveness by making two API requests (static and streaming)
 
 ### Cloud Visualization using Data-Driven-Documents(D3)
 The emoji cloud visualization was implemented using the force graph from the d3.js library. In the force graph each emoji is represented by a node with its own attraction and repulsion forces. The node forces allow the emojis to space evenly and form an attractive cloud pattern. The nodes can be dragged to any point on the canvas and positions are recalculated on every "tick" (approximately 60 times a second).
