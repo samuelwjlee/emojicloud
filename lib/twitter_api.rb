@@ -83,6 +83,7 @@ class TwitterApi
       if word_cloud[key][3].nil?
         word_cloud[key][3] = coordinates[rand(coordinates.length) - 1]
       end
+      word_cloud[key][3][0], word_cloud[key][3][1] = word_cloud[key][3][1], word_cloud[key][3][0]
     end
     # puts word_cloud
     return word_cloud
