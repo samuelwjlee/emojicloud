@@ -1,12 +1,10 @@
 ![EmojiCloud-logo]
 [EmojiCloud-logo]: ./docs/screenshots/emoji-cloud-logo.png
-[live link][EmojiCloud]
-[EmojiCloud]: https://emojicloud.herokuapp.com/
 
-
-## EmojiCloud
 EmojiCloud is a data visualization of emoji usage from around the world. We utilize the Twitter API to collect tweets, analyze the emoji usage trends, and present the data in a friendly cloud format. Similar to a word cloud, more common emojis are depicted larger in size.
 
+[LIVE DEMO][EmojiCloud]
+[EmojiCloud]: https://emojicloud.herokuapp.com/
 
 ## Features
 #### The Emoji Cloud
@@ -29,10 +27,10 @@ Clicking an emoji shows a marker on the map, pinpointing the location of the twe
 [map-screenshot]: ./docs/screenshots/map-screenshot.png
 
 
-## Technologies and Challenges
+## Technologies
 
-### Rails and the Twitter API
-EmojiCloud was built with a Rails backend to implement tweet data collection using the Twitter API.
+### Twitter API, Data-Driven-Documents(D3), and Google Maps API
+EmojiCloud was built with a Rails backend to implement Twitter API to collect tweets from the world.
 
 
 #### Twitter Streaming API
