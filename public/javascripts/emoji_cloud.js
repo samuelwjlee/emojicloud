@@ -310,13 +310,13 @@ function start() {
           }
             //get coordinates from node and place marker
             deleteMarkers();
+            shuffle(coordinates);
             let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
-            debugger
 
             if (geo) {
               placeMark(geo);
             } else {
-              shuffle(coordinates);
+              placeMark(coordinates[0]);
             }
             // placeMark(coordinates[0]);
         });
