@@ -341,7 +341,7 @@ let tweets = document.getElementById('tweet-text');
 
 function updateSidebar(emojiData){
   //console.log(tweets);
-  tweets.innerHTML = `@${emojiData[4]}
+  tweets.innerHTML = `${emojiData[4]}
   ${emojiData[1]}
   (${emojiData[0]})`
 }
