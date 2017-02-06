@@ -37,11 +37,20 @@ EmojiCloud was built with a Rails backend to implement the Twitter API.
 #### Twitter Streaming API
 The Twitter Stream is the raw stream of all current tweets.  Data flows out of it in real time from Twitter.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.  
 
+![code1-screenshot]
+[code1-screenshot]: ./docs/screenshots/countries.png
+
 #### Data Sets
 Each emojicloud is rendered based on results from a sample stream of 1000 tweets. We found that number returned about 200 tweets with emojis, giving a better range of emojis in the sample.  Overall, in our limited datasets we found that emoji usage hovers around 20% in our overall tweets.  Interestingly, we noticed in our samples from Africa that emojis utilization is much higher, appearing in roughly 30% of tweets.  
 
+![code2-screenshot]
+[code2-screenshot]: ./docs/screenshots/twitter_search.png
+
 #### Parsing Data
 We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
+
+![code3-screenshot]
+[code3-screenshot]: ./docs/screenshots/sort.png
 
 #### API bottleneck
 Initially we planned on doing requests on the spot when a link was clicked.  We soon learned that to collect enough tweets, takes far too long to be responsive to user requests.  Thus, we created tasks in our application manager, Heroku, to retrieve the data on an hourly basis.  
