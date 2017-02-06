@@ -75,9 +75,17 @@ body {
   padding-left: 15px;
 }
 
+#tweet-instruction {
+  padding: 0;
+  padding-left: 50px;
+  margin: 0;
+  text-align: center;
+}
+
 #tweet-text {
   margin: 5px;
-  overflow: hidden;
+  padding: 10px;
+  overflow: scroll;
   text-overflow: ellipsis;
 
   color: navy;

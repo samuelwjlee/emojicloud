@@ -328,6 +328,7 @@ function start() {
     });
 
     node.on("mouseout", function(d) {
+      // updateSidebar('');
       d3.select(this).attr("height", function(d) {
         return d.count;
       });
@@ -340,7 +341,9 @@ let tweets = document.getElementById('tweet-text');
 
 function updateSidebar(emojiData){
   //console.log(tweets);
-  tweets.innerHTML = "COUNT: " + emojiData[0] + ", TEXT: " + emojiData[1] + ", LOCATION: " + emojiData[2] + ", COORDINATES: " + emojiData[3] + ", SCREENAME: " + emojiData[4]
+  tweets.innerHTML = `@${emojiData[4]}
+  ${emojiData[1]}
+  (${emojiData[0]})`
 }
 
 
