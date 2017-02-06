@@ -106,11 +106,13 @@ function endTransition() {
 
 function getEmojis(emojis) {
   let totalVolume = 0;
+  let totalCount = 0;
   let minCount;
   let maxCount;
   Object.values(emojis).forEach((arr, idx) => {
     let count = arr[0];
     totalVolume += ((1 + Math.log(count)) * (1 + Math.log(count)));
+    totalCount += count;
     if (idx === 0) {
       minCount = count;
       maxCount = count;
@@ -126,6 +128,7 @@ function getEmojis(emojis) {
     // console.log(emojis[emoji])
     return {
       emojiData: emojis[emoji],
+      emojiFrequency: (emojis[emoji][0] * 100 / totalCount).toFixed(2),
       // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
       count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
@@ -197,7 +200,11 @@ function start() {
         })
         .attr("emojiData", function(d) {
             return d.emojiData;
+        })
+        .attr("emojiFrequency", function(d) {
+            return d.emojiFrequency;
         });
+
         // .on("mouseover", fade(.1, true));
         // .attr("width", 120)
         // .attr("height", 120)
@@ -324,7 +331,7 @@ function start() {
     //     });
     node.on("mouseover", function(d) {
       // console.log(d.emojiData);
-      updateSidebar(d.emojiData);
+      updateSidebar(d.emojiData, d.emojiFrequency);
 
       d3.select(this).attr("height", function(d) {
         return d.count * 1.2;
@@ -344,7 +351,7 @@ function start() {
 
 let $tweets = $('#tweet-container');
 
-function updateSidebar(emojiData){
+function updateSidebar(emojiData, emojiFrequency){
   //console.log(tweets);
   $tweets.empty();
 
@@ -352,7 +359,7 @@ function updateSidebar(emojiData){
   $tweetHeader.addClass("tweet-header");
   let $screenName = $(`<div>${emojiData[4]}</div>`);
   $screenName.addClass("tweet-screenname");
-  let $tweetCount = $(`<div>(${emojiData[0]})</div>`);
+  let $tweetCount = $(`<div>Emoji Frequency: ${emojiFrequency}%</div>`);
   $tweetCount.addClass("tweet-count");
   $tweetHeader.append($screenName, $tweetCount);
 
