@@ -30,7 +30,7 @@ Clicking an emoji shows a marker on the map, pinpointing the location of the twe
 ## Technologies
 
 ### Twitter API, Data-Driven-Documents(D3), and Google Maps API
-EmojiCloud was built with a Rails backend to implement Twitter API to collect tweets from the world.
+EmojiCloud was built with Ruby on Rails for backend and Javascript for the frontend. Twitter API was used to collect and save tweets in Rails server. D3 was used to render emojis and Google Maps API was used to display locate where the tweets are coming from.
 
 #### Twitter Streaming API
 Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
@@ -67,6 +67,28 @@ During the planning stages we were unaware of the popularity of some emojis. In 
 
 #### Collision Detection
 We were able to implement a simple collision detection with a bounding box which prevents the emoji nodes from flying off the canvas. Ensuring that the nodes don't overlap each other was a more difficult task. An approximation of node collision bounding was achieved by increasing each node's repulsion charge. Going forward we'd like to implement a more robust collision detection to prevent overlap.
+
+### Google Maps API
+Map is initialized and focused on a corresponding continent.
+```ruby
+function initMap(geo, zoom = 2) {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: zoom,
+    center: geo
+  });
+}
+```
+Map drops a pin to locate where the tweet is coming from
+```Ruby
+function placeMark(geo) {
+  marker = new google.maps.Marker({
+    position: geo,
+    map: map,
+    animation: google.maps.Animation.DROP
+  });
+}
+```
+
 
 ### The EmojiCloud Team
 EmojiCloud was designed and implemented by Mark Noizumi, Peter Delfausse, and Samuel Lee.
