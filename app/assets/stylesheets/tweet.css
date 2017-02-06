@@ -6,12 +6,10 @@
   height: 90px;
   width: 550px;
 
-  /*padding: 30px;*/
   background-color: white;
   border-radius: 5px;
 
   margin: 0;
-  /*padding: 0;*/
 
   position:absolute;
   z-index:10;
@@ -23,12 +21,11 @@
 
 
 #tweet-img {
-  padding: 5px 10px 0 10px;
+  padding: 10px 10px 0 10px;
   /*padding-left: 15px;*/
 }
 #tweet-container {
   width: 100%;
-  /*padding: 5px;*/
 }
 #tweet-container * {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -37,8 +34,8 @@
 #tweet-instructions {
   display: flex;
   flex-direction: column;
-  /*margin: 5px;*/
-  /*padding: 10px;*/
+
+  padding-top: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 
@@ -56,7 +53,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 2px 5px 2px 5px;
+  padding: 10px 5px 2px 5px;
   /*border-bottom: lightgray 1px solid;*/
 
 }

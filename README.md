@@ -32,7 +32,6 @@ Clicking an emoji shows a marker on the map, pinpointing the location of the twe
 ### Twitter API, Data-Driven-Documents(D3), and Google Maps API
 EmojiCloud was built with a Rails backend to implement Twitter API to collect tweets from the world.
 
-
 #### Twitter Streaming API
 Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
 

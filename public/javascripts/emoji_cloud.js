@@ -104,12 +104,76 @@ function endTransition() {
 //   return gravity;
 // }
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 function getEmojis(emojis) {
   let totalVolume = 0;
   let totalCount = 0;
   let minCount;
   let maxCount;
   Object.values(emojis).forEach((arr, idx) => {
+    //assign coordinates to emojis from the world
+    if (current_continent === 'world') {
+       let coordinates = [
+        {lat: 36, lng: 127}, //korea
+        {lat: 36, lng: 138}, //japan
+        {lat: 40, lng: 116}, //beijing
+        {lat: 31, lng: 121}, //shanghai
+        {lat: 23, lng: 113}, //guangzhou
+        {lat: 47, lng: 103}, //mongolia
+        {lat: 20, lng: 79}, //india
+        {lat: 14, lng: 100}, //bangkok
+        {lat: 22, lng: 96}, //burma
+        {lat: 13, lng: 121}, //philippines
+        {lat: 1, lng: 103}, //singapore
+        {lat: 6, lng: 106}, //jakarta
+        {lat: 34, lng: 14}, //cape town
+        {lat: 9, lng: 9}, //nigeria
+        {lat: 26, lng: 28}, //johannesburg
+        {lat: 4, lng: 21}, //congo
+        {lat: 13, lng: 30}, //sudan
+        {lat: 27, lng: 30}, //egypt
+        {lat: 26, lng: 17}, //libya
+        {lat: 28, lng: -2}, //a;geria
+        {lat: 19, lng: 47}, //madagascar
+        {lat: 19, lng: 28}, //zimbabwe
+        {lat: 13, lng: 34}, //malawi
+        {lat: 8, lng: -1}, //ghana
+        {lat: 50, lng: 14}, //praque
+        {lat: 52, lng: 13}, //berlin
+        {lat: 51, lng: -.1}, //london
+        {lat: 40, lng: -3}, //madrid
+        {lat: 42, lng: 13}, //los angeles
+        {lat: 49, lng: 2}, //paris
+        {lat: 47, lng: 19}, //budapest
+        {lat: 52, lng: 21}, //warsaw
+        {lat: 45, lng: 9}, //milan
+        {lat: 41, lng: 28}, //istanbul
+        {lat: 53, lng: -7}, //ireland
+        {lat: 38, lng: 23} //athens
+      ];
+      shuffle(coordinates)
+      arr[3][0] = coordinates[0].lat
+      arr[3][1] = coordinates[0].lng
+    }
+
     let count = arr[0];
     totalVolume += ((1 + Math.log(count)) * (1 + Math.log(count)));
     totalCount += count;
@@ -141,9 +205,6 @@ function getScalingFactor(total, min, max) {
   return factor/2
 }
 
-
-
-
 var node = svg.selectAll(".node");
 
 
@@ -163,25 +224,6 @@ var force = d3.layout.force()
     // force.gravity(function() {
     //   return 5
     // });
-
-  function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
 
 function start() {
     node = node.data(force.nodes(), function(d) {
@@ -213,118 +255,11 @@ function start() {
         .on("mousedown", function(d) {
             // console.log("this is a node on mousedown:", node);
             d3.event.stopPropagation();
-            //fake tweet coordinates
-            let coordinates;
-            if (current_continent === 'us') {
-               coordinates = [
-                {lat: 37, lng: -123}, //san francisco
-                {lat: 44, lng: -85}, //detroit
-                {lat: 41, lng: -74}, //new york city
-                {lat: 30, lng: -90}, //new orleans
-                {lat: 34, lng: -120}, //los angeles
-                {lat: 30, lng: -97}, //austin
-                {lat: 42, lng: -88}, //chicago
-                {lat: 48, lng: -122}, //seatle
-                {lat: 49, lng: -123}, //vancouver
-                {lat: 39, lng: -95}, //kansas city
-                {lat: 28, lng: -82}, //florida
-                {lat: 19, lng: -99} //mexico city
-              ];
-            } else if (current_continent === 'europe') {
-               coordinates = [
-                {lat: 50, lng: 14}, //praque
-                {lat: 52, lng: 13}, //berlin
-                {lat: 51, lng: -.1}, //london
-                {lat: 40, lng: -3}, //madrid
-                {lat: 42, lng: 13}, //los angeles
-                {lat: 49, lng: 2}, //paris
-                {lat: 47, lng: 19}, //budapest
-                {lat: 52, lng: 21}, //warsaw
-                {lat: 45, lng: 9}, //milan
-                {lat: 41, lng: 28}, //istanbul
-                {lat: 53, lng: -7}, //ireland
-                {lat: 38, lng: 23} //athens
-              ];
-            } else if (current_continent === 'africa') {
-               coordinates = [
-                {lat: 34, lng: 14}, //cape town
-                {lat: 9, lng: 9}, //nigeria
-                {lat: 26, lng: 28}, //johannesburg
-                {lat: 4, lng: 21}, //congo
-                {lat: 13, lng: 30}, //sudan
-                {lat: 27, lng: 30}, //egypt
-                {lat: 26, lng: 17}, //libya
-                {lat: 28, lng: -2}, //a;geria
-                {lat: 19, lng: 47}, //madagascar
-                {lat: 19, lng: 28}, //zimbabwe
-                {lat: 13, lng: 34}, //malawi
-                {lat: 8, lng: -1} //ghana
-              ];
-            } else if (current_continent === 'asia') {
-               coordinates = [
-                {lat: 36, lng: 127}, //korea
-                {lat: 36, lng: 138}, //japan
-                {lat: 40, lng: 116}, //beijing
-                {lat: 31, lng: 121}, //shanghai
-                {lat: 23, lng: 113}, //guangzhou
-                {lat: 47, lng: 103}, //mongolia
-                {lat: 20, lng: 79}, //india
-                {lat: 14, lng: 100}, //bangkok
-                {lat: 22, lng: 96}, //burma
-                {lat: 13, lng: 121}, //philippines
-                {lat: 1, lng: 103}, //singapore
-                {lat: 6, lng: 106} //jakarta
-              ];
-          } else if (current_continent === 'world') {
-             coordinates = [
-              {lat: 36, lng: 127}, //korea
-              {lat: 36, lng: 138}, //japan
-              {lat: 40, lng: 116}, //beijing
-              {lat: 31, lng: 121}, //shanghai
-              {lat: 23, lng: 113}, //guangzhou
-              {lat: 47, lng: 103}, //mongolia
-              {lat: 20, lng: 79}, //india
-              {lat: 14, lng: 100}, //bangkok
-              {lat: 22, lng: 96}, //burma
-              {lat: 13, lng: 121}, //philippines
-              {lat: 1, lng: 103}, //singapore
-              {lat: 6, lng: 106}, //jakarta
-              {lat: 34, lng: 14}, //cape town
-              {lat: 9, lng: 9}, //nigeria
-              {lat: 26, lng: 28}, //johannesburg
-              {lat: 4, lng: 21}, //congo
-              {lat: 13, lng: 30}, //sudan
-              {lat: 27, lng: 30}, //egypt
-              {lat: 26, lng: 17}, //libya
-              {lat: 28, lng: -2}, //a;geria
-              {lat: 19, lng: 47}, //madagascar
-              {lat: 19, lng: 28}, //zimbabwe
-              {lat: 13, lng: 34}, //malawi
-              {lat: 8, lng: -1}, //ghana
-              {lat: 50, lng: 14}, //praque
-              {lat: 52, lng: 13}, //berlin
-              {lat: 51, lng: -.1}, //london
-              {lat: 40, lng: -3}, //madrid
-              {lat: 42, lng: 13}, //los angeles
-              {lat: 49, lng: 2}, //paris
-              {lat: 47, lng: 19}, //budapest
-              {lat: 52, lng: 21}, //warsaw
-              {lat: 45, lng: 9}, //milan
-              {lat: 41, lng: 28}, //istanbul
-              {lat: 53, lng: -7}, //ireland
-              {lat: 38, lng: 23} //athens
-            ];
-          }
+
             //get coordinates from node and place marker
             deleteMarkers();
-            if (current_continent == 'world') {
-              shuffle(coordinates);
-              placeMark(coordinates[0]);
-            } else {
-              let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
-              placeMark(geo)
-            }
-
+            let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
+            placeMark(geo)
         });
     // node.on("mousedown", function() {
     //         console.log(node);
