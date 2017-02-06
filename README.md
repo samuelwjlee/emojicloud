@@ -1,6 +1,6 @@
 ![EmojiCloud-logo]
 [EmojiCloud-logo]: ./docs/screenshots/emoji-cloud-logo.png
-[live][EmojiCloud]
+[live link][EmojiCloud]
 [EmojiCloud]: https://emojicloud.herokuapp.com/
 
 
@@ -44,7 +44,7 @@ Each emojicloud is rendered based on results from a sample stream of 1000 tweets
 We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
 
 #### API bottleneck
-Initially we planned on doing requests on the spot when a link was clicked.  We soon learned that to collect enough tweets, takes too long to be responsive to user requests.  Thus, we created tasks in our application manager, Heroku to retrieve the data on an hourly basis.  
+Initially we planned on doing requests on the spot when a link was clicked.  We soon learned that to collect enough tweets, takes far too long to be responsive to user requests.  Thus, we created tasks in our application manager, Heroku, to retrieve the data on an hourly basis.  
 
 ### Cloud Visualization using Data-Driven-Documents(D3)
 The emoji cloud visualization was implemented using the force graph from the d3.js library. In the force graph each emoji is represented by a node with its own attraction and repulsion forces. The node forces allow the emojis to space evenly and form an attractive cloud pattern. The nodes can be dragged to any point on the canvas and positions are recalculated on every "tick" (approximately 60 times a second).
