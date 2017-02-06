@@ -55,7 +55,8 @@
 .tweet-header {
   display: flex;
   flex-direction: row;
-  padding: 2px 0 2px 5px;
+  justify-content: space-between;
+  padding: 2px 5px 2px 5px;
   /*border-bottom: lightgray 1px solid;*/
 
 }
@@ -66,12 +67,13 @@
 }
 
 .tweet-count {
-
+  color: grey;
 }
 
 .tweet-body {
   /*flex: 0 0 40px;*/
   height: 60px;
+  padding: 2px 0 2px 5px;
   /*border-radius: 5px;*/
   /*height: 100%;*/
   text-overflow: ellipsis;
