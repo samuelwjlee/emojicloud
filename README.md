@@ -30,7 +30,7 @@ Clicking an emoji shows a marker on the map, pinpointing the location of the twe
 ## Technologies
 
 ### Twitter API, Data-Driven-Documents(D3), and Google Maps API
-EmojiCloud was built with Ruby on Rails for backend and Javascript for the frontend. Twitter API was used to collect and save tweets in Rails server. D3 was used to render emojis and Google Maps API was used to display locate where the tweets are coming from.
+EmojiCloud was built with Ruby on Rails for backend and Javascript for frontend. Twitter API was used to collect and save tweets to Postgresql database. D3 was used to render emojis and Google Maps API was used to locate where the source of tweets.
 
 #### Twitter Streaming API
 Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
@@ -70,7 +70,7 @@ We were able to implement a simple collision detection with a bounding box which
 
 ### Google Maps API
 Map is initialized and focused on a corresponding continent.
-```ruby
+```javascript
 function initMap(geo, zoom = 2) {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: zoom,
@@ -79,7 +79,7 @@ function initMap(geo, zoom = 2) {
 }
 ```
 Map drops a pin to locate where the tweet is coming from
-```Ruby
+```javascript
 function placeMark(geo) {
   marker = new google.maps.Marker({
     position: geo,
