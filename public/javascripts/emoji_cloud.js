@@ -213,11 +213,11 @@ var force = d3.layout.force()
     .links(links)
     .size([width, height])
     .on("tick", tick)
-    .linkStrength(0.8)
-    .friction(0.9)
+    .linkStrength(1)
+    .friction(0.80)
     .linkDistance(2)
     .charge(-100)
-    .gravity(.1)
+    .gravity(.13)
     .theta(0.8)
     .alpha(4.1);
 
@@ -448,7 +448,7 @@ function addEmoji() {
       setTimeout(function () {
         addEmoji();
       }, delay);
-        delay -= .1;
+        delay -= 1;
     }
 }
 
