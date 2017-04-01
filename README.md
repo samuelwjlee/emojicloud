@@ -1,9 +1,11 @@
 ![EmojiCloud-logo]
+
 [EmojiCloud-logo]:./doc/screenshots/emoji-cloud-logo.png
 
 EmojiCloud is a data visualization of emoji usage from around the world. We utilize the Twitter API to collect tweets, analyze the emoji usage trends, and present the data in a friendly cloud format. Similar to a word cloud, more common emojis are depicted larger in size.
 
 - [LIVE DEMO][EmojiCloud]
+
 [EmojiCloud]:https://emojicloud.herokuapp.com/
 
 ## Features
@@ -11,12 +13,14 @@ EmojiCloud is a data visualization of emoji usage from around the world. We util
 A visual representation of emojis used in tweets. The emoji "cloud" displays the relative frequency of each type of emoji, in logarithmic scale.
 
 ![emoji-cloud-screenshot]
+
 [emoji-cloud-screenshot]:./doc/screenshots/cloud-screenshot.png
 
 #### Tweet Sample
 When you hover over an emoji in the cloud a sample tweet appears...
 
 ![tweet-sample-screenshot]
+
 [tweet-sample-screenshot]:./doc/screenshots/tweet-screenshot.png
 
 
@@ -24,6 +28,7 @@ When you hover over an emoji in the cloud a sample tweet appears...
 Clicking an emoji shows a marker on the map, pinpointing the location of the tweet.
 
 ![map-screenshot]
+
 [map-screenshot]:./doc/screenshots/map-screenshot.png
 
 
@@ -36,6 +41,7 @@ EmojiCloud was built with Ruby on Rails for backend and Javascript for frontend.
 Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
 
 ![code1-screenshot]
+
 [code1-screenshot]:./doc/screenshots/countries.png
 
 #### Data Sets
@@ -43,6 +49,7 @@ Each emojicloud is rendered based on results from a sample stream of 1000 tweets
 
 
 ![code2-screenshot]
+
 [code2-screenshot]:./doc/screenshots/twitter_search.png
 
 The data returned from the Streaming API is in JSON format. A limiting factor in creating a large enough data set to be statistically significant was the infrequency of emoji usage in tweets. For example, in order to collect a set of 300 emojis used in tweets, the stream might have to be open 5-10 seconds. For our front end user, waiting this long for the emoji cloud to refresh would be unacceptable. To solve this we increased responsiveness by...
@@ -52,6 +59,7 @@ The data returned from the Streaming API is in JSON format. A limiting factor in
 We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
 
 ![code3-screenshot]
+
 [code3-screenshot]:./doc/screenshots/sort.png
 
 #### API bottleneck
