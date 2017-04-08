@@ -26,6 +26,7 @@ body {
   flex-direction: column;
 
   background-image: url('http://www.stratacloud.com/wp-content/uploads/2015/11/cloud-background.jpg');
+  /*background-color: #7191fc;*/
 }
 
 #cloud {
