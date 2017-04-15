@@ -190,11 +190,13 @@ function getEmojis(emojis) {
 
   return Object.keys(emojis).map(function(emoji) {
     // console.log(emojis[emoji])
+    // console.log(emoji);
+    // console.log(emojione.unicodeToImage(emoji));
     return {
       emojiData: emojis[emoji],
       emojiFrequency: (emojis[emoji][0] * 100 / totalCount).toFixed(2),
       // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
-      imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1],
+      imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/) ? emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1] :  "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
       count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
     };
   });
