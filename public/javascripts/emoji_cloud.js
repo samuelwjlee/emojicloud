@@ -170,8 +170,7 @@ function getEmojis(emojis) {
         {lat: 38, lng: 23} //athens
       ];
       shuffle(coordinates)
-      arr[3][0] = coordinates[0].lat
-      arr[3][1] = coordinates[0].lng
+      arr[3] = coordinates[0].lat, coordinates[0].lng
     }
 
     let count = arr[0];
