@@ -257,7 +257,6 @@ function start() {
             //get coordinates from node and place marker
             deleteMarkers();
             let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
-            console.log(geo);
             placeMark(geo)
         });
     // node.on("mousedown", function() {
