@@ -167,7 +167,7 @@ function getEmojis(emojis) {
         {lat: 38, lng: 23} //athens
       ];
       shuffle(coordinates)
-      arr[3] = coordinates[0].lat, coordinates[0].lng
+      arr[3] = [coordinates[0].lat, coordinates[0].lng]
     }
 
     let count = arr[0];
@@ -257,6 +257,7 @@ function start() {
             //get coordinates from node and place marker
             deleteMarkers();
             let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
+            console.log(geo);
             placeMark(geo)
         });
     // node.on("mousedown", function() {
