@@ -134,9 +134,6 @@ function getEmojis(emojis) {
        let coordinates = [
         {lat: 36, lng: 127}, //korea
         {lat: 36, lng: 138}, //japan
-        {lat: 40, lng: 116}, //beijing
-        {lat: 31, lng: 121}, //shanghai
-        {lat: 23, lng: 113}, //guangzhou
         {lat: 47, lng: 103}, //mongolia
         {lat: 20, lng: 79}, //india
         {lat: 14, lng: 100}, //bangkok
@@ -151,7 +148,7 @@ function getEmojis(emojis) {
         {lat: 13, lng: 30}, //sudan
         {lat: 27, lng: 30}, //egypt
         {lat: 26, lng: 17}, //libya
-        {lat: 28, lng: -2}, //a;geria
+        {lat: 28, lng: -2}, //algeria
         {lat: 19, lng: 47}, //madagascar
         {lat: 19, lng: 28}, //zimbabwe
         {lat: 13, lng: 34}, //malawi
