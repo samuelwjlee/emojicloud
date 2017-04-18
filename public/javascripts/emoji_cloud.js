@@ -46,9 +46,6 @@ function fetchEmojis(place) {
 
 }
 
-
-
-
 function beginTransition() {
   // const $body = $('body')
   // const $pending = $("<div></div>")
