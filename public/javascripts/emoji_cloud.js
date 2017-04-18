@@ -6,14 +6,7 @@
 // $(document).ready(function() {
 
 let emojis;
-// let gravity = .1;
-// fetchEmojis('world', 'static');
 
-// d3.json('/api/world_emojis/1', function(data) {
-//   svg.selectAll("*").remove();
-//   emojis = getEmojis(data.emojis);
-//   addEmoji();
-// })
 fetchEmojis('world');
 
 var width = 500;
@@ -42,35 +35,15 @@ function fetchEmojis(place) {
     }
     initMap(continents[place][0], continents[place][1]);
 
-    // endTransition();
-    // gravity = .1;
-    // nodes.splice(d.index,1) //this deletes the node from the data at the nodes index
-
-    //console.log("begin", nodes.length)
     svg.selectAll("*").remove();
     while (nodes.length > 0) {
       nodes.pop();
     }
-    // nodes.remove();
-    // debugger
-    //console.log("end", nodes.length)
 
-    // d3.event.stopPropagation();
-      //  this.remove();
-      //  force.resume();
-
-
-
-
-    // svg.remove();
-    // svg.attr("width", width).attr("height", height)
     emojis = getEmojis(data.emojis);
     addEmoji();
-    // console.log("made a static request");
   })
-  // d3.json(streamPath, function(data) {
-  //   // console.log("made a streaming request");
-  // })
+
 }
 
 
@@ -185,13 +158,9 @@ function getEmojis(emojis) {
   let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
 
   return Object.keys(emojis).map(function(emoji) {
-    // console.log(emojis[emoji])
-    // console.log(emoji);
-    // console.log(emojione.unicodeToImage(emoji));
     return {
       emojiData: emojis[emoji],
       emojiFrequency: (emojis[emoji][0] * 100 / totalCount).toFixed(2),
-      // imageUrl: emojione.shortnameToImage(emoji).match(/src="(.*)"/)[1],
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/) ? emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1] :  "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
       count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
     };
@@ -219,10 +188,6 @@ var force = d3.layout.force()
     .theta(0.8)
     .alpha(4.1);
 
-    // force.gravity(function() {
-    //   return 5
-    // });
-
 function start() {
     node = node.data(force.nodes(), function(d) {
         return d.index;
@@ -245,9 +210,6 @@ function start() {
             return d.emojiFrequency;
         });
 
-        // .on("mouseover", fade(.1, true));
-        // .attr("width", 120)
-        // .attr("height", 120)
     node.exit().remove();
     node.call(force.drag)
         .on("mousedown", function(d) {
@@ -259,9 +221,7 @@ function start() {
             let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
             placeMark(geo)
         });
-    // node.on("mousedown", function() {
-    //         console.log(node);
-    //     });
+
     node.on("mouseover", function(d) {
       // console.log(d.emojiData);
       updateSidebar(d.emojiData, d.emojiFrequency);
