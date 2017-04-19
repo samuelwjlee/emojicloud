@@ -104,5 +104,7 @@ EmojiCloud was designed and implemented by Mark Noizumi, Peter Delfausse, and Sa
 Mark and Sam put together the Rails backend, tamed the Twitter API, and formatted the data. Peter transformed the data into an emoji cloud on the frontend.
 
 Samuel's Portfolio: http://www.theleesamuel.com
+
 Mark's Portfolio: http://www.marknoizumi.com/
+
 Peter's Portfolio: https://delisauce.github.io/
