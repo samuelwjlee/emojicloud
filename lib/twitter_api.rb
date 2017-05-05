@@ -23,7 +23,6 @@ class TwitterApi
     tweets = []
     client.filter(locations: region) do |tweet|
       tweets << tweet
-      # print "-"
       return tweets if tweets.count > 500
     end
   end

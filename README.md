@@ -40,17 +40,26 @@ EmojiCloud was built with Ruby on Rails for backend and Javascript for frontend.
 #### Twitter Streaming API
 Twitter provides two different APIs to access tweet information. The REST API uses secure tokens obtained via OAuth to make requests for tweets data, with a number of different filter options (location, time, etc). The Twitter Streaming API gives access tweets in real time but is limited in its filtering capabilities.  We utilize this stream for our data.  World tweets are taken directly from the open stream, while continent specific tweets are obtained by filtering the stream for a specific geographic location.  This location is created by giving coordinates that create a square by giving the lower and upper bounds for two corners.
 
-![code1-screenshot]
-
-[code1-screenshot]:./doc/screenshots/countries.png
+```javascript
+EUROPE = '-46.230469, 35.666222, 73.300781, 75.906829'
+N_AMERICA = '-165.058594, 18.552532, -58.535156, 72.151523'
+AFRICA = '-22.675781, -38.899583, 52.910156, 35.092945'
+ASIA = '60.996094, -49.217597, 171.386719, 48.392738'
+```
 
 #### Data Sets
 Each emojicloud is rendered based on results from a sample stream of 1000 tweets. We found that number returned about 200 tweets with emojis, giving a better range of emojis in the sample.  Overall, in our limited datasets we found that emoji usage hovers around 20% in our overall tweets.  Interestingly, we noticed in our samples from Africa that emojis utilization is much higher, appearing in roughly 30% of tweets.  
 
 
-![code2-screenshot]
-
-[code2-screenshot]:./doc/screenshots/twitter_search.png
+```javascript
+def self.data(region)
+  tweets = []
+  client.filter(locations: region) do |tweet|
+    tweets << tweet
+    return tweets if tweets.count > 500
+  end
+end
+```
 
 The data returned from the Streaming API is in JSON format. A limiting factor in creating a large enough data set to be statistically significant was the infrequency of emoji usage in tweets. For example, in order to collect a set of 300 emojis used in tweets, the stream might have to be open 5-10 seconds. For our front end user, waiting this long for the emoji cloud to refresh would be unacceptable. To solve this we increased responsiveness by...
 
@@ -58,9 +67,20 @@ The data returned from the Streaming API is in JSON format. A limiting factor in
 #### Parsing Data
 We parsed the emoji data using a regular expression that filters out tweets.  We then tabulate the frequency of the emojis by storing frequencies in a hash along with sample tweet data for that particular emoji.  We were surprised to find that the most commonly used emoji seems to be the tears of joy emoji.  It is represented in almost every dataset we receive.  
 
-![code3-screenshot]
+```javascript
+def self.sort(arr)
+  coordinates = []
+  word_cloud = {}
+  count = 0;
 
-[code3-screenshot]:./doc/screenshots/sort.png
+  arr.each do |tweet|Â
+    coordinates << tweet.attrs[:coordinates][:coordinates] if tweet.attrs[:coordinates]
+    tweet2 = (EMOJI_REGEX.match(tweet.text)).to_s
+
+    ...
+  end
+end
+```
 
 #### API bottleneck
 Initially we planned on doing requests on the spot when a link was clicked.  We soon learned that to collect enough tweets, takes far too long to be responsive to user requests.  Thus, we created tasks in our application manager, Heroku, to retrieve the data on an hourly basis.  
