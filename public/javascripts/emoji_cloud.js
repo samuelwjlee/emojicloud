@@ -223,17 +223,30 @@ function start() {
       // console.log(d.emojiData);
       updateSidebar(d.emojiData, d.emojiFrequency);
 
-      d3.select(this).attr("height", function(d) {
-        return d.count * 1.2;
-      });
+      d3.select(this).transition()
+          .ease("elastic")
+          .duration("500")
+          .attr("height", d.count * 1.5);
+
+      // d3.select(this).attr("height", function(d) {
+      //
+      //   return d.count * 1.2;
+      // });
 
     });
 
     node.on("mouseout", function(d) {
       // updateSidebar('');
-      d3.select(this).attr("height", function(d) {
-        return d.count;
-      });
+      d3.select(this).transition()
+          .ease("quad")
+          .delay("100")
+          .duration("200")
+          .attr("height", d.count);
+
+      // d3.select(this).attr("height", function(d) {
+      //
+      //   return d.count;
+      // });
     });
 
     force.start();
