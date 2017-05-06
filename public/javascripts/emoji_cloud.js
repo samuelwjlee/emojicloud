@@ -223,16 +223,16 @@ function start() {
       updateSidebar(d.emojiData, d.emojiFrequency);
 
       d3.select(this).transition()
-          .ease("elastic")
-          .duration("500")
+          .ease("quad")
+          .duration("100")
           .attr("height", d.count * 1.5);
     });
 
     node.on("mouseout", function(d) {
       d3.select(this).transition()
           .ease("quad")
-          .delay("100")
-          .duration("200")
+          .delay('100')
+          .duration("100")
           .attr("height", d.count);
     });
 
