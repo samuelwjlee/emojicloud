@@ -8,30 +8,6 @@ EmojiCloud is a data visualization of emoji usage from around the world. We util
 
 [EmojiCloud]:https://emojicloud.herokuapp.com/
 
-## Features
-#### The Emoji Cloud
-A visual representation of emojis used in tweets. The emoji "cloud" displays the relative frequency of each type of emoji, in logarithmic scale.
-
-![emoji-cloud-screenshot]
-
-[emoji-cloud-screenshot]:./doc/screenshots/cloud-screenshot.png
-
-#### Tweet Sample
-When you hover over an emoji in the cloud a sample tweet appears...
-
-![tweet-sample-screenshot]
-
-[tweet-sample-screenshot]:./doc/screenshots/tweet-screenshot.png
-
-
-#### Map Pin
-Clicking an emoji shows a marker on the map, pinpointing the location of the tweet.
-
-![map-screenshot]
-
-[map-screenshot]:./doc/screenshots/map-screenshot.png
-
-
 ## Technologies
 
 ### Twitter API, Data-Driven-Documents(D3), and Google Maps API
@@ -117,8 +93,30 @@ function placeMark(geo) {
 }
 ```
 
+## Features
+#### The Emoji Cloud
+A visual representation of emojis used in tweets. The emoji "cloud" displays the relative frequency of each type of emoji, in logarithmic scale.
 
-### The EmojiCloud Team
+![emoji-cloud-screenshot]
+
+[emoji-cloud-screenshot]:./doc/screenshots/cloud-screenshot.png
+
+#### Tweet Sample
+When you hover over an emoji in the cloud a sample tweet appears...
+
+![tweet-sample-screenshot]
+
+[tweet-sample-screenshot]:./doc/screenshots/tweet-screenshot.png
+
+
+#### Map Pin
+Clicking an emoji shows a marker on the map, pinpointing the location of the tweet.
+
+![map-screenshot]
+
+[map-screenshot]:./doc/screenshots/map-screenshot.png
+
+## The EmojiCloud Team
 EmojiCloud was designed and implemented by Mark Noizumi, Peter Delfausse, and Samuel Lee.
 
 Mark and Sam put together the Rails backend, tamed the Twitter API, and formatted the data. Peter transformed the data into an emoji cloud on the frontend.
