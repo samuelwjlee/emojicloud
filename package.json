@@ -1,35 +1,5 @@
 {
-  "name": "emoji2",
-  "version": "1.0.0",
-  "description": "##Background",
-  "main": "webpack.config.js",
-  "dependencies": {
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "d3": "^4.5.0",
-    "emojione": "^2.2.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.2",
-    "redux": "^3.6.0",
-    "webpack": "^1.14.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theleesamuel/emojicloud.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theleesamuel/emojicloud/issues"
-  },
-  "homepage": "https://github.com/theleesamuel/emojicloud#readme"
+  "name": "emojicloud",
+  "private": true,
+  "dependencies": {}
 }

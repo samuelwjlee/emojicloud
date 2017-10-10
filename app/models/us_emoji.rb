@@ -1,2 +1,0 @@
-class UsEmoji < ApplicationRecord
-end

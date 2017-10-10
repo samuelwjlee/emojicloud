@@ -5,9 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-WorldEmoji.create!(emojis: TwitterApi.world2)
-UsEmoji.create!(emojis: TwitterApi.n_america)
-AfricaEmoji.create!(emojis: TwitterApi.africa)
-AsiaEmoji.create!(emojis: TwitterApi.asia)
-EuropeEmoji.create!(emojis: TwitterApi.europe)

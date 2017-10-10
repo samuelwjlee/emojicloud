@@ -1,3 +1,0 @@
-class WorldEmoji < ApplicationRecord
-
-end

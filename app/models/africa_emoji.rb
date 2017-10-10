@@ -1,3 +1,0 @@
-class AfricaEmoji < ApplicationRecord
-
-end
