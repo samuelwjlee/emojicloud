@@ -1,0 +1,2 @@
+class EuropeEmoji < ApplicationRecord
+end

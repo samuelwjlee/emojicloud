@@ -1,0 +1,2 @@
+class AmericaEmoji < ApplicationRecord
+end

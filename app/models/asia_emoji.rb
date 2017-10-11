@@ -1,0 +1,2 @@
+class AsiaEmoji < ApplicationRecord
+end
