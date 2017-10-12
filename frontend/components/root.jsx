@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import App from './app';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -15,7 +16,7 @@ const muiTheme = getMuiTheme({
 
 const Root = () => {
   return(
-    <MuiThemeProvider muiTheme={muiTheme}></MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}><App /></MuiThemeProvider>
   )
 }
 
