@@ -15,32 +15,32 @@ ActiveRecord::Schema.define(version: 20171011001229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "africa_emojis", force: :cascade do |t|
-    t.json "emojis", null: false
+  create_table "africa_emojis", id: :bigserial, force: :cascade do |t|
+    t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "america_emojis", force: :cascade do |t|
-    t.json "emojis", null: false
+    t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "asia_emojis", force: :cascade do |t|
-    t.json "emojis", null: false
+  create_table "asia_emojis", id: :bigserial, force: :cascade do |t|
+    t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "europe_emojis", force: :cascade do |t|
-    t.json "emojis", null: false
+  create_table "europe_emojis", id: :bigserial, force: :cascade do |t|
+    t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "world_emojis", force: :cascade do |t|
-    t.json "emojis", null: false
+  create_table "world_emojis", id: :bigserial, force: :cascade do |t|
+    t.json     "emojis",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

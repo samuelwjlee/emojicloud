@@ -1,4 +1,4 @@
-class CreateAfricaEmojis < ActiveRecord::Migration[5.1]
+class CreateAfricaEmojis < ActiveRecord::Migration[5.0]
   def change
     create_table :africa_emojis do |t|
       t.json "emojis", null:false

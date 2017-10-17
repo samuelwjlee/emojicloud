@@ -20,12 +20,11 @@ gem 'rails_serve_static_assets'
 gem 'newrelic_rpm'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'dotenv-rails'
 
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'dotenv-rails'
-
 end
 
 group :development do
