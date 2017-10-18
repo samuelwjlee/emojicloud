@@ -1,10 +1,3 @@
-// $(function() {
-// import d3 from 'd3';
-// var d3 = require('d3');
-// import emojione from 'https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js'
-// import d3 from 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js'
-// $(document).ready(function() {
-
 let emojis;
 
 fetchEmojis('world');
@@ -44,35 +37,6 @@ function fetchEmojis(place) {
     addEmoji();
   })
 
-}
-
-function beginTransition() {
-  // const $body = $('body')
-  // const $pending = $("<div></div>")
-  // $pending.text("FETCHING DATA ...")
-  // $body.append($pending)
-  // force.gravity(44)
-  // .linkStrength(0.8)
-  // .friction(0.9)
-  // .linkDistance(2000)
-  // .charge(-30)
-  // .theta(0.8)
-  // .alpha(.1);
-}
-function endTransition() {
-  // $pending.text("")
-  // force.gravity(.3)
-  // .linkStrength(0.8)
-  // .friction(0.9)
-  // .linkDistance(2)
-  // .charge(-100)
-  // .theta(0.8)
-  // .alpha(4.1);
-}
-
-// function getGravity() {
-//   return gravity;
-// }
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -210,7 +174,6 @@ function start() {
     node.exit().remove();
     node.call(force.drag)
         .on("mousedown", function(d) {
-            // console.log("this is a node on mousedown:", node);
             d3.event.stopPropagation();
 
             //get coordinates from node and place marker
@@ -242,7 +205,6 @@ function start() {
 let $tweets = $('#tweet-container');
 
 function updateSidebar(emojiData, emojiFrequency){
-  //console.log(tweets);
   $tweets.empty();
 
   let $tweetHeader = $(`<div></div>`);
@@ -255,21 +217,8 @@ function updateSidebar(emojiData, emojiFrequency){
 
   let $tweetBody = $(`<div>${emojiData[1]}</div>`);
   $tweetBody.addClass("tweet-body");
-
-  // let $tweetFooter = $(`<div></div>`);
-
   $tweets.append($tweetHeader, $tweetBody);
-
-
-  // screenname.text()
-
-  // tweets.innerHTML = `${emojiData[4]}
-  // ${emojiData[1]}
-  // (${emojiData[0]})`
 }
-
-
-////////////////////////////////// COMMENT OUT FOR COLLISION DETECTION //////////////////////////////////
 
 function tick(e) {
     node.attr("x", function(d) {
@@ -288,114 +237,16 @@ function tick(e) {
             });
 }
 
-
-////////////////////////////////// COLLISION DETECTION //////////////////////////////////
-
-// force.on("tick", function(e) {
-//   var q = d3.geom.quadtree(nodes),
-//       i = 0,
-//       n = nodes.length;
-//   while (++i < n) {
-//     q.visit(collide(nodes[i]));
-//   }
-//   // svg.selectAll("node")
-//   //     .attr("x", function(d) { return d.x; })
-//   //     .attr("y", function(d) { return d.y; });
-//
-//   node.attr("x", function(d) {
-//           if (d.x >= width - (d.count)) {
-//             return width - (d.count);
-//           } else if (d.x <= 0) {
-//             return 0;
-//           } else {return d.x;}
-//       })
-//       .attr("y", function(d) {
-//               if (d.y >= height - (d.count)) {
-//                 return height - (d.count);
-//               } else if (d.y <= 0) {
-//                 return 0;
-//               } else {return d.y;}
-//           });
-//
-// })
-//
-//
-// function collide(node) {
-//   var r = node.count,
-//       nx1 = node.x - r,
-//       nx2 = node.x + r,
-//       ny1 = node.y - r,
-//       ny2 = node.y + r;
-//       console.log(node.count, nx1, nx2, ny1, ny2);
-//   return function(quad, x1, y1, x2, y2) {
-//     if (quad.point && (quad.point !== node)) {
-//       var x = node.x - quad.point.x,
-//           y = node.y - quad.point.y,
-//           l = Math.sqrt(x * x + y * y),
-//           r = node.count + quad.point.radius;
-//       if (l < r) {
-//         l = (l - r) / l * .5;
-//         node.x -= x *= l;
-//         node.y -= y *= l;
-//         quad.point.x += x;
-//         quad.point.y += y;
-//       }
-//     }
-//     return x1 > nx2
-//         || x2 < nx1
-//         || y1 > ny2
-//         || y2 < ny1;
-//   };
-// }
-
-
-////////////////////////////////// COLLISION DETECTION //////////////////////////////////
-
-
-
-
-
-
-
-
-
+// COLLISION DETECTION
 let padding = 15, // separation between same-color circles
     clusterPadding = 16, // separation between different-color circles
     maxRadius = 12;
 
-// function getInitialPosition() {
-//   var position = {};
-//   var dir = Math.floor(Math.random() * 4);
-//   if (dir === 1) {
-//     position.x = Math.random() * width;
-//     position.y = 0;
-//   } else if (dir === 2) {
-//     position.x = Math.random() * width;
-//     position.y = height;
-//   } else if (dir === 3) {
-//     position.x = 0;
-//     position.y = Math.random() * height;
-//   } else if (dir === 4) {
-//     position.x = width;
-//     position.y = Math.random() * height;
-//   }
-//   return position;
-// }
 var delay = 0;
 function addEmoji() {
-  // emojis.forEach((emoji) => {
-  //   emoji.x = width/2;
-  //   emoji.y = width/2;
-  //   nodes.push(emoji));
-  // });
-  // start();
-
     var emoji = emojis.pop();
-    // var position = getInitialPosition();
     emoji.x = width/2;
     emoji.y = width/2;
-    // feeling.x = position.x;
-    // feeling.y = position.y;
     nodes.push(emoji);
 
     start();
@@ -406,5 +257,3 @@ function addEmoji() {
         delay -= 1;
     }
 }
-
-// });
