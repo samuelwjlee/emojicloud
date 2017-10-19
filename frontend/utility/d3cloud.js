@@ -1,4 +1,3 @@
-let emojis;
 var width = 500;
 var height = 500;
 var nodes = [];
@@ -6,7 +5,7 @@ var links = [];
 var svg = d3.select("#cloud").attr("width", width).attr("height", height);
 
 function fetchEmojis(place) {
-  // beginTransition();
+  let emojis;
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
 
@@ -94,14 +93,6 @@ function start() {
         });
     node.exit().remove();
     node.call(force.drag)
-        .on("mousedown", function(d) {
-            d3.event.stopPropagation();
-
-            //get coordinates from node and place marker
-            deleteMarkers();
-            let geo = {lat:d.emojiData[3][0], lng:d.emojiData[3][1]};
-            placeMark(geo)
-        });
 
     node.on("mouseover", function(d) {
       d3.select(this).transition()
@@ -138,17 +129,17 @@ function tick(e) {
             });
 }
 
-var delay = 0;
 function addEmoji() {
-    var emoji = emojis.pop();
-    emoji.x = width/2;
-    emoji.y = width/2;
-    nodes.push(emoji);
-    start();
-    if (emojis.length > 0) {
-      setTimeout(function () {
-        addEmoji();
-      }, delay);
-        delay -= 1;
-    }
+  var delay = 0;
+  var emoji = emojis.pop();
+  emoji.x = width/2;
+  emoji.y = width/2;
+  nodes.push(emoji);
+  start();
+  if (emojis.length > 0) {
+    setTimeout(function () {
+      addEmoji();
+    }, delay);
+      delay -= 1;
+  }
 }
