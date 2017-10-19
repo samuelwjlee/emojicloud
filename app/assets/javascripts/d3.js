@@ -17,44 +17,15 @@ function fetchEmojis(place) {
   let staticPath = streamPath + '/1'
 
   d3.json(staticPath, function(data) {
-
-    // initialize continent map with preset geo and zoom
-    const continents = {
-      world: [{lat: 48, lng: 67}, 2],
-      africa: [{lat: 7, lng: 21}, 3],
-      asia: [{lat: 34, lng: 109}, 3],
-      europe: [{lat: 50, lng: 14}, 4],
-      us: [{lat: 39, lng: -98}, 4]
-    }
-    initMap(continents[place][0], continents[place][1]);
-
     svg.selectAll("*").remove();
     while (nodes.length > 0) {
       nodes.pop();
     }
-
+    console.log(data.emojis);
     emojis = getEmojis(data.emojis);
     addEmoji();
   })
 
-
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
 }
 
 function getEmojis(emojis) {
@@ -63,47 +34,6 @@ function getEmojis(emojis) {
   let minCount;
   let maxCount;
   Object.values(emojis).forEach((arr, idx) => {
-    //assign coordinates to emojis from the world
-    if (current_continent === 'world') {
-       let coordinates = [
-        {lat: 36, lng: 127}, //korea
-        {lat: 36, lng: 138}, //japan
-        {lat: 47, lng: 103}, //mongolia
-        {lat: 20, lng: 79}, //india
-        {lat: 14, lng: 100}, //bangkok
-        {lat: 22, lng: 96}, //burma
-        {lat: 13, lng: 121}, //philippines
-        {lat: 1, lng: 103}, //singapore
-        {lat: 6, lng: 106}, //jakarta
-        {lat: 34, lng: 14}, //cape town
-        {lat: 9, lng: 9}, //nigeria
-        {lat: 26, lng: 28}, //johannesburg
-        {lat: 4, lng: 21}, //congo
-        {lat: 13, lng: 30}, //sudan
-        {lat: 27, lng: 30}, //egypt
-        {lat: 26, lng: 17}, //libya
-        {lat: 28, lng: -2}, //algeria
-        {lat: 19, lng: 47}, //madagascar
-        {lat: 19, lng: 28}, //zimbabwe
-        {lat: 13, lng: 34}, //malawi
-        {lat: 8, lng: -1}, //ghana
-        {lat: 50, lng: 14}, //praque
-        {lat: 52, lng: 13}, //berlin
-        {lat: 51, lng: -.1}, //london
-        {lat: 40, lng: -3}, //madrid
-        {lat: 42, lng: 13}, //los angeles
-        {lat: 49, lng: 2}, //paris
-        {lat: 47, lng: 19}, //budapest
-        {lat: 52, lng: 21}, //warsaw
-        {lat: 45, lng: 9}, //milan
-        {lat: 41, lng: 28}, //istanbul
-        {lat: 53, lng: -7}, //ireland
-        {lat: 38, lng: 23} //athens
-      ];
-      shuffle(coordinates)
-      arr[3] = [coordinates[0].lat, coordinates[0].lng]
-    }
-
     let count = arr[0];
     totalVolume += ((1 + Math.log(count)) * (1 + Math.log(count)));
     totalCount += count;
@@ -134,8 +64,6 @@ function getScalingFactor(total, min, max) {
 }
 
 var node = svg.selectAll(".node");
-
-
 var force = d3.layout.force()
     .nodes(nodes)
     .links(links)
@@ -170,7 +98,6 @@ function start() {
         .attr("emojiFrequency", function(d) {
             return d.emojiFrequency;
         });
-
     node.exit().remove();
     node.call(force.drag)
         .on("mousedown", function(d) {
@@ -183,8 +110,6 @@ function start() {
         });
 
     node.on("mouseover", function(d) {
-      updateSidebar(d.emojiData, d.emojiFrequency);
-
       d3.select(this).transition()
           .ease("quad")
           .duration("100")
@@ -200,24 +125,6 @@ function start() {
     });
 
     force.start();
-}
-
-let $tweets = $('#tweet-container');
-
-function updateSidebar(emojiData, emojiFrequency){
-  $tweets.empty();
-
-  let $tweetHeader = $(`<div></div>`);
-  $tweetHeader.addClass("tweet-header");
-  let $screenName = $(`<div>${emojiData[4]}</div>`);
-  $screenName.addClass("tweet-screenname");
-  let $tweetCount = $(`<div>Emoji Frequency: ${emojiFrequency}%</div>`);
-  $tweetCount.addClass("tweet-count");
-  $tweetHeader.append($screenName, $tweetCount);
-
-  let $tweetBody = $(`<div>${emojiData[1]}</div>`);
-  $tweetBody.addClass("tweet-body");
-  $tweets.append($tweetHeader, $tweetBody);
 }
 
 function tick(e) {
@@ -236,11 +143,6 @@ function tick(e) {
                 } else {return d.y;}
             });
 }
-
-// COLLISION DETECTION
-let padding = 15, // separation between same-color circles
-    clusterPadding = 16, // separation between different-color circles
-    maxRadius = 12;
 
 var delay = 0;
 function addEmoji() {
