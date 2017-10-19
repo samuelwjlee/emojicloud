@@ -1,15 +1,9 @@
 let emojis;
-
-fetchEmojis('world');
-
 var width = 500;
 var height = 500;
 var nodes = [];
 var links = [];
-
-var svg = d3.select("#cloud")
-    .attr("width", width)
-    .attr("height", height)
+var svg = d3.select("#cloud").attr("width", width).attr("height", height);
 
 function fetchEmojis(place) {
   // beginTransition();
