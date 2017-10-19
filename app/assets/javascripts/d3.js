@@ -150,7 +150,6 @@ function addEmoji() {
     emoji.x = width/2;
     emoji.y = width/2;
     nodes.push(emoji);
-
     start();
     if (emojis.length > 0) {
       setTimeout(function () {
