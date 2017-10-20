@@ -1,11 +1,11 @@
+var emojis;
 var width = 500;
 var height = 500;
 var nodes = [];
 var links = [];
-var svg = d3.select("#cloud").attr("width", width).attr("height", height);
+var svg = d3.select("#cloud").attr("width", 500).attr("height", 500);
 
-function fetchEmojis(place) {
-  let emojis;
+export function fetchEmojis(place) {
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
 
@@ -14,7 +14,6 @@ function fetchEmojis(place) {
     while (nodes.length > 0) {
       nodes.pop();
     }
-    console.log(data.emojis);
     emojis = getEmojis(data.emojis);
     addEmoji();
   })

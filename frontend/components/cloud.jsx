@@ -1,4 +1,5 @@
 import React from 'react';
+import {fetchEmojis} from '../utility/d3cloud';
 
 class Cloud extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class Cloud extends React.Component {
   }
 
   componentDidMount() {
-
+    fetchEmojis('world')
   }
 
   render() {
