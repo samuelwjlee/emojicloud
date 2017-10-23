@@ -1,23 +1,35 @@
 var emojis;
-var width = 500;
-var height = 500;
-var nodes = [];
 var links = [];
-var svg = d3.select("#cloud").attr("width", 500).attr("height", 500);
+var nodes = [];
+var node = d3.select("#cloud").selectAll(".node");
+var force = d3.layout.force()
+.nodes(nodes)
+.links(links)
+.size([500, 500])
+.on("tick", tick)
+.linkStrength(1)
+.friction(0.9)
+.linkDistance(2)
+.charge(-100)
+.gravity(.1)
+.theta(0.8)
+.alpha(4.1);
 
 export function fetchEmojis(place) {
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
 
   d3.json(staticPath, function(data) {
-    svg.selectAll("*").remove();
+    console.log(data);
+    d3.select("#cloud").selectAll("*").remove();
+    console.log(d3.select("#cloud"));
     while (nodes.length > 0) {
       nodes.pop();
     }
     emojis = getEmojis(data.emojis);
     addEmoji();
   })
-
+  console.log(d3);
 }
 
 function getEmojis(emojis) {
@@ -51,23 +63,10 @@ function getEmojis(emojis) {
 }
 
 function getScalingFactor(total, min, max) {
-  let factor = Math.sqrt(width * height / total);
+  let factor = Math.sqrt(500 * 500 / total);
   return factor/2
 }
 
-var node = svg.selectAll(".node");
-var force = d3.layout.force()
-    .nodes(nodes)
-    .links(links)
-    .size([width, height])
-    .on("tick", tick)
-    .linkStrength(1)
-    .friction(0.9)
-    .linkDistance(2)
-    .charge(-100)
-    .gravity(.1)
-    .theta(0.8)
-    .alpha(4.1);
 
 function start() {
     node = node.data(force.nodes(), function(d) {
@@ -113,15 +112,15 @@ function start() {
 
 function tick(e) {
     node.attr("x", function(d) {
-            if (d.x >= width - (d.count)) {
-              return width - (d.count);
+            if (d.x >= 500 - (d.count)) {
+              return 500 - (d.count);
             } else if (d.x <= 0) {
               return 0;
             } else {return d.x;}
         })
         .attr("y", function(d) {
-                if (d.y >= height - (d.count)) {
-                  return height - (d.count);
+                if (d.y >= 500 - (d.count)) {
+                  return 500 - (d.count);
                 } else if (d.y <= 0) {
                   return 0;
                 } else {return d.y;}
@@ -131,8 +130,8 @@ function tick(e) {
 function addEmoji() {
   var delay = 0;
   var emoji = emojis.pop();
-  emoji.x = width/2;
-  emoji.y = width/2;
+  emoji.x = 500/2;
+  emoji.y = 500/2;
   nodes.push(emoji);
   start();
   if (emojis.length > 0) {
