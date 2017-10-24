@@ -1,35 +1,33 @@
-var emojis;
-var links = [];
-var nodes = [];
-var node = d3.select("#cloud").selectAll(".node");
+let emojis, svg, node;
+var links, nodes = [], [];
 var force = d3.layout.force()
-.nodes(nodes)
-.links(links)
-.size([500, 500])
-.on("tick", tick)
-.linkStrength(1)
-.friction(0.9)
-.linkDistance(2)
-.charge(-100)
-.gravity(.1)
-.theta(0.8)
-.alpha(4.1);
+            .nodes(nodes)
+            .links(links)
+            .size([500, 500])
+            .on("tick", tick)
+            .linkStrength(1)
+            .friction(0.9)
+            .linkDistance(2)
+            .charge(-100)
+            .gravity(.1)
+            .theta(0.8)
+            .alpha(4.1);
 
 export function fetchEmojis(place) {
+  svg = d3.select("#cloud");
+  node = svg.selectAll(".node");
   let streamPath = '/api/' + place + '_emojis';
   let staticPath = streamPath + '/1'
 
   d3.json(staticPath, function(data) {
-    console.log(data);
-    d3.select("#cloud").selectAll("*").remove();
-    console.log(d3.select("#cloud"));
+    svg.selectAll("*").remove();
     while (nodes.length > 0) {
       nodes.pop();
     }
     emojis = getEmojis(data.emojis);
     addEmoji();
   })
-  console.log(d3);
+  console.log(svg);
 }
 
 function getEmojis(emojis) {

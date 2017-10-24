@@ -32,8 +32,6 @@
     "react-tap-event-plugin": "^3.0.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "webpack": "^3.6.0",
-    "d3": "^4.5.0",
-    "emojione": "^2.2.7"
+    "webpack": "^3.6.0"
   }
 }

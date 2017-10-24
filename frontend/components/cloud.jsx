@@ -7,7 +7,6 @@ class Cloud extends React.Component {
   }
 
   componentDidMount() {
-    d3.select("#cloud").attr("width", 500).attr("height", 500);
     fetchEmojis('world')
   }
 

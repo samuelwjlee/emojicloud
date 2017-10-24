@@ -1,10 +1,7 @@
 
 #cloud {
-  padding-left: 50px;
-  padding-right: 80px;
-  padding-top: 15px;
-  padding-bottom: 30px;
-
+  width: 500px;
+  height: 500px;
   opacity: 1;
   border: solid;
 }
