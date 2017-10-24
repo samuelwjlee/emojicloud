@@ -1,10 +1,12 @@
 let emojis, svg, node;
+let width = 500;
+let height = 500;
 var links = [];
 var nodes = [];
 var force = d3.layout.force()
           .nodes(nodes)
           .links(links)
-          .size([500, 500])
+          .size([width, height])
           .on("tick", tick)
           .linkStrength(1)
           .friction(0.9)
@@ -33,8 +35,8 @@ export function fetchEmojis(place) {
 function addEmoji() {
   var delay = 0;
   var emoji = emojis.pop();
-  emoji.x = 500/2;
-  emoji.y = 500/2;
+  emoji.x = width/2;
+  emoji.y = height/2;
   nodes.push(emoji);
   start();
   if (emojis.length > 0) {
@@ -74,8 +76,7 @@ function getEmojis(emojis) {
 }
 
 function getScalingFactor(total, min, max) {
-  let factor = (Math.sqrt(500 * 500 / total))/2
-  return factor/2
+  return (Math.sqrt(width * height / total))/2;
 }
 
 
@@ -107,15 +108,15 @@ function start() {
 
 function tick(e) {
     node.attr("x", function(d) {
-            if (d.x >= 500 - (d.count)) {
-              return 500 - (d.count);
+            if (d.x >= width - (d.count)) {
+              return width - (d.count);
             } else if (d.x <= 0) {
               return 0;
             } else {return d.x;}
         })
         .attr("y", function(d) {
-                if (d.y >= 500 - (d.count)) {
-                  return 500 - (d.count);
+                if (d.y >= height - (d.count)) {
+                  return height - (d.count);
                 } else if (d.y <= 0) {
                   return 0;
                 } else {return d.y;}
