@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './header';
 import Cloud from './cloud';
 import Region from './region';
 
-const appStyle = {
+const appStyle ={
+  height: '100%'
+}
+
+const contentStyle = {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-around',
@@ -23,11 +28,14 @@ const controlStyle = {
 
 const App = () => (
   <div className="app" style={appStyle}>
-    <div className="cloudContainer" style={cloudContainerStyle}>
-      <Cloud />
-    </div>
-    <div className="control" style={controlStyle}>
-      <Region />
+    <Header />
+    <div className="content" style={contentStyle}>
+      <div className="cloudContainer" style={cloudContainerStyle}>
+        <Cloud />
+      </div>
+      <div className="control" style={controlStyle}>
+        <Region />
+      </div>
     </div>
   </div>
 );

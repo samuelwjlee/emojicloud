@@ -7,10 +7,7 @@ class Region extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: 1,
-    };
-
+    this.state = {value: 1};
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -22,7 +19,7 @@ class Region extends React.Component {
     return(
       <div>
         <SelectField
-          floatingLabelText="Region"
+          floatingLabelText="Current Region"
           value={this.state.value}
           onChange={this.handleChange}>
 
