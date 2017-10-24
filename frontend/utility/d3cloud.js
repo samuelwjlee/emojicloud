@@ -1,17 +1,18 @@
 let emojis, svg, node;
-var links, nodes = [], [];
+var links = [];
+var nodes = [];
 var force = d3.layout.force()
-            .nodes(nodes)
-            .links(links)
-            .size([500, 500])
-            .on("tick", tick)
-            .linkStrength(1)
-            .friction(0.9)
-            .linkDistance(2)
-            .charge(-100)
-            .gravity(.1)
-            .theta(0.8)
-            .alpha(4.1);
+          .nodes(nodes)
+          .links(links)
+          .size([500, 500])
+          .on("tick", tick)
+          .linkStrength(1)
+          .friction(0.9)
+          .linkDistance(2)
+          .charge(-100)
+          .gravity(.1)
+          .theta(0.8)
+          .alpha(4.1);
 
 export function fetchEmojis(place) {
   svg = d3.select("#cloud");
@@ -27,14 +28,28 @@ export function fetchEmojis(place) {
     emojis = getEmojis(data.emojis);
     addEmoji();
   })
-  console.log(svg);
+}
+
+function addEmoji() {
+  var delay = 0;
+  var emoji = emojis.pop();
+  emoji.x = 500/2;
+  emoji.y = 500/2;
+  nodes.push(emoji);
+  start();
+  if (emojis.length > 0) {
+    setTimeout(function () {
+      addEmoji();
+    }, delay);
+      delay -= 1;
+  }
 }
 
 function getEmojis(emojis) {
   let totalVolume = 0;
   let totalCount = 0;
-  let minCount;
-  let maxCount;
+  let minCount, maxCount;
+
   Object.values(emojis).forEach((arr, idx) => {
     let count = arr[0];
     totalVolume += ((1 + Math.log(count)) * (1 + Math.log(count)));
@@ -48,20 +63,18 @@ function getEmojis(emojis) {
     }
   });
 
-  let emojiScalingFactor = getScalingFactor(totalVolume, minCount, maxCount);
-
   return Object.keys(emojis).map(function(emoji) {
     return {
       emojiData: emojis[emoji],
       emojiFrequency: (emojis[emoji][0] * 100 / totalCount).toFixed(2),
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/) ? emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1] :  "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
-      count: (1 + Math.log(emojis[emoji][0])) * emojiScalingFactor
+      count: (1 + Math.log(emojis[emoji][0])) * getScalingFactor(totalVolume, minCount, maxCount)
     };
   });
 }
 
 function getScalingFactor(total, min, max) {
-  let factor = Math.sqrt(500 * 500 / total);
+  let factor = (Math.sqrt(500 * 500 / total))/2
   return factor/2
 }
 
@@ -89,22 +102,6 @@ function start() {
         });
     node.exit().remove();
     node.call(force.drag)
-
-    node.on("mouseover", function(d) {
-      d3.select(this).transition()
-          .ease("quad")
-          .duration("100")
-          .attr("height", d.count * 1.5);
-    });
-
-    node.on("mouseout", function(d) {
-      d3.select(this).transition()
-          .ease("quad")
-          .delay('100')
-          .duration("100")
-          .attr("height", d.count);
-    });
-
     force.start();
 }
 
@@ -123,19 +120,4 @@ function tick(e) {
                   return 0;
                 } else {return d.y;}
             });
-}
-
-function addEmoji() {
-  var delay = 0;
-  var emoji = emojis.pop();
-  emoji.x = 500/2;
-  emoji.y = 500/2;
-  nodes.push(emoji);
-  start();
-  if (emojis.length > 0) {
-    setTimeout(function () {
-      addEmoji();
-    }, delay);
-      delay -= 1;
-  }
 }
