@@ -2,10 +2,18 @@ import React from 'react';
 import Cloud from './cloud';
 import Region from './region';
 
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'row'
+}
+
 const App = () => (
-  <div>
+  <div className="app" style={style}>
     <Cloud />
-    <Region />
+    <div className="control">
+      <Region />
+    </div>
   </div>
 );
 

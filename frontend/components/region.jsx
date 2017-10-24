@@ -26,11 +26,21 @@ class Region extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}>
 
-          <MenuItem value={1} primaryText="World" />
-          <MenuItem value={2} primaryText="Asia" />
-          <MenuItem value={3} primaryText="America" />
-          <MenuItem value={4} primaryText="Africa" />
-          <MenuItem value={5} primaryText="Europe" />
+          <MenuItem value={1}
+            primaryText="World"
+            onClick={() => fetchEmojis('world')}/>
+          <MenuItem value={2}
+            primaryText="Asia"
+            onClick={() => fetchEmojis('asia')}/>
+          <MenuItem value={3}
+            primaryText="America"
+            onClick={() => fetchEmojis('america')}/>
+          <MenuItem value={4}
+            primaryText="Africa"
+            onClick={() => fetchEmojis('africa')}/>
+          <MenuItem value={5}
+            primaryText="Europe"
+            onClick={() => fetchEmojis('europe')}/>
         </SelectField>
       </div>
     )
