@@ -1,9 +1,9 @@
 let emojis, svg, node;
 let width = 500;
 let height = 500;
-var links = [];
-var nodes = [];
-var force = d3.layout.force()
+let links = [];
+let nodes = [];
+let force = d3.layout.force()
           .nodes(nodes)
           .links(links)
           .size([width, height])
@@ -19,22 +19,19 @@ var force = d3.layout.force()
 export function fetchEmojis(place) {
   svg = d3.select("#cloud");
   node = svg.selectAll(".node");
-  let streamPath = '/api/' + place + '_emojis';
-  let staticPath = streamPath + '/1'
+  let apiAddress = '/api/' + place + '_emojis' + '/1'
 
-  d3.json(staticPath, function(data) {
+  d3.json(apiAddress, function(data) {
     svg.selectAll("*").remove();
-    while (nodes.length > 0) {
-      nodes.pop();
-    }
+    while (nodes.length > 0) {nodes.pop();}
     emojis = getEmojis(data.emojis);
     addEmoji();
   })
 }
 
 function addEmoji() {
-  var delay = 0;
-  var emoji = emojis.pop();
+  let delay = 0;
+  let emoji = emojis.pop();
   emoji.x = width/2;
   emoji.y = height/2;
   nodes.push(emoji);
@@ -81,44 +78,34 @@ function getScalingFactor(total, min, max) {
 
 
 function start() {
-    node = node.data(force.nodes(), function(d) {
-        return d.index;
-    });
+    node = node.data(force.nodes(), function(d) {return d.index;});
     node.enter()
         .append("svg:image")
-        .attr("xlink:href", function (d) {
-          return d.imageUrl;
-        })
-        .attr("height", function (d) {
-          return d.count; // scaleEmoji(d.count);
-        })
-        .attr("class", function(d) {
-            return "node";
-        })
-        .attr("emojiData", function(d) {
-            return d.emojiData;
-        })
-        .attr("emojiFrequency", function(d) {
-            return d.emojiFrequency;
-        });
+        .attr("xlink:href", function (d) {return d.imageUrl;})
+        .attr("height", function (d) {return d.count;})
+        .attr("class", function(d) {return "node";})
+        .attr("emojiData", function(d) {return d.emojiData;})
+        .attr("emojiFrequency", function(d) {return d.emojiFrequency;})
     node.exit().remove();
     node.call(force.drag)
     force.start();
 }
 
 function tick(e) {
-    node.attr("x", function(d) {
-            if (d.x >= width - (d.count)) {
-              return width - (d.count);
-            } else if (d.x <= 0) {
-              return 0;
-            } else {return d.x;}
-        })
-        .attr("y", function(d) {
-                if (d.y >= height - (d.count)) {
-                  return height - (d.count);
-                } else if (d.y <= 0) {
-                  return 0;
-                } else {return d.y;}
-            });
+  node.attr("x", function(d) {
+          if (d.x >= width - (d.count)) {
+            return width - (d.count);
+          } else if (d.x <= 0) {
+            return 0;
+          } else {return d.x;}
+        }
+      )
+      .attr("y", function(d) {
+          if (d.y >= height - (d.count)) {
+            return height - (d.count);
+          } else if (d.y <= 0) {
+            return 0;
+          } else {return d.y;}
+        }
+      )
 }
