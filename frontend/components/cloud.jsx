@@ -1,6 +1,11 @@
 import React from 'react';
 import {fetchEmojis} from '../utility/d3cloud';
 
+const style = {
+  width: '500',
+  height: '500'
+}
+
 class Cloud extends React.Component {
   constructor(props) {
     super(props);
@@ -10,14 +15,7 @@ class Cloud extends React.Component {
     fetchEmojis('world')
   }
 
-  render() {
-    return(
-      <div>
-        <h1>Emojicloud</h1>
-        <svg id="cloud"></svg>
-      </div>
-    )
-  }
+  render() {return(<svg id="cloud" style={style}></svg>);}
 }
 
 export default Cloud;
