@@ -8,7 +8,7 @@
 
 
 WorldEmoji.create!(emojis: TwitterApi.world2)
-AmericaEmoji.create!(emojis: TwitterApi.n_america)
+AmericaEmoji.create!(emojis: TwitterApi.america)
 AfricaEmoji.create!(emojis: TwitterApi.africa)
 AsiaEmoji.create!(emojis: TwitterApi.asia)
 EuropeEmoji.create!(emojis: TwitterApi.europe)

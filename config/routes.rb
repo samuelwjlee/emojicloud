@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :asia_emojis, only: [:index, :create, :show]
     resources :africa_emojis, only: [:index, :create, :show]
     resources :europe_emojis, only: [:index, :create, :show]
-    resources :us_emojis, only: [:index, :create, :show]
+    resources :america_emojis, only: [:index, :create, :show]
   end
 end
