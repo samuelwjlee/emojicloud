@@ -65,9 +65,9 @@ function getEmojis(emojis) {
   return Object.keys(emojis).map(function(emoji) {
     return {
       emojiData: emojis[emoji],
-      emojiFrequency: (emojis[emoji][0] * 100 / totalCount).toFixed(2),
+      emojiFrequency: (emojis[emoji] * 100 / totalCount).toFixed(2),
       imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/) ? emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1] :  "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
-      count: (1 + Math.log(emojis[emoji][0])) * getScalingFactor(totalVolume, minCount, maxCount)
+      count: (1 + Math.log(emojis[emoji])) * getScalingFactor(totalVolume, minCount, maxCount)
     };
   });
 }
