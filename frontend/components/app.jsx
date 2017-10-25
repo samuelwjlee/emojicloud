@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import Cloud from './cloud';
 import Region from './region';
+import Data from './data';
 
 const appStyle ={
   height: '100%'
@@ -15,15 +16,13 @@ const contentStyle = {
 }
 
 const cloudContainerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
+  margin: 'auto',
+  width: 500
 }
 
 const controlStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
+  margin: 'auto',
+  width: 300
 }
 
 const App = () => (
@@ -35,6 +34,7 @@ const App = () => (
       </div>
       <div className="control" style={controlStyle}>
         <Region />
+        <Data />
       </div>
     </div>
   </div>
