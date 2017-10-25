@@ -11,18 +11,21 @@ const appStyle ={
 const contentStyle = {
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'space-around',
+  justifyContent: 'center',
   height: '100%'
 }
 
 const cloudContainerStyle = {
   margin: 'auto',
-  width: 500
+  width: 500,
+  marginTop: '10%',
 }
 
 const controlStyle = {
   margin: 'auto',
-  width: 300
+  marginLeft: 0,
+  marginTop: '15%',
+  width: 300,
 }
 
 const App = () => (

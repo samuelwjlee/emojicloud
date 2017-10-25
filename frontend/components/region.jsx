@@ -3,6 +3,11 @@ import {fetchEmojis} from '../utility/d3cloud';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
+const fieldStyle = {
+  fontWeight: 'bold',
+  paddingBottom: 30,
+}
+
 class Region extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +22,7 @@ class Region extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={fieldStyle}>
         <SelectField
           floatingLabelText="Current Region"
           value={this.state.value}
