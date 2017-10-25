@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-WorldEmoji.create!(emojis: TwitterApi.world2)
+WorldEmoji.create!(emojis: TwitterApi.world)
 AmericaEmoji.create!(emojis: TwitterApi.america)
 AfricaEmoji.create!(emojis: TwitterApi.africa)
 AsiaEmoji.create!(emojis: TwitterApi.asia)

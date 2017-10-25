@@ -26,7 +26,8 @@ class Region extends React.Component {
         <SelectField
           floatingLabelText="Current Region"
           value={this.state.value}
-          onChange={this.handleChange}>
+          onChange={this.handleChange}
+          fullWidth={true}>
 
           <MenuItem value={1}
             primaryText="World"

@@ -26,7 +26,7 @@ class Data extends React.Component {
   render() {
     return(
       <div>
-        <h3>Most Popular Emojis</h3>
+        <h3 style={{textAlign: 'center'}}>Most Popular Emojis</h3>
         <div className="emojistat" style={emojistatStyle}>
           <img src="https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7" />
           <LinearProgress mode="determinate" value={30} style={progressStyle}/>
