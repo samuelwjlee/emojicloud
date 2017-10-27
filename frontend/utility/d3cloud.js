@@ -1,6 +1,7 @@
 let emojis, svg, node;
 let width = 500;
 let height = 500;
+let delay = 0;
 let links = [];
 let nodes = [];
 let force = d3.layout.force()
@@ -17,39 +18,32 @@ let force = d3.layout.force()
           .alpha(4.1);
 
 export function fetchEmojis(place) {
+  let apiAddress = '/api/' + place + '_emojis' + '/1'
   svg = d3.select("#cloud");
   node = svg.selectAll(".node");
-  let apiAddress = '/api/' + place + '_emojis' + '/1'
+
   d3.json(apiAddress, function(data) {
-
-    console.log('getting data...', data);
-
     svg.selectAll("*").remove();
     while (nodes.length > 0) {nodes.pop();}
     emojis = getEmojis(data.emojis);
     addEmoji();
+    console.log(data.emojis['top']);
   })
 }
 
 function addEmoji() {
-  let delay = 0;
-  // take element out of hash map
-  let emoji = emojis.pop();
+    let emoji = emojis.pop();
+    if (emoji) {
+      emoji.x = width/2;
+      emoji.y = width/2;
+      nodes.push(emoji);
+      start();
+    }
 
-  if (emoji !== 'top' && emoji !== 'total') {
-    emoji.x = width/2;
-    emoji.y = height/2;
-    nodes.push(emoji);
-
-    start();
-  }
-
-  if (emojis.length > 0) {
-    setTimeout(function () {
-      addEmoji();
-    }, delay);
+    if (emojis.length > 0) {
+      setTimeout(function () {addEmoji()}, delay);
       delay -= 1;
-  }
+    }
 }
 
 function getEmojis(emojis) {
@@ -69,14 +63,14 @@ function getEmojis(emojis) {
       return {
         emojiData: emoji,
         imageUrl: emojione.unicodeToImage(emoji).match(/src="(.*)"/) ? emojione.unicodeToImage(emoji).match(/src="(.*)"/)[1] :  "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
-        count: (1 + Math.log(emojis[emoji])) * getScalingFactor(totalVolume, minCount, maxCount)
+        count: (1 + Math.log(emojis[emoji])) * getScalingFactor(totalVolume)
       }
     }
   })
 }
 
-function getScalingFactor(total, min, max) {
-  return (Math.sqrt(width * height / total))/2;
+function getScalingFactor(totalVolume) {
+  return (Math.sqrt(width * height / totalVolume))/2;
 }
 
 
