@@ -12,7 +12,7 @@ class Cloud extends React.Component {
   }
 
   componentDidMount() {
-    fetchEmojis('world')
+    fetchEmojis('world');
   }
 
   render() {return(<svg id="cloud" style={style}></svg>);}

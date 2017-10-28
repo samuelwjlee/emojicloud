@@ -27,7 +27,9 @@ export function fetchEmojis(place) {
     while (nodes.length > 0) {nodes.pop();}
     emojis = getEmojis(data.emojis);
     addEmoji();
-    console.log(data.emojis['top']);
+    // console.log('receiving data...', data);
+    // console.log('popular emojis...', data.emojis['top']);
+    // console.log('total is...', data.emojis['total']);
   })
 }
 

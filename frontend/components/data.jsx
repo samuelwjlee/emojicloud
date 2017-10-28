@@ -1,6 +1,6 @@
 import React from 'react';
 import LinearProgress from 'material-ui/LinearProgress';
-import {getEmojis} from '../utility/d3cloud';
+import {fetchEmojis} from '../utility/d3cloud';
 
 const emojistatStyle = {
   display: 'flex',
@@ -28,9 +28,9 @@ class Data extends React.Component {
     super(props);
 
     this.state = {
-      value1: 0,
-      value2: 0,
-      value3: 0,
+      value1: 30,
+      value2: 10,
+      value3: 9,
       emoji1: "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
       emoji2: "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7",
       emoji3: "https://cdn.jsdelivr.net/emojione/assets/png/1f611.png?v=2.2.7"
@@ -38,7 +38,7 @@ class Data extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   render() {
