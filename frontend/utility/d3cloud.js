@@ -1,10 +1,10 @@
-let emojis, svg, node;
-let width = 500;
-let height = 500;
-let delay = 0;
-let links = [];
-let nodes = [];
-let force = d3.layout.force()
+var emojis, svg, node;
+var width = 500;
+var height = 500;
+var delay = 0;
+var links = [];
+var nodes = [];
+var force = d3.layout.force()
           .nodes(nodes)
           .links(links)
           .size([width, height])
@@ -21,31 +21,27 @@ export function fetchEmojis(place) {
   let apiAddress = '/api/' + place + '_emojis' + '/1'
   svg = d3.select("#cloud");
   node = svg.selectAll(".node");
-
   d3.json(apiAddress, function(data) {
     svg.selectAll("*").remove();
     while (nodes.length > 0) {nodes.pop();}
     emojis = getEmojis(data.emojis);
     addEmoji();
-    // console.log('receiving data...', data);
-    // console.log('popular emojis...', data.emojis['top']);
-    // console.log('total is...', data.emojis['total']);
   })
 }
 
 function addEmoji() {
-    let emoji = emojis.pop();
-    if (emoji) {
-      emoji.x = width/2;
-      emoji.y = width/2;
-      nodes.push(emoji);
-      start();
-    }
+  let emoji = emojis.pop();
+  if (emoji) {
+    emoji.x = width/2;
+    emoji.y = width/2;
+    nodes.push(emoji);
+    start();
+  }
 
-    if (emojis.length > 0) {
-      setTimeout(function () {addEmoji()}, delay);
-      delay -= 1;
-    }
+  if (emojis.length > 0) {
+    setTimeout(function () {addEmoji()}, delay);
+    delay -= 1;
+  }
 }
 
 function getEmojis(emojis) {
@@ -75,18 +71,17 @@ function getScalingFactor(totalVolume) {
   return (Math.sqrt(width * height / totalVolume))/2;
 }
 
-
 function start() {
-    node = node.data(force.nodes(), function(d) {return d.index;});
-    node.enter()
-        .append("svg:image")
-        .attr("xlink:href", function (d) {return d.imageUrl;})
-        .attr("height", function (d) {return d.count;})
-        .attr("class", function(d) {return "node";})
-        .attr("emojiData", function(d) {return d.emojiData;})
-    node.exit().remove();
-    node.call(force.drag)
-    force.start();
+  node = node.data(force.nodes(), function(d) {return d.index;});
+  node.enter()
+      .append("svg:image")
+      .attr("xlink:href", function (d) {return d.imageUrl;})
+      .attr("height", function (d) {return d.count;})
+      .attr("class", function(d) {return "node";})
+      .attr("emojiData", function(d) {return d.emojiData;})
+  node.exit().remove();
+  node.call(force.drag)
+  force.start();
 }
 
 function tick(e) {

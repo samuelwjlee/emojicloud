@@ -7,6 +7,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './app';
 import {blue500, pinkA200, white} from 'material-ui/styles/colors';
 
+var change = 'change?';
+
+
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: blue500,
