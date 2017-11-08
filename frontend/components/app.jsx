@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './header';
 import Cloud from './cloud';
-import Region from './region';
 import Data from './data';
 
 const appStyle ={
@@ -36,7 +35,6 @@ const App = () => (
         <Cloud />
       </div>
       <div className="control" style={controlStyle}>
-        <Region />
         <Data />
       </div>
     </div>

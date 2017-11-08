@@ -21,6 +21,7 @@ export function fetchEmojis(place, that) {
   let apiAddress = '/api/' + place + '_emojis' + '/1'
   svg = d3.select("#cloud");
   node = svg.selectAll(".node");
+
   d3.json(apiAddress, function(data) {
     svg.selectAll("*").remove();
     while (nodes.length > 0) {nodes.pop();}
@@ -34,12 +35,13 @@ export function fetchEmojis(place, that) {
       value1: Math.round(values[0][1]/total * 100),
       value2: Math.round(values[1][1]/total * 100),
       value3: Math.round(values[2][1]/total * 100),
-      emoji1: values[0][0],
-      emoji2: values[1][0],
-      emoji3: values[2][0]
+      emoji1: emojione.unicodeToImage(values[0][0]).match(/src="(.*)"/)[1],
+      emoji2: emojione.unicodeToImage(values[1][0]).match(/src="(.*)"/)[1],
+      emoji3: emojione.unicodeToImage(values[2][0]).match(/src="(.*)"/)[1]
     })
   })
 }
+
 
 function addEmoji() {
   let emoji = emojis.pop();
