@@ -17,7 +17,7 @@ var force = d3.layout.force()
           .theta(0.8)
           .alpha(4.1);
 
-export function fetchEmojis(place) {
+export function fetchEmojis(place, that) {
   let apiAddress = '/api/' + place + '_emojis' + '/1'
   svg = d3.select("#cloud");
   node = svg.selectAll(".node");
@@ -26,6 +26,18 @@ export function fetchEmojis(place) {
     while (nodes.length > 0) {nodes.pop();}
     emojis = getEmojis(data.emojis);
     addEmoji();
+
+    let total = data.emojis['total'];
+    let values = data.emojis['top'];
+
+    that.setState({
+      value1: Math.round(values[0][1]/total * 100),
+      value2: Math.round(values[1][1]/total * 100),
+      value3: Math.round(values[2][1]/total * 100),
+      emoji1: values[0][0],
+      emoji2: values[1][0],
+      emoji3: values[2][0]
+    })
   })
 }
 

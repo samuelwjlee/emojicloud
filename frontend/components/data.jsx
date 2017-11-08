@@ -1,5 +1,6 @@
 import React from 'react';
 import LinearProgress from 'material-ui/LinearProgress';
+import {fetchEmojis} from '../utility/d3cloud';
 
 const emojistatStyle = {
   display: 'flex',
@@ -34,6 +35,10 @@ class Data extends React.Component {
       emoji2: "/images/emojione/png/1f42f.png?v=2.2.6",
       emoji3: "/images/emojione/png/1f41c.png?v=2.2.6"
     }
+  }
+
+  componentDidMount() {
+    fetchEmojis('world', this);
   }
 
   render() {
