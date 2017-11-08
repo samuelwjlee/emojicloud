@@ -16,7 +16,6 @@ class Header extends React.Component {
         titleStyle={titleStyle}
         style={{backgroundColor: 'white'}}
         showMenuIconButton={false}
-        iconElementRight={<FlatButton label="Info" style={{color: 'black'}}/>}
       />
     )
   }
