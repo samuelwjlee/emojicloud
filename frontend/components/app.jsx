@@ -23,8 +23,11 @@ const cloudContainerStyle = {
 const controlStyle = {
   margin: 'auto',
   marginLeft: 0,
-  marginTop: '15%',
+  marginTop: '13%',
   width: 300,
+  backgroundColor: 'white',
+  padding: 30,
+  boxShadow: '1px 1px 1px 1px #888888'
 }
 
 const App = () => (
