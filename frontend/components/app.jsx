@@ -17,7 +17,7 @@ const contentStyle = {
 const cloudContainerStyle = {
   margin: 'auto',
   width: 500,
-  marginTop: '10%',
+  marginTop: '9%',
 }
 
 const controlStyle = {

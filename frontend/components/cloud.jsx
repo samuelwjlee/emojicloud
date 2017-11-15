@@ -2,7 +2,10 @@ import React from 'react';
 
 const style = {
   width: '500',
-  height: '500'
+  height: '500',
+  borderRadius: 360,
+  backgroundColor: 'ghostwhite',
+  padding: 30
 }
 
 class Cloud extends React.Component {
