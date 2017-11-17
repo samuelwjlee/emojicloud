@@ -5,10 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './app';
-import {blue800, pinkA200, white} from 'material-ui/styles/colors';
-
-var change = 'change?';
-
+import {blue800} from 'material-ui/styles/colors';
 
 const muiTheme = getMuiTheme({
   palette: {
