@@ -18,6 +18,10 @@ const cloudContainerStyle = {
   margin: 'auto',
   width: 500,
   marginTop: '9%',
+  borderRadius: 360,
+  backgroundColor: 'ghostwhite',
+  padding: 30,
+  boxShadow: '1px 1px 1px 1px #888888',
 }
 
 const controlStyle = {
@@ -27,7 +31,7 @@ const controlStyle = {
   width: 300,
   backgroundColor: 'white',
   padding: 30,
-  boxShadow: '1px 1px 1px 1px #888888'
+  boxShadow: '1px 1px 1px 1px #888888',
 }
 
 const App = () => (
