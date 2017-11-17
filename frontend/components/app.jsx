@@ -30,7 +30,6 @@ const controlStyle = {
   width: 300,
   background: 'rgba(255,255,255, 0.3)',
   padding: 30,
-  boxShadow: '1px 1px 1px 1px #888888',
 }
 
 const App = () => (
