@@ -28,7 +28,7 @@ const controlStyle = {
   marginLeft: 0,
   marginTop: '13%',
   width: 300,
-  background: 'rgba(255,255,255, 0.3)',
+  background: 'rgba(255,255,255, 0.5)',
   padding: 30,
 }
 
