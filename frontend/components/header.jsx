@@ -14,7 +14,7 @@ class Header extends React.Component {
       <AppBar
         title="Emojicloud"
         titleStyle={titleStyle}
-        style={{backgroundColor: 'white'}}
+        style={{backgroundColor: 'rgba(255,255,255, 0.8)'}}
         showMenuIconButton={false}
       />
     )
