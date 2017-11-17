@@ -19,9 +19,8 @@ const cloudContainerStyle = {
   width: 500,
   marginTop: '9%',
   borderRadius: 360,
-  backgroundColor: 'ghostwhite',
+  background: 'rgba(255,255,255, 0.3)',
   padding: 30,
-  boxShadow: '1px 1px 1px 1px #888888',
 }
 
 const controlStyle = {
@@ -29,7 +28,7 @@ const controlStyle = {
   marginLeft: 0,
   marginTop: '13%',
   width: 300,
-  backgroundColor: 'white',
+  background: 'rgba(255,255,255, 0.3)',
   padding: 30,
   boxShadow: '1px 1px 1px 1px #888888',
 }

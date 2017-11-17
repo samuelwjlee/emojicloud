@@ -19,7 +19,9 @@
    margin: 0;
    height: 100%;
    font-family: Roboto, sans-serif;
-   background-color: rgb(229, 229, 229);
+   background-image: url('https://hdwallsource.com/img/2014/7/cloudy-sky-pictures-33812-34573-hd-wallpapers.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
  }
 
  body {
