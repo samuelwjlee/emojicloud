@@ -23,7 +23,7 @@ const progressStyle = {
   marginRight: 0,
   marginLeft: 0,
   paddingLeft: 20,
-  backgroundColor: 'white'
+  backgroundColor: 'transparent'
 }
 
 const percentageStyle = {
