@@ -41,11 +41,7 @@ class Cloud extends React.Component {
 
   render() {
     const actions = [
-            <FlatButton
-              label="Okay"
-              primary={true}
-              onClick={this.handleClose}
-            />,
+            <FlatButton label="Okay" primary={true} onClick={this.handleClose}/>,
           ];
 
     return(
