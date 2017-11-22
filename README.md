@@ -1,14 +1,3 @@
-# Emojicloud
-Twitter emoji cloud generator built with React, Ruby on Rails, and Postgres to visualize public emotion.
-
-Todos
-
-- [ ] Start fresh with new rails app
-- [ ] Implement React and Material UI
-- [ ] Redesign Layout
-- [ ] Make it mobile responsive
-- [ ] Rewrite README
-
 ![EmojiCloud-logo]
 
 [EmojiCloud-logo]:./doc/screenshots/emoji-cloud-logo.png
@@ -83,27 +72,6 @@ During the planning stages we were unaware of the popularity of some emojis. In 
 #### Collision Detection
 We were able to implement a simple collision detection with a bounding box which prevents the emoji nodes from flying off the canvas. Ensuring that the nodes don't overlap each other was a more difficult task. An approximation of node collision bounding was achieved by increasing each node's repulsion charge. Going forward we'd like to implement a more robust collision detection to prevent overlap.
 
-### Google Maps API
-Map is initialized and focused on a corresponding continent.
-```javascript
-function initMap(geo, zoom = 2) {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: zoom,
-    center: geo
-  });
-}
-```
-Map drops a pin to locate where the tweet is coming from
-```javascript
-function placeMark(geo) {
-  marker = new google.maps.Marker({
-    position: geo,
-    map: map,
-    animation: google.maps.Animation.DROP
-  });
-}
-```
-
 ## Features
 #### The Emoji Cloud
 A visual representation of emojis used in tweets. The emoji "cloud" displays the relative frequency of each type of emoji, in logarithmic scale.
@@ -111,21 +79,6 @@ A visual representation of emojis used in tweets. The emoji "cloud" displays the
 ![emoji-cloud-screenshot]
 
 [emoji-cloud-screenshot]:./doc/screenshots/cloud-screenshot.png
-
-#### Tweet Sample
-When you hover over an emoji in the cloud a sample tweet appears...
-
-![tweet-sample-screenshot]
-
-[tweet-sample-screenshot]:./doc/screenshots/tweet-screenshot.png
-
-
-#### Map Pin
-Clicking an emoji shows a marker on the map, pinpointing the location of the tweet.
-
-![map-screenshot]
-
-[map-screenshot]:./doc/screenshots/map-screenshot.png
 
 ## The EmojiCloud Team
 EmojiCloud was designed and implemented by Mark Noizumi, Peter Delfausse, and Samuel Lee.
